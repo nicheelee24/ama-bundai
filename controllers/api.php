@@ -229,7 +229,7 @@ if ($flag == 'login') {
         if(property_exists($agentArr[0], 'type'))
         {
             $_SESSION["utype"]=$agentArr[0]->type;
-            $_SESSION["access"]=$agentArr[0]->permissions;
+           // $_SESSION["access"]=$agentArr[0]->permissions;
             $_SESSION["platform"]=$agentArr[0]->platform;
         }
         else
