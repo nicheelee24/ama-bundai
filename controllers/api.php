@@ -243,12 +243,12 @@ if ($flag == 'login') {
         }
         if(!isset($_SESSION["qrscanned"]))
         {
-        header('Location: ../qr-login.php ', true);
+      //  header('Location: ../qr-login.php ', true);
         exit();
         }
         else
         {
-            header('Location: ../dashboard.php ', true);
+      //      header('Location: ../dashboard.php ', true);
         exit();
         }
     } else {
