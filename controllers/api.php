@@ -203,7 +203,7 @@ if ($flag == 'login') {
 echo "api page";
 
     $uname = $_POST['uname'];
-    die($uname);
+   // die($uname);
 
     $password = $_POST['pass'];
     // $code = $_POST['2fa'];
