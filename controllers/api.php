@@ -15,130 +15,131 @@ $api_url = "";
 $flag = $_GET['flag'];
 //echo $flag;
 //die("..");
-$secret="";
-if($flag=='delPromo')
-{
-    $pid=0;
+$secret = "";
+if ($flag == 'delPromo') {
+    $pid = 0;
     if (isset($_GET['pid'])) {
-    $pid=$_GET['pid'];
+        $pid = $_GET['pid'];
+        $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+        $db = $con->selectDatabase('gms2024');
+        $tbl = $db->selectCollection('promotions');
+        $tbl->deleteOne(array('_id' => new MongoDB\BSON\ObjectId($pid)));
+        header('Location: ../promote.php ', true);
+        exit();
+    }
+}
+if ($flag == 'createPromotion')//updPromotion
+{
+    if (isset($_POST['title'])) {
+        $photo = '';
+        $target_dir = "https://ama777.cloud:8443/ama-bundai/uploads/promotions/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+
+        // $check = getimagesize($_FILES["photo"]["tmp_name"]);
+        //// if($check !== false) {
+        // echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+        $photo = $target_file;
+        // } else {
+        // echo "File is not an image.";
+        // $uploadOk = 0;
+
+
+
+    }
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        header('Location: ../promote.php?invalidfile=1', true);
+        exit();
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('promotions');
-    $tbl->deleteOne( array( '_id' => new MongoDB\BSON\ObjectId($pid))) ;
-    header('Location: ../promote.php ', true);
+    $document = array(
+        "photo" => $photo,
+        "title" => $_POST['title'],
+        "details" => $_POST['details'],
+        "promoCode" => $_POST['promoCode'],
+        "status" => $_POST['status'],
+        "expDate" => $_POST['expdt'],
+        "bonusType" => $_POST['bonusType'],
+        "percentBonus" => $_POST['percentBonus'],
+        "depositAmnt" => $_POST['depositAmnt'],
+        "bonusAmnt" => $_POST['bonusAmnt'],
+        "turnover" => $_POST['turnover'],
+        "highestPercent" => $_POST['highestPercent'],
+        "permissions" => $_POST['permissions'],
+        "agentname" => $agnt,
+
+    );
+
+    $tbl->insertOne($document);
+    header('Location: ../promote.php', true);
     exit();
-    }
 }
-if($flag=='createPromotion')//updPromotion
+
+if ($flag == 'updPromotion')//
 {
-    if (isset($_POST['title'])) {
-        $photo='';
-        $target_dir = "https://ama777.cloud:8443/ama-bundai/uploads/promotions/";
-        $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        
-        
-         // $check = getimagesize($_FILES["photo"]["tmp_name"]);
-         //// if($check !== false) {
-           // echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-            $photo= $target_file;
-         // } else {
-           // echo "File is not an image.";
-           // $uploadOk = 0;
+    if (isset($_GET['id'])) {
 
-           
-            
-          }
-          if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            header('Location: ../promote.php?invalidfile=1', true);
-            exit();
-          // if everything is ok, try to upload file
-          } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-              echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-            } else {
-              echo "Sorry, there was an error uploading your file.";
-            }
-          }
-        
 
-    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+        $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
         $db = $con->selectDatabase('gms2024');
         $tbl = $db->selectCollection('promotions');
-        $document = array(
-            "photo" => $photo,
-            "title" => $_POST['title'],
-            "details" => $_POST['details'],
-            "promoCode" => $_POST['promoCode'],
-            "status"=>$_POST['status'],
-            "expDate"=>$_POST['expdt'],
-            "bonusType"=>$_POST['bonusType'],
-            "percentBonus"=>$_POST['percentBonus'],
-            "depositAmnt"=>$_POST['depositAmnt'],
-            "bonusAmnt"=>$_POST['bonusAmnt'],
-            "turnover"=>$_POST['turnover'],
-            "highestPercent"=>$_POST['highestPercent'],
-            "permissions"=>$_POST['permissions'],
-            "agentname"=>$agnt,
-          
+
+        $updateResult = $tbl->updateOne(
+            ['_id' => new \MongoDB\BSON\ObjectID($_GET['id'])],
+            [
+                '$set' => [
+                    "title" => $_POST['title'],
+                    "details" => $_POST['details'],
+                    "promoCode" => $_POST['promoCode'],
+                    "status" => $_POST['status'],
+                    "expDate" => $_POST['expdt'],
+                    "bonusType" => $_POST['bonusType'],
+                    "percentBonus" => $_POST['percentBonus'],
+                    "depositAmnt" => $_POST['depositAmnt'],
+                    "bonusAmnt" => $_POST['bonusAmnt'],
+                    "turnover" => $_POST['turnover'],
+                    "highestPercent" => $_POST['highestPercent'],
+                    "permissions" => $_POST['permissions'],
+                    "agentname" => $agnt,
+
+                ]
+            ]
         );
 
-        $tbl->insertOne($document);
-        header('Location: ../promote.php', true);
-        exit();
-    }
 
-if($flag=='updPromotion')//
-{
-    if (isset($_GET['id']))  {
-    
-
-    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
-        $db = $con->selectDatabase('gms2024');
-        $tbl = $db->selectCollection('promotions');
-       
-        $updateResult = $tbl->updateOne(
-            [ '_id' => new \MongoDB\BSON\ObjectID($_GET['id'])],
-            [ '$set' =>[ 
-            "title" => $_POST['title'],
-            "details" => $_POST['details'],
-            "promoCode" => $_POST['promoCode'],
-            "status"=>$_POST['status'],
-            "expDate"=>$_POST['expdt'],
-            "bonusType"=>$_POST['bonusType'],
-             "percentBonus"=>$_POST['percentBonus'],
-            "depositAmnt"=>$_POST['depositAmnt'],
-            "bonusAmnt"=>$_POST['bonusAmnt'],
-            "turnover"=>$_POST['turnover'],
-            "highestPercent"=>$_POST['highestPercent'],
-            "permissions"=>$_POST['permissions'],
-            "agentname"=>$agnt,
-          
-            ]]);
-
-       
         header('Location: ../promote.php', true);
         exit();
     }
 }
 
 
-if($flag=='createMem')
-{
+if ($flag == 'createMem') {
     if (isset($_POST['name'])) {
-    
 
-    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+
+        $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
         $db = $con->selectDatabase('gms2024');
         $tbl = $db->selectCollection('users');
         $document = array(
             "phone" => $_POST['phone'],
-             
+
             "__v" => 0,
-            "status"=>$_POST['status']
+            "status" => $_POST['status']
         );
 
         $tbl->insertOne($document);
@@ -147,56 +148,52 @@ if($flag=='createMem')
     }
 }
 
-if($flag=='actDeact')
-{
-   // echo $_GET["uname"];
+if ($flag == 'actDeact') {
+    // echo $_GET["uname"];
     //echo $_GET["stats"];
     //die("..");
-    $uname=$_GET["uname"];
-    $status=$_GET["stats"];
-    $newStatus=$status;
-    if($status=='Active')
-    {
-        $newStatus='Active';
+    $uname = $_GET["uname"];
+    $status = $_GET["stats"];
+    $newStatus = $status;
+    if ($status == 'Active') {
+        $newStatus = 'Active';
     }
-    if($status=='Block')
-    {
-        $newStatus='Block';
+    if ($status == 'Block') {
+        $newStatus = 'Block';
     }
-    if($status=='Blacklist')
-    {
-        $newStatus='Blacklist';
+    if ($status == 'Blacklist') {
+        $newStatus = 'Blacklist';
     }
-          $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0");
-          $db = $con->selectDatabase('gms2024');
-          $tbl = $db->selectCollection('users');
-         
-  
-  $updateResult = $tbl->updateOne(
-     [ 'name' => $uname],
-     [ '$set' =>[ 
-        
-       "status" => $newStatus,
-           
-           
-              ]
-              ]
-  );
-  
-         // $tbl->insertOne($document);
-         // header('Location: ../manage-members.php', true);
-         echo 'success';
-         // exit();
-  
-     
+    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0");
+    $db = $con->selectDatabase('gms2024');
+    $tbl = $db->selectCollection('users');
+
+
+    $updateResult = $tbl->updateOne(
+        ['name' => $uname],
+        [
+            '$set' => [
+
+                "status" => $newStatus,
+
+
+            ]
+        ]
+    );
+
+    // $tbl->insertOne($document);
+    // header('Location: ../manage-members.php', true);
+    echo 'success';
+    // exit();
+
+
 }
 if (isset($_SESSION['storedSecrect'])) {
     $secret = 'SSP7Z5YWBWAAWAYF';
-   // print_r($secret);
+    // print_r($secret);
     //die('..');
 }
-if($flag=='qrscan')
-{
+if ($flag == 'qrscan') {
     $_SESSION["qrscanned"] = "true";
     header('Location: ../dashboard.php ', true);
     exit();
@@ -207,13 +204,13 @@ if ($flag == 'login') {
     $uname = $_POST['uname'];
 
     $password = $_POST['pass'];
-   // $code = $_POST['2fa'];
+    // $code = $_POST['2fa'];
     $g = new GoogleAuthenticator();
-  //  print_r($g->checkCode($secret, $code));
+    //  print_r($g->checkCode($secret, $code));
     //die('..');
     //  if ($g->checkCode($secret, $code)) {
     $_SESSION["auth"] = $secret;
-   
+
     $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $filter = ['userid' => $uname, 'pwd' => $password];
     $options = [];
@@ -221,35 +218,29 @@ if ($flag == 'login') {
     $rows = $mongo->executeQuery($db . '.agents', $query);
     $agentArr = $rows->toArray();
     //echo count($agentArr);
-   //die('');
+    //die('');
     if (count($agentArr) > 0) {
-        $_SESSION["uid"]=$uname;
-        $_SESSION["prefix"]=$agentArr[0]->prefix;
-       
-        if(property_exists($agentArr[0], 'type'))
-        {
-            $_SESSION["utype"]=$agentArr[0]->type;
-           // $_SESSION["access"]=$agentArr[0]->permissions;
-            $_SESSION["platform"]=$agentArr[0]->platform;
+        $_SESSION["uid"] = $uname;
+        $_SESSION["prefix"] = $agentArr[0]->prefix;
+
+        if (property_exists($agentArr[0], 'type')) {
+            $_SESSION["utype"] = $agentArr[0]->type;
+            // $_SESSION["access"]=$agentArr[0]->permissions;
+            $_SESSION["platform"] = $agentArr[0]->platform;
+        } else {
+            $_SESSION["utype"] = $agentArr[0]->agentid;
         }
-        else
-        {
-        $_SESSION["utype"]=$agentArr[0]->agentid;
-        }
-        if ($agentArr[0]->parent=='master') {
+        if ($agentArr[0]->parent == 'master') {
             $_SESSION['agent'] = 'master';//master agent login
         } else {
             $_SESSION['agent'] = $uname;//agent and other users
         }
-        if(!isset($_SESSION["qrscanned"]))
-        {
-      //  header('Location: ../qr-login.php ', true);
-        exit();
-        }
-        else
-        {
-      //      header('Location: ../dashboard.php ', true);
-        exit();
+        if (!isset($_SESSION["qrscanned"])) {
+            //  header('Location: ../qr-login.php ', true);
+            exit();
+        } else {
+            //      header('Location: ../dashboard.php ', true);
+            exit();
         }
     } else {
         $filter = ['phone' => $uname, 'rpwd' => $password];
@@ -258,27 +249,24 @@ if ($flag == 'login') {
         $rows = $mongo->executeQuery($db . '.users', $query);
         $agentArr = $rows->toArray();
         //echo count($agentArr);
-       // die("");
+        // die("");
 
-        $_SESSION["uid"]=$agentArr[0]->name;
-        
-        
-        $_SESSION["utype"]="PLAYER";
-       
-        if ($agentArr[0]->parent=='master') {
+        $_SESSION["uid"] = $agentArr[0]->name;
+
+
+        $_SESSION["utype"] = "PLAYER";
+
+        if ($agentArr[0]->parent == 'master') {
             $_SESSION['agent'] = 'master';//master agent login
         } else {
             $_SESSION['agent'] = $uname;//agent and other users
         }
-        if(!isset($_SESSION["qrscanned"]))
-        {
-        header('Location: ../qr-login.php ', true);
-        exit();
-        }
-        else
-        {
+        if (!isset($_SESSION["qrscanned"])) {
+            header('Location: ../qr-login.php ', true);
+            exit();
+        } else {
             header('Location: ../dashboard.php ', true);
-        exit();
+            exit();
         }
 
 
@@ -306,39 +294,41 @@ if ($flag == 'login') {
 if ($flag == "updAgent") {
 
     if (isset($_GET['id'])) {
-      //  print_r($_SESSION['agent']);
-       // die("");
+        //  print_r($_SESSION['agent']);
+        // die("");
         $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
         $db = $con->selectDatabase('gms2024');
         $tbl = $db->selectCollection('agents');
         $document = array(
             "agentname" => $_POST['agentname'],
-             "userid" => $_POST['userid'],
+            "userid" => $_POST['userid'],
             "pwd" => $_POST['password'],
             "percentage" => $_POST['percentage'],
-                      "__v" => 0,
+            "__v" => 0,
             "platform" => $_POST['platform'],
             "parent" => $_SESSION['agent'],
             "url" => $_POST['url'],
             "prefix" => "SBGT"
         );
-       
 
-$updateResult = $tbl->updateOne(
-   [ 'agentid' => $_GET['id']],
-   [ '$set' =>[ "agentname" => $_POST['agentname'],
-             "userid" => $_POST['userid'],
-            "pwd" => $_POST['password'],
-            "percentage" => $_POST['percentage'],
-            
-            
-            "platform" => $_POST['platform'],
-             "url" => $_POST['url'],
-            ]
-            ]
-);
 
-       // $tbl->insertOne($document);
+        $updateResult = $tbl->updateOne(
+            ['agentid' => $_GET['id']],
+            [
+                '$set' => [
+                    "agentname" => $_POST['agentname'],
+                    "userid" => $_POST['userid'],
+                    "pwd" => $_POST['password'],
+                    "percentage" => $_POST['percentage'],
+
+
+                    "platform" => $_POST['platform'],
+                    "url" => $_POST['url'],
+                ]
+            ]
+        );
+
+        // $tbl->insertOne($document);
         header('Location: ../manage-agent.php', true);
         exit();
 
@@ -348,14 +338,14 @@ $updateResult = $tbl->updateOne(
 if ($flag == "newAgent") {
 
     if (isset($_SESSION['agent'])) {
-      //  print_r($_SESSION['agent']);
-       // die("");
+        //  print_r($_SESSION['agent']);
+        // die("");
         $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
         $db = $con->selectDatabase('gms2024');
         $tbl = $db->selectCollection('agents');
         $document = array(
             "agentname" => $_POST['agentname'],
-             "userid" => $_POST['userid'],
+            "userid" => $_POST['userid'],
             "pwd" => $_POST['password'],
             "percentage" => $_POST['percentage'],
             "type" => "SBGT",
@@ -405,91 +395,90 @@ if ($flag == "newEmp") {
 
 }
 
-if($flag=="updEmp")
-{
+if ($flag == "updEmp") {
     if (isset($_GET['id'])) {
 
         //print_r($_POST['permissions']);
         //die('');
-         // print_r($_GET['id']);
+        // print_r($_GET['id']);
         // die("");
-          $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
-          $db = $con->selectDatabase('gms2024');
-          $tbl = $db->selectCollection('agents');
-         
-  
-  $updateResult = $tbl->updateOne(
-     [ 'userid' => $_GET['id']],
-     [ '$set' =>[ 
-        
-       "agentname" => $_POST['name'],
-            "phone" => $_POST['phone'],
-            "userid" => $_POST['uname'],
-            "pwd" => $_POST['pass'],
-            "shift" => $_POST['shift'],
-            "permissions" => $_POST['permissions'],
-            "manualLimit" => $_POST['manualLimit'],
-            "agentid" => "luckyama-" . $_POST['uname'],
-            "__v" => 1,
-            
-            "url" => "",
-           
-              ]
-              ]
-  );
-  
-         // $tbl->insertOne($document);
-          header('Location: ../manage-employees.php', true);
-          exit();
-  
-      }
-}
+        $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+        $db = $con->selectDatabase('gms2024');
+        $tbl = $db->selectCollection('agents');
 
-if($flag=="settings")
-{
-    //if (isset($_POST['uid'])) {
 
-        print_r($_POST['percentage']);
-       // die('');
-        //  print_r($_SESSION['agent']);
-         // die("");
-          $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
-          $db = $con->selectDatabase('gms2024');
-          $tbl = $db->selectCollection('settings');
+        $updateResult = $tbl->updateOne(
+            ['userid' => $_GET['id']],
+            [
+                '$set' => [
 
-          $document = array(
-            "username" => 'user1',
-            "percentage" => $_POST['percentage'],
-            "agentid" => 'agent1',
-           
+                    "agentname" => $_POST['name'],
+                    "phone" => $_POST['phone'],
+                    "userid" => $_POST['uname'],
+                    "pwd" => $_POST['pass'],
+                    "shift" => $_POST['shift'],
+                    "permissions" => $_POST['permissions'],
+                    "manualLimit" => $_POST['manualLimit'],
+                    "agentid" => "luckyama-" . $_POST['uname'],
+                    "__v" => 1,
+
+                    "url" => "",
+
+                ]
+            ]
         );
 
-        $tbl->insertOne($document);
-  
-//   $updateResult = $tbl->updateOne(
+        // $tbl->insertOne($document);
+        header('Location: ../manage-employees.php', true);
+        exit();
+
+    }
+}
+
+if ($flag == "settings") {
+    //if (isset($_POST['uid'])) {
+
+    print_r($_POST['percentage']);
+    // die('');
+    //  print_r($_SESSION['agent']);
+    // die("");
+    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+    $db = $con->selectDatabase('gms2024');
+    $tbl = $db->selectCollection('settings');
+
+    $document = array(
+        "username" => 'user1',
+        "percentage" => $_POST['percentage'],
+        "agentid" => 'agent1',
+
+    );
+
+    $tbl->insertOne($document);
+
+    //   $updateResult = $tbl->updateOne(
 //      [ 'userid' => $_POST['uid']],
 //      [ '$set' =>[ 
-        
-//        "agentname" => $_POST['name'],
+
+    //        "agentname" => $_POST['name'],
 //             "phone" => $_POST['phone'],
 //             "userid" => $_POST['uname'],
 //             "pwd" => $_POST['pass'],
 //             "shift" => $_POST['shift'],
 //             "permissions" => $_POST['permissions'],
-            
-//             "agentid" => "Testla-" . $_POST['uname'],
+
+    //             "agentid" => "Testla-" . $_POST['uname'],
 //             "__v" => 1,
-            
-//             "url" => "",
-           
-//               ]
+
+    //             "url" => "",
+
+    //               ]
 //               ]
 //   );
-  
-         // $tbl->insertOne($document);
-          header('Location: ../manage-employees.php', true);
-          exit();
-  
+
+    // $tbl->insertOne($document);
+    header('Location: ../manage-employees.php', true);
+    exit();
+
     //  }
 }
 
