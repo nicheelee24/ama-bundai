@@ -200,7 +200,8 @@ if ($flag == 'qrscan') {
 }
 
 if ($flag == 'login') {
-
+echo "api page";
+die("");
     $uname = $_POST['uname'];
 
     $password = $_POST['pass'];
