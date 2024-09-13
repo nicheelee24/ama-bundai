@@ -207,13 +207,13 @@ echo "api page";
 
     $password = $_POST['pass'];
     // $code = $_POST['2fa'];
-    $g = new GoogleAuthenticator();
+   // $g = new GoogleAuthenticator();
     //  print_r($g->checkCode($secret, $code));
     //die('..');
     //  if ($g->checkCode($secret, $code)) {
     $_SESSION["auth"] = $secret;
 
-    $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+    $mongo = new MongoDB\Driver\Manager("mongodb://mongo:b2a4720dcffd837f3220@ama-bundai_gms2024:27017");
     $filter = ['userid' => $uname, 'pwd' => $password];
     $options = [];
     $query = new MongoDB\Driver\Query($filter, $options);
