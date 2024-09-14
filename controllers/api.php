@@ -30,45 +30,25 @@ if ($flag == 'delPromo') {
 }
 if ($flag == 'createPromotion')//updPromotion
 {
-    if (isset($_POST['title'])) {
-        $photo = '';
-        $target_dir = "/uploads/promotions/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $uploaddir = '/var/www/uploads/promotions/';
+    $uploadfile = $uploaddir . basename($_FILES['fileToUpload']['name']);
 
-
-        // $check = getimagesize($_FILES["photo"]["tmp_name"]);
-        //// if($check !== false) {
-        // echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-        $photo = $target_file;
-        // } else {
-        // echo "File is not an image.";
-        // $uploadOk = 0;
-
-
-
-    }
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        header('Location: ../promote.php?invalidfile=1', true);
-        exit();
-        // if everything is ok, try to upload file
+    //echo '<pre>';
+    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+        echo "File is valid, and was successfully uploaded.\n";
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
+        echo "Possible file upload attack!\n";
     }
 
+    //echo 'Here is some more debugging info:';
+//print_r($_FILES);
 
+    //print "</pre>";
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('promotions');
     $document = array(
-        "photo" => $photo,
+        "photo" => $uploadfile,
         "title" => $_POST['title'],
         "details" => $_POST['details'],
         "promoCode" => $_POST['promoCode'],
@@ -200,14 +180,14 @@ if ($flag == 'qrscan') {
 }
 
 if ($flag == 'login') {
-echo "api page";
+    echo "api page";
 
     $uname = $_POST['uname'];
-   // die($uname);
+    // die($uname);
 
     $password = $_POST['pass'];
     // $code = $_POST['2fa'];
-   // $g = new GoogleAuthenticator();
+    // $g = new GoogleAuthenticator();
     //  print_r($g->checkCode($secret, $code));
     //die('..');
     //  if ($g->checkCode($secret, $code)) {
@@ -238,10 +218,10 @@ echo "api page";
             $_SESSION['agent'] = $uname;//agent and other users
         }
         if (!isset($_SESSION["qrscanned"])) {
-              header('Location: ../qr-login.php ', true);
+            header('Location: ../qr-login.php ', true);
             exit();
         } else {
-                  header('Location: ../dashboard.php ', true);
+            header('Location: ../dashboard.php ', true);
             exit();
         }
     } else {
