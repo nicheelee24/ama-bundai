@@ -32,7 +32,7 @@ if ($flag == 'createPromotion')//updPromotion
 {
     if (isset($_POST['title'])) {
         $photo = '';
-        $target_dir = "https://ama777.cloud:8443/ama-bundai/uploads/promotions/";
+        $target_dir = "/uploads/promotions/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
