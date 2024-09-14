@@ -30,11 +30,11 @@ if ($flag == 'delPromo') {
 }
 if ($flag == 'createPromotion')//updPromotion
 {
-    $uploaddir = '/var/www/uploads/promotions/';
+    $uploaddir = './uploads/promotions/';
     $uploadfile = $uploaddir . basename($_FILES['fileToUpload']['name']);
 
     //echo '<pre>';
-    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadfile)) {
         echo "File is valid, and was successfully uploaded.\n";
     } else {
         echo "Possible file upload attack!\n";
