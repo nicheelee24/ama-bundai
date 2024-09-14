@@ -213,7 +213,7 @@ echo "api page";
     //  if ($g->checkCode($secret, $code)) {
     $_SESSION["auth"] = $secret;
 
-    $mongo = new MongoDB\Driver\Manager("mongodb://mongo:b2a4720dcffd837f3220@ama-bundai_gms2024:27017");
+    $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
     $filter = ['userid' => $uname, 'pwd' => $password];
     $options = [];
     $query = new MongoDB\Driver\Query($filter, $options);
@@ -238,10 +238,10 @@ echo "api page";
             $_SESSION['agent'] = $uname;//agent and other users
         }
         if (!isset($_SESSION["qrscanned"])) {
-            //  header('Location: ../qr-login.php ', true);
+              header('Location: ../qr-login.php ', true);
             exit();
         } else {
-            //      header('Location: ../dashboard.php ', true);
+                  header('Location: ../dashboard.php ', true);
             exit();
         }
     } else {
