@@ -34,6 +34,9 @@ if ($flag == 'createPromotion')//updPromotion
     $uploadfile = $uploaddir . basename($_FILES['fileToUpload']['name']);
 
     //echo '<pre>';
+    if (!file_exists($uploaddir)) {
+        mkdir($uploaddir, 0777, true);
+    }
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploaddir)) {
         echo "File is valid, and was successfully uploaded.\n";
     } else {
