@@ -33,16 +33,16 @@ if ($flag == 'createPromotion')//updPromotion
     $fileTmpPath = $_FILES['fileToUpload']['tmp_name'];
     $uploadFileDir = 'uploads/';
 
-    $dest_path = $uploadFileDir . $newFileName;
+    
    
 
 //print_r($_FILES['fileToUpload']['name']);
 //die('');
     //echo '<pre>';
     if (!file_exists($uploadFileDir)) {
-        mkdir($uploadFileDir, 0777, true);
+        mkdir($uploadFileDir, 7777, true);
     }
-    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+    if (move_uploaded_file($fileTmpPath, $uploadFileDir)) {
         echo "File is valid, and was successfully uploaded.\n";
     } else {
         echo "Possible file upload attack!\n";
@@ -56,7 +56,7 @@ if ($flag == 'createPromotion')//updPromotion
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('promotions');
     $document = array(
-        "photo" => $dest_path,
+        "photo" => $uploadFileDir,
         "title" => $_POST['title'],
         "details" => $_POST['details'],
         "promoCode" => $_POST['promoCode'],
