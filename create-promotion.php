@@ -67,7 +67,7 @@ $cnt = count($agntsArr);
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Promotion Photo</label>
-                                    <input type="file" name="fileToUpload">
+                                    <input type="file" name="file">
                                    
                                 </div>
 

@@ -30,33 +30,21 @@ if ($flag == 'delPromo') {
 }
 if ($flag == 'createPromotion')//updPromotion
 {
-    $fileTmpPath = $_FILES['fileToUpload']['tmp_name'];
-    $uploadFileDir = 'uploads/';
+    $name = $_FILES['file']['name'];
+    $temp = $_FILES['file']['tmp_name'];
 
-    
-   
-
-//print_r($_FILES['fileToUpload']['name']);
-//die('');
-    //echo '<pre>';
-    if (!file_exists($uploadFileDir)) {
-        mkdir($uploadFileDir, 7777, true);
-    }
-    if (move_uploaded_file($fileTmpPath, $uploadFileDir)) {
-        echo "File is valid, and was successfully uploaded.\n";
+    if (move_uploaded_file($temp, "uploads/" . $name)) {
+        echo "Your file was uploaded";
     } else {
-        echo "Possible file upload attack!\n";
+        echo "Your file cound't upload";
     }
-
-    //echo 'Here is some more debugging info:';
-//print_r($_FILES);
 
     //print "</pre>";
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('promotions');
     $document = array(
-        "photo" => $uploadFileDir,
+        "photo" => $name,
         "title" => $_POST['title'],
         "details" => $_POST['details'],
         "promoCode" => $_POST['promoCode'],
