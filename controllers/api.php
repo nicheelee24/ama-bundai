@@ -35,7 +35,7 @@ if ($flag == 'createPromotion')//updPromotion
 //print_r($name);
 //print_r($temp);
 //die('...');
-    if (move_uploaded_file($temp, "uploads/" . $name)) {
+    if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/" . $name)) {
         echo "Your file was uploaded";
     } else {
         echo "Your file cound't upload";
