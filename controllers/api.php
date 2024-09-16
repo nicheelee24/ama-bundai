@@ -32,9 +32,9 @@ if ($flag == 'createPromotion')//updPromotion
 {
     $name = $_FILES['file']['name'];
     $temp = $_FILES['file']['tmp_name'];
-print_r($name);
-print_r($temp);
-die('...');
+//print_r($name);
+//print_r($temp);
+//die('...');
     if (move_uploaded_file($temp, "uploads/" . $name)) {
         echo "Your file was uploaded";
     } else {
