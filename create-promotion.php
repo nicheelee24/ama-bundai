@@ -68,7 +68,8 @@ $cnt = count($agntsArr);
                                 <div class="form-group">
                                     <label>Promotion Photo</label>
                                     <input type="file" name="file">
-                                   
+                                   <img src="/ama-bundai/uploads/<?php if ($uid != ""){ echo $agntsArr[0]->photo; 
+                                                }?>" width="150px" height="80px" />
                                 </div>
 
                                 <div class="form-group">
