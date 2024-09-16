@@ -96,7 +96,7 @@ include 'layout/header.php';
                             ?>
                             <tr>
                                 <td><?php echo $cnt; ?></td>
-                                <td><img src="/uploads/<?php echo $prom->photo; ?>" width="250px" height="150px"/>
+                                <td><img src="/ama-bundai/uploads/<?php echo $prom->photo; ?>" width="250px" height="150px"/>
 
                                 </td>
                                 <td><?php echo $prom->title; ?></td>
