@@ -178,7 +178,7 @@ if ($flag == 'qrscan') {
 }
 
 if ($flag == 'login') {
-    echo "api page - database connection error";
+   // echo "api page - database connection error";
 
     $uname = $_POST['uname'];
     // die($uname);
@@ -198,7 +198,7 @@ if ($flag == 'login') {
     $rows = $mongo->executeQuery($db . '.agents', $query);
     $agentArr = $rows->toArray();
     echo count($agentArr);
-    die('');
+   // die('');
     if (count($agentArr) > 0) {
         $_SESSION["uid"] = $uname;
         $_SESSION["prefix"] = $agentArr[0]->prefix;
