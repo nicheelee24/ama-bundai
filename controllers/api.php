@@ -216,7 +216,7 @@ if ($flag == 'login') {
             $_SESSION['agent'] = $uname;//agent and other users
         }
         if (!isset($_SESSION["qrscanned"])) {
-        //    header('Location: ../qr-login.php ', true);
+            header('Location: ../qr-login.php ', true);
             exit();
         } else {
             header('Location: ../dashboard.php ', true);
