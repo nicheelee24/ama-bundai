@@ -85,7 +85,8 @@ $transactionPipeline = [
                 ]
             ],
             'platform' => ['$first' => '$platform'] // Get platform info from transactions
-        ]
+          ]
+         
     ],
     [
         '$lookup' => [
@@ -115,7 +116,7 @@ $transactionPipeline = [
     ]
 ];
 
-$transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray();
+$transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray()->sort('$date',-1);
 
 // Handle DataTables server-side processing
 // $request = $_GET;
