@@ -125,8 +125,7 @@ if ($_SESSION["prefix"] != 'ADMIN') {
 
 
 
-      ],
-      ['$sort'=>['$betTime', -1]],
+      ]
     ],
 
 
