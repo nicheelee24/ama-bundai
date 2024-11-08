@@ -197,8 +197,8 @@ if ($flag == 'login') {
     $query = new MongoDB\Driver\Query($filter, $options);
     $rows = $mongo->executeQuery($db . '.agents', $query);
     $agentArr = $rows->toArray();
-    echo count($agentArr);
-    die('');
+    //echo count($agentArr);
+    //die('');
     if (count($agentArr) > 0) {
         $_SESSION["uid"] = $uname;
         $_SESSION["prefix"] = $agentArr[0]->prefix;
