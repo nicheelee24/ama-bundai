@@ -324,7 +324,7 @@ include 'layout/header.php';
               <label>Currency</label>
               <select class="custom-select">
 
-                <option value="CNY">CNY</option>
+                <option value="CNY">THB</option>
 
 
               </select>
