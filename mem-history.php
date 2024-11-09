@@ -116,7 +116,7 @@ $transactionPipeline = [
     ]
 ];
 
-$transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray()->sort('$date',-1);
+$transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray();
 
 // Handle DataTables server-side processing
 // $request = $_GET;
