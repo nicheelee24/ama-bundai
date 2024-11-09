@@ -196,7 +196,7 @@ include 'layout/header.php';
                 <div class="inner" style="background:#fd7e14">
                   <h3 id="withdAmt"><?php echo $totalWithdrawAmount ?></h3>
 
-                  <p>Withdraw (Today)</p>
+                  <p>Withdraw</p>
                   <p><?php echo $totalWithdraw ?> Times</p>
                 </div>
                 <div class="icon">
@@ -212,7 +212,7 @@ include 'layout/header.php';
                 <div class="inner">
                   <h3>0</h3>
 
-                  <p>Bonus (Today)</p>
+                  <p>Bonus</p>
                   <p>0 Times </p>
                 </div>
                 <div class="icon">
@@ -229,7 +229,7 @@ include 'layout/header.php';
                   <h3 id="diffAmt"><?php echo $difference; ?></h3>
 
                   <p>Difference </p>
-                  <p>Today</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -244,7 +244,7 @@ include 'layout/header.php';
                   <h3>10</h3>
 
                   <p>Active Users </p>
-                  <p>Today</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -259,7 +259,7 @@ include 'layout/header.php';
                   <h3 id="totalDepositedToday"><?php echo $totalDepositedToday ?></h3>
 
                   <p>Total Deposit Customers </p>
-                  <p>Today</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -274,7 +274,7 @@ include 'layout/header.php';
                   <h3 id="onlyRegistered"><?php echo $noDepositUsers ?></h3>
 
                   <p>Account Created </p>
-                  <p>Today</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -292,8 +292,8 @@ include 'layout/header.php';
             <div class="form-group" placeholder="Select">
 
               <select class="custom-select" id="period">
-
-                <option value="0">Today</option>
+              <option value="0">--</option>
+                <option value="1">Today</option>
                 <option value="7">7 Days</option>
                 <option value="30">30 Days</option>
                 <option value="6">6 Months</option>
