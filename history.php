@@ -107,7 +107,7 @@ else
 //print_r($filter);
 
 $options = ['sort' => ['betTime' => -1]];
-$query = new MongoDB\Driver\Query($filter);
+$query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bets',$query);
 $betsArr = $rows->toArray();
 
