@@ -180,7 +180,7 @@ include 'layout/header.php';
                 <div class="inner">
                   <h3 id="depositAmt"><?php echo $totalDepositAmount ?></h3>
 
-                  <p> Deposit (Today)</p>
+                  <p> Deposit</p>
                   <p><?php echo $totalDeposit ?> Times</p>
                 </div>
                 <div class="icon">
