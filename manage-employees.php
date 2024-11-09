@@ -26,7 +26,7 @@ $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@
 if ($utype=="EMPLOYEE" || $utype=="SBGT") {
     $filter = ['platform' => 'luckyama','type'=>'EMPLOYEE', 'agentname'=> array('$ne' => $agentid)];
 } else {
-    $filter = [];
+    $filter = ['type'=>'EMPLOYEE'];
 }
 $options = ['sort' => ['_id' => -1]];
 $query = new MongoDB\Driver\Query($filter, $options);
