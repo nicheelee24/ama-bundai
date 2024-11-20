@@ -66,14 +66,14 @@ $cnt = count($agntsArr);
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Promotion Photo</label>
+                                    <label>Bonus Pic</label>
                                     <input type="file" name="file">
                                    <img src="/ama-bundai/uploads/<?php if ($uid != ""){ echo $agntsArr[0]->photo; 
                                                 }?>" width="150px" height="80px" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Promotion Name</label>
+                                    <label>Promotion Title</label>
                                     <input type="text" name="title" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->title; 
                                                 }?>" placeholder="Promotion Name">
@@ -83,7 +83,7 @@ $cnt = count($agntsArr);
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Details</label>
+                                    <label>Description</label>
                                     <textarea  name="details" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->details; 
                                                 }?>"><?php if ($uid != ""){ echo $agntsArr[0]->details; 
@@ -196,47 +196,11 @@ $cnt = count($agntsArr);
                             </div>
                         </div>
                         
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                                <div class="form-group">
-                                    <label>Give Percentage Bonus</label>
-                                    <select class="custom-select" name="percentBonus" id="percentBonus">
-                                        <?php 
-                                        if ($agntsArr[0]->percentBonus == "yes") {
-
-                                        ?>
-                                                <option value="yes" selected>Yes</option>
-                                            <?php
-                                        }
-                                     else {
-                                            ?>
-                                            <option value="yes">Yes</option>
-                                        <?php }
-
-                                        ?>
-                                        <?php 
-                                            if ($agntsArr[0]->percentBonus == "no") {
-
-                                        ?>
-                                                <option value="no" selected>No</option>
-                                            <?php
-                                            }
-                                         else {
-                                            ?>
-                                            <option value="no">No</option>
-                                        <?php }
-
-                                        ?>
-                                       
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Deposit Amount</label>
+                                    <label>Deposit</label>
                                     <input type="text" name="depositAmnt" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->depositAmnt; 
                                                 }?>" placeholder="0.00">
@@ -248,6 +212,54 @@ $cnt = count($agntsArr);
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
                                                 }?>" required
                                         placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label>Bonus</label>
+                                    <select class="custom-select" name="percentBonus" id="percentBonus">
+                                        <?php 
+                                        if ($agntsArr[0]->percentBonus == "amntTHB") {
+
+                                        ?>
+                                                <option value="amntTHB" selected>Amount In THB</option>
+                                            <?php
+                                        }
+                                     else {
+                                            ?>
+                                            <option value="amntTHB">Amount In THB</option>
+                                        <?php }
+
+                                        ?>
+                                        <?php 
+                                            if ($agntsArr[0]->percentBonus == "percent") {
+
+                                        ?>
+                                                <option value="percent" selected>Percent</option>
+                                            <?php
+                                            }
+                                         else {
+                                            ?>
+                                            <option value="percent">Percent</option>
+                                        <?php }
+
+                                        ?>
+                                       
+                                    </select>
+                                    <input type="text" name="thbValue" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                                }?>" placeholder="Enter amount in THB">
+
+                                                <input type="text" name="percentValue" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                                }?>" placeholder="Enter value in %">
+
+                                                <input type="text" name="maxPercentValue" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                                }?>" placeholder="Maximum % value">
                                 </div>
                             </div>
                         </div>
