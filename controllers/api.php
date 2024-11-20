@@ -60,6 +60,7 @@ if ($flag == 'createPromotion')//updPromotion
         "highestPercent" => $_POST['highestPercent'],
         "permissions" => $_POST['permissions'],
         "agentname" => $agnt,
+        "bonusCategory"=>$_POST['bonusCategory'],
 
     );
 
@@ -94,6 +95,7 @@ if ($flag == 'updPromotion')//
                     "highestPercent" => $_POST['highestPercent'],
                     "permissions" => $_POST['permissions'],
                     "agentname" => $agnt,
+                    "bonusCategory"=>$_POST['bonusCategory'],
 
                 ]
             ]
