@@ -219,12 +219,12 @@ $cnt = count($agntsArr);
                                         if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
                                         ?>
-                                                <option value="amntTHB"  selected>Amount In THB</option>
+                                                <option value="amntTHB"  style="font-weight:bold" selected>Amount In THB</option>
                                             <?php
                                         }
                                      else {
                                             ?>
-                                            <option style="font-weight:bold" value="amntTHB">Amount In THB</option>
+                                            <option  value="amntTHB">Amount In THB</option>
                                         <?php }
 
                                         ?>
