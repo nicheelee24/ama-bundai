@@ -214,7 +214,7 @@ $cnt = count($agntsArr);
 
                                 <div class="form-group">
                                     <label>Bonus</label>
-                                    <select class="custom-select" name="bonusCategory" id="bonusCategory">
+                                    <select class="custom-select" onchange="changeCategory(this)" name="bonusCategory" id="bonusCategory">
                                         <?php 
                                         if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
@@ -422,6 +422,11 @@ $cnt = count($agntsArr);
 
         }
 
+    }
+
+    function changeCategory(vl)
+    {
+        alert(vl.value);
     }
 </script>
 
