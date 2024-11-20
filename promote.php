@@ -47,7 +47,7 @@ include 'layout/header.php';
                 <div class="col-sm-6">
 
                     <div class="col-sm-3"></div>
-                    <h1>Promote</h1>
+                    <h1>Manage Promotion</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -80,10 +80,11 @@ include 'layout/header.php';
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Photo</th>
-                            <th>Promotion Name</th>
+                            <th>Bonus Pic</th>
+                            <th>Promotion Title</th>
                             <th>Deposit</th>
                             <th>Bonus</th>
+                            <th>Bonus Type</th>
                             <th>Expiry</th>
                             <th>Is Active</th>
                             <th>Action</th>
@@ -118,6 +119,13 @@ include 'layout/header.php';
 
                                     
                                 </td>
+                                <td>
+                                    
+
+                                    <?php echo $prom->bonusType; ?>
+    
+                                        
+                                    </td>
                                 <td> <?php echo $prom->expDate; ?></td>
                                 <td> <?php echo $prom->status; ?></td>
                                
