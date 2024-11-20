@@ -273,12 +273,12 @@ $cnt = count($agntsArr);
                         </div>
                         <?php } else {?>
 
-<div class="row" id="dvTurnover" style="display:block">
+<div class="row" id="dvTurnover" style="display:none">
                             
 <div class="col-sm-6">
     <div class="form-group">
         <label>Turnover</label>
-        <input type="text" name="turnover" id="turnover" class="form-control" required
+        <input type="text" name="turnover" id="turnover" class="form-control" 
             value="<?php if ($uid != ""){ echo $agntsArr[0]->turnover; 
                     }?>" placeholder="0">
     </div>
