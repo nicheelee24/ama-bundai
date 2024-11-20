@@ -220,9 +220,9 @@ $cnt = count($agntsArr);
 
                                 <div class="form-group">
                                     <label>Bonus</label>
-                                    <select class="custom-select" name="percentBonus" id="percentBonus">
+                                    <select class="custom-select" name="bonusCategory" id="bonusCategory">
                                         <?php 
-                                        if ($agntsArr[0]->percentBonus == "amntTHB") {
+                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
                                         ?>
                                                 <option value="amntTHB" selected>Amount In THB</option>
@@ -235,7 +235,7 @@ $cnt = count($agntsArr);
 
                                         ?>
                                         <?php 
-                                            if ($agntsArr[0]->percentBonus == "percent") {
+                                            if ($agntsArr[0]->bonusCategory == "percent") {
 
                                         ?>
                                                 <option value="percent" selected>Percent</option>
@@ -249,16 +249,16 @@ $cnt = count($agntsArr);
                                         ?>
                                        
                                     </select>
-                                    <input type="text" name="thbValue" class="form-control" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                    <input type="text" name="bonusAmnt" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
                                                 }?>" placeholder="Enter amount in THB">
 
-                                                <input type="text" name="percentValue" class="form-control" required
+                                                <input type="text" name="percentBonus" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
                                                 }?>" placeholder="Enter value in %">
 
-                                                <input type="text" name="maxPercentValue" class="form-control" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                                <input type="text" name="highestPercent" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
                                                 }?>" placeholder="Maximum % value">
                                 </div>
                             </div>
@@ -272,13 +272,7 @@ $cnt = count($agntsArr);
                                                 }?>" placeholder="0">
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Highest in percentage terms</label>
-                                    <input type="text" name="highestPercent" class="form-control"
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
-                                                }?>" required
-                                        placeholder="0.00">
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="row">
