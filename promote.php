@@ -116,7 +116,7 @@ include 'layout/header.php';
                                     
 
                                 <?php echo $prom->bonusAmnt; ?>
-
+                             <?php echo ' '. $prom->bonusCategory; ?>
                                     
                                 </td>
                                 <td>
