@@ -151,15 +151,15 @@ $cnt = count($agntsArr);
                                     </select>
                                     <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" 
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
-                                                }else{echo 0;}?>" placeholder="Enter amount in THB">
+                                                }?>" placeholder="Enter amount in THB">
 
                                                 <input type="text" name="percentBonus" id="percentBonus" class="form-control" style="display:none" 
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
-                                                }else{echo 0;}?>" placeholder="Enter value in %">
+                                                }?>" placeholder="Enter value in %">
 
                                                 <input type="text" name="highestPercent" id="highestPercent" class="form-control" style="display:none" 
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
-                                                }else{echo 0;}?>" placeholder="Maximum % value">
+                                                }?>" placeholder="Maximum % value">
                                 </div>
                             </div>
                         </div>
