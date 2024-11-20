@@ -206,13 +206,7 @@ $cnt = count($agntsArr);
                                                 }?>" placeholder="0.00">
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Bonus Amount</label>
-                                    <input type="text" name="bonusAmnt" class="form-control"
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
-                                                }?>" required
-                                        placeholder="0.00">
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="row">
