@@ -157,7 +157,12 @@ $cnt = count($agntsArr);
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
                                                 }?>" placeholder="Enter amount in THB" style="display:block">
 
-                                                <?php } 
+                                                <?php } else{?>
+
+                                                   
+ <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" 
+ value="" placeholder="Enter amount in THB" style="display:none">
+                                              <?php   }
                                                 
                                                 if ($agntsArr[0]->bonusCategory == "percent"){?>
 
@@ -169,7 +174,14 @@ $cnt = count($agntsArr);
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
                                                 }?>" placeholder="Maximum % value" style="display:block">
 
+                                                <?php }else{ ?>
+                                                    <input type="text" name="percentBonus" id="percentBonus" class="form-control"  
+                                        value="" placeholder="Enter value in %" style="display:none">
+
+                                                <input type="text" name="highestPercent" id="highestPercent" class="form-control"  
+                                        value="" placeholder="Maximum % value" style="display:none">
                                                 <?php } ?>
+
                                 </div>
                             </div>
                         </div>
