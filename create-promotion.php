@@ -97,12 +97,7 @@ $cnt = count($agntsArr);
                                                 }?>" required
                                         placeholder="Promo Code">
                                 </div>
-                                <div class="form-group">
-                                    <label>Expiry Date</label>
-                                    <input type="text" name="expdt" class="form-control" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->expDate; 
-                                                }?>" placeholder="Expiry Date">
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="row">
@@ -258,6 +253,7 @@ $cnt = count($agntsArr);
                             </div>
                         </div>
                         <div class="row">
+                            
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Turnover</label>
@@ -265,6 +261,7 @@ $cnt = count($agntsArr);
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->turnover; 
                                                 }?>" placeholder="0">
                                 </div>
+                               
 
                                
                             </div>
@@ -303,6 +300,12 @@ $cnt = count($agntsArr);
                                         ?>
                                        
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" name="expdt" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->expDate; 
+                                                }?>" placeholder="Expiry Date">
                                 </div>
                             </div>
                         </div>
