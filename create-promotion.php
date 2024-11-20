@@ -168,7 +168,7 @@ $cnt = count($agntsArr);
 
                                 <div class="form-group">
                                     <label>Bonus Type</label>
-                                    <select class="custom-select" name="bonusType" id="bonusType">
+                                    <select class="custom-select" onchange="changeBonusType(this)" name="bonusType" id="bonusType">
                                         <?php 
                                         if ($agntsArr[0]->bonusType == "newmember") {
 
@@ -195,19 +195,19 @@ $cnt = count($agntsArr);
                                         <?php }
 
                                         ?>
-                                        <!-- <?php 
-                                            if ($agntsArr[0]->bonusType == "goldenminute") {
+                                        <?php 
+                                            if ($agntsArr[0]->bonusType == "turnover") {
 
                                         ?>
-                                                <option value="goldenminute" selected>Golden Minute</option>
+                                                <option value="turnover" selected>Turnover</option>
                                             <?php
                                             }
                                          else {
                                             ?>
-                                            <option value="goldenminute">Golden Minute</option>
+                                            <option value="turnover">Turnover</option>
                                         <?php }
 
-                                        ?> -->
+                                        ?>
                                          <!-- <?php 
                                             if ($agntsArr[0]->bonusType == "fullpromotion") {
 
@@ -258,7 +258,7 @@ $cnt = count($agntsArr);
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Turnover</label>
-                                    <input type="text" name="turnover" class="form-control" required
+                                    <input type="text" name="turnover" id="turnover" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->turnover; 
                                                 }?>" placeholder="0">
                                 </div>
@@ -426,6 +426,21 @@ $cnt = count($agntsArr);
 
         }
 
+    }
+
+    function changeBonusType(vl)
+    {
+        if(vl.value=='turnover')
+    {
+        
+        document.getElementById("turnover").style.display='block'; 
+       
+    }
+    else
+    {
+       
+        document.getElementById("turnover").style.display='none'; 
+    }
     }
 
     function changeCategory(vl)
