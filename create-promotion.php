@@ -247,11 +247,11 @@ $cnt = count($agntsArr);
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
                                                 }?>" placeholder="Enter amount in THB">
 
-                                                <input type="text" name="percentBonus" class="form-control" required
+                                                <input type="text" name="percentBonus" class="form-control" style="display:none" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
                                                 }?>" placeholder="Enter value in %">
 
-                                                <input type="text" name="highestPercent" class="form-control" required
+                                                <input type="text" name="highestPercent" class="form-control" style="display:none" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
                                                 }?>" placeholder="Maximum % value">
                                 </div>
