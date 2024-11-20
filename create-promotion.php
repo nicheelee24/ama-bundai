@@ -315,7 +315,7 @@ $cnt = count($agntsArr);
 
                                 <div class="form-group">
                                     <label>Conditions</label>
-                                    <div class="form-check">
+                                    <div class="form-check" style="display:none">
                                         <input class="form-check-input all" onclick="checkAll()" type="checkbox" name="permissions[]" <?php if ($uid != "") if (in_array("All", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
                                             value="All">
                                         <label class="form-check-label">All Conditions</label>
