@@ -76,7 +76,7 @@ $cnt = count($agntsArr);
                                     <label>Promotion Title</label>
                                     <input type="text" name="title" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->title; 
-                                                }?>" placeholder="Promotion Name">
+                                                }?>" placeholder="Promotion Title">
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@ $cnt = count($agntsArr);
                                     <label>Deposit</label>
                                     <input type="text" name="depositAmnt" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->depositAmnt; 
-                                                }?>" placeholder="0.00">
+                                                }?>" placeholder="0">
                                 </div>
 
                                
