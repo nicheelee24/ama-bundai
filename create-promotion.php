@@ -253,7 +253,11 @@ $cnt = count($agntsArr);
                                 </div>
                             </div>
                         </div>
-                        <div class="row" id="dvTurnover">
+                        <?php 
+                                            if ($agntsArr[0]->bonusType == "turnover") {
+
+                                        ?>
+                        <div class="row" id="dvTurnover" style="display:block">
                             
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -267,6 +271,23 @@ $cnt = count($agntsArr);
                                
                             </div>
                         </div>
+                        <?php } else {?>
+
+<div class="row" id="dvTurnover" style="display:block">
+                            
+<div class="col-sm-6">
+    <div class="form-group">
+        <label>Turnover</label>
+        <input type="text" name="turnover" id="turnover" class="form-control" required
+            value="<?php if ($uid != ""){ echo $agntsArr[0]->turnover; 
+                    }?>" placeholder="0">
+    </div>
+   
+
+   
+</div>
+</div>
+                    <?php }     ?>
                         <div class="row">
                             <div class="col-sm-6">
 
