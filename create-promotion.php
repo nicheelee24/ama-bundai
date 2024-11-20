@@ -232,7 +232,7 @@ $cnt = count($agntsArr);
                                             if ($agntsArr[0]->bonusCategory == "percent") {
 
                                         ?>
-                                                <option value="percent" selected>Percent</option>
+                                                <option value="percent" style="font-weight:bold" selected>Percent</option>
                                             <?php
                                             }
                                          else {
