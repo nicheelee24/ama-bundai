@@ -129,7 +129,7 @@ include 'layout/header.php';
                                 <td> <?php echo $prom->expDate; ?></td>
                                 <td> <?php echo $prom->status; ?></td>
                                
-                                <td><a href="create-promotion.php?eid=<?php echo $prom->_id ?>" class="btn btn-info">View</a><a href="controllers/api.php?flag=delPromo&pid=<?php echo $prom->_id ?>" class="btn btn-danger">Delete</a></td>
+                                <td><a href="create-promotion.php?eid=<?php echo $prom->_id ?>" class="btn btn-info">Edit</a><a href="controllers/api.php?flag=delPromo&pid=<?php echo $prom->_id ?>" class="btn btn-danger">Delete</a></td>
                             </tr>
                             <?php
                             $cnt++;
