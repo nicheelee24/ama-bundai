@@ -125,19 +125,19 @@ $cnt = count($agntsArr);
 
                                         ?>
                                         <?php 
-                                            if ($agntsArr[0]->bonusType == "firstdeposit") {
+                                            if ($agntsArr[0]->bonusType == "currentMember") {
 
                                         ?>
-                                                <option value="firstdeposit" selected>First Deposit</option>
+                                                <option value="currentMember" selected>Current Member</option>
                                             <?php
                                             }
                                          else {
                                             ?>
-                                            <option value="firstdeposit">First Deposit</option>
+                                            <option value="currentMember">Current Member</option>
                                         <?php }
 
                                         ?>
-                                        <?php 
+                                        <!-- <?php 
                                             if ($agntsArr[0]->bonusType == "goldenminute") {
 
                                         ?>
@@ -149,8 +149,8 @@ $cnt = count($agntsArr);
                                             <option value="goldenminute">Golden Minute</option>
                                         <?php }
 
-                                        ?>
-                                         <?php 
+                                        ?> -->
+                                         <!-- <?php 
                                             if ($agntsArr[0]->bonusType == "fullpromotion") {
 
                                         ?>
@@ -162,8 +162,8 @@ $cnt = count($agntsArr);
                                             <option value="fullpromotion">Full Promotion</option>
                                         <?php }
 
-                                        ?>
-                                         <?php 
+                                        ?> -->
+                                         <!-- <?php 
                                             if ($agntsArr[0]->bonusType == "refundofloss") {
 
                                         ?>
@@ -175,8 +175,8 @@ $cnt = count($agntsArr);
                                             <option value="refundofloss">Refund Of Losses</option>
                                         <?php }
 
-                                        ?>
-                                         <?php 
+                                        ?> -->
+                                         <!-- <?php 
                                             if ($agntsArr[0]->bonusType == "wheel") {
 
                                         ?>
@@ -188,7 +188,7 @@ $cnt = count($agntsArr);
                                             <option value="wheel">Wheel</option>
                                         <?php }
 
-                                        ?>
+                                        ?> -->
                                        
 
                                     </select>
