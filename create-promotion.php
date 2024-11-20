@@ -243,15 +243,15 @@ $cnt = count($agntsArr);
                                         ?>
                                        
                                     </select>
-                                    <input type="text" name="bonusAmnt" class="form-control" required
+                                    <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
                                                 }?>" placeholder="Enter amount in THB">
 
-                                                <input type="text" name="percentBonus" class="form-control" style="display:none" required
+                                                <input type="text" name="percentBonus" id="percentBonus" class="form-control" style="display:none" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
                                                 }?>" placeholder="Enter value in %">
 
-                                                <input type="text" name="highestPercent" class="form-control" style="display:none" required
+                                                <input type="text" name="highestPercent" id="highestPercent" class="form-control" style="display:none" required
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
                                                 }?>" placeholder="Maximum % value">
                                 </div>
@@ -429,15 +429,15 @@ $cnt = count($agntsArr);
        // alert(vl.value);
         if(vl.value=='percent')
     {
-        document.getElementsByName("bonusAmnt").style.display='none'; 
-        document.getElementsByName("percentBonus").style.display='block'; 
-        document.getElementsByName("highestPercent").style.display='block'; 
+        document.getElementById("bonusAmnt").style.display='none'; 
+        document.getElementById("percentBonus").style.display='block'; 
+        document.getElementById("highestPercent").style.display='block'; 
     }
     else
     {
-        document.getElementsByName("bonusAmnt").style.display='block'; 
-        document.getElementsByName("percentBonus").style.display='none'; 
-        document.getElementsByName("highestPercent").style.display='none'; 
+        document.getElementById("bonusAmnt").style.display='block'; 
+        document.getElementById("percentBonus").style.display='none'; 
+        document.getElementById("highestPercent").style.display='none'; 
     }
 
     }
