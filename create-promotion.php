@@ -100,6 +100,69 @@ $cnt = count($agntsArr);
                                
                             </div>
                         </div>
+                       
+                        
+                       
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Deposit</label>
+                                    <input type="text" name="depositAmnt" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->depositAmnt; 
+                                                }?>" placeholder="0.00">
+                                </div>
+
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label>Bonus</label>
+                                    <select class="custom-select" onchange="changeCategory(this)" name="bonusCategory" id="bonusCategory">
+                                        <?php 
+                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
+
+                                        ?>
+                                                <option value="amntTHB"  style="font-weight:bold" selected>Amount In THB</option>
+                                            <?php
+                                        }
+                                     else {
+                                            ?>
+                                            <option  value="amntTHB">Amount In THB</option>
+                                        <?php }
+
+                                        ?>
+                                        <?php 
+                                            if ($agntsArr[0]->bonusCategory == "percent") {
+
+                                        ?>
+                                                <option value="percent" style="font-weight:bold" selected>Percent</option>
+                                            <?php
+                                            }
+                                         else {
+                                            ?>
+                                            <option style="font-weight:bold" value="percent">Percent</option>
+                                        <?php }
+
+                                        ?>
+                                       
+                                    </select>
+                                    <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
+                                                }?>" placeholder="Enter amount in THB">
+
+                                                <input type="text" name="percentBonus" id="percentBonus" class="form-control" style="display:none" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
+                                                }?>" placeholder="Enter value in %">
+
+                                                <input type="text" name="highestPercent" id="highestPercent" class="form-control" style="display:none" required
+                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
+                                                }?>" placeholder="Maximum % value">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -187,68 +250,6 @@ $cnt = count($agntsArr);
                                        
 
                                     </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                       
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Deposit</label>
-                                    <input type="text" name="depositAmnt" class="form-control" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->depositAmnt; 
-                                                }?>" placeholder="0.00">
-                                </div>
-
-                               
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                                <div class="form-group">
-                                    <label>Bonus</label>
-                                    <select class="custom-select" onchange="changeCategory(this)" name="bonusCategory" id="bonusCategory">
-                                        <?php 
-                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
-
-                                        ?>
-                                                <option value="amntTHB"  style="font-weight:bold" selected>Amount In THB</option>
-                                            <?php
-                                        }
-                                     else {
-                                            ?>
-                                            <option  value="amntTHB">Amount In THB</option>
-                                        <?php }
-
-                                        ?>
-                                        <?php 
-                                            if ($agntsArr[0]->bonusCategory == "percent") {
-
-                                        ?>
-                                                <option value="percent" style="font-weight:bold" selected>Percent</option>
-                                            <?php
-                                            }
-                                         else {
-                                            ?>
-                                            <option style="font-weight:bold" value="percent">Percent</option>
-                                        <?php }
-
-                                        ?>
-                                       
-                                    </select>
-                                    <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
-                                                }?>" placeholder="Enter amount in THB">
-
-                                                <input type="text" name="percentBonus" id="percentBonus" class="form-control" style="display:none" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
-                                                }?>" placeholder="Enter value in %">
-
-                                                <input type="text" name="highestPercent" id="highestPercent" class="form-control" style="display:none" required
-                                        value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
-                                                }?>" placeholder="Maximum % value">
                                 </div>
                             </div>
                         </div>
