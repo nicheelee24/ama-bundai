@@ -67,9 +67,9 @@ $cnt = count($agntsArr);
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Bonus Pic</label>
-                                    <input type="file" name="file">
+                                    <input type="file" name="file" onchange="preview()">
                                    <img src="/ama-bundai/uploads/<?php if ($uid != ""){ echo $agntsArr[0]->photo; 
-                                                }?>" width="150px" height="80px" />
+                                                }?>" id="previe" width="150px" height="80px" />
                                 </div>
 
                                 <div class="form-group">
@@ -470,6 +470,10 @@ $cnt = count($agntsArr);
         }
 
     }
+
+    function preview() {
+        previe.src=URL.createObjectURL(event.target.files[0]);
+}
 
     function changeBonusType(vl)
     {
