@@ -253,7 +253,7 @@ $cnt = count($agntsArr);
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="dvTurnover">
                             
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -433,13 +433,13 @@ $cnt = count($agntsArr);
         if(vl.value=='turnover')
     {
         
-        document.getElementById("turnover").style.display='block'; 
+        document.getElementById("dvTurnover").style.display='block'; 
        
     }
     else
     {
        
-        document.getElementById("turnover").style.display='none'; 
+        document.getElementById("dvTurnover").style.display='none'; 
     }
     }
 
