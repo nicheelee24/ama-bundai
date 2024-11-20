@@ -149,22 +149,27 @@ $cnt = count($agntsArr);
                                         ?>
                                        
                                     </select>
-                                  
+                                    <?php 
+                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
+
+                                        ?>
                                     <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" 
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->bonusAmnt; 
-                                                }?>" placeholder="Enter amount in THB">
+                                                }?>" placeholder="Enter amount in THB" style="display:block">
 
-                                               
+                                                <?php } 
+                                                
+                                                if ($agntsArr[0]->bonusCategory == "percent"){?>
 
                                                 <input type="text" name="percentBonus" id="percentBonus" class="form-control"  
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->percentBonus; 
-                                                }?>" placeholder="Enter value in %">
+                                                }?>" placeholder="Enter value in %" style="display:block">
 
                                                 <input type="text" name="highestPercent" id="highestPercent" class="form-control"  
                                         value="<?php if ($uid != ""){ echo $agntsArr[0]->highestPercent; 
-                                                }?>" placeholder="Maximum % value">
+                                                }?>" placeholder="Maximum % value" style="display:block">
 
-                                               
+                                                <?php } ?>
                                 </div>
                             </div>
                         </div>
