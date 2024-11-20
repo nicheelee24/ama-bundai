@@ -429,15 +429,15 @@ $cnt = count($agntsArr);
        // alert(vl.value);
         if(vl.value=='percent')
     {
-        document.getElementByName("bonusAmnt").style.display='none'; 
-        document.getElementByName("percentBonus").style.display='block'; 
-        document.getElementByName("highestPercent").style.display='block'; 
+        document.getElementsByName("bonusAmnt").style.display='none'; 
+        document.getElementsByName("percentBonus").style.display='block'; 
+        document.getElementsByName("highestPercent").style.display='block'; 
     }
     else
     {
-        document.getElementByName("bonusAmnt").style.display='block'; 
-        document.getElementByName("percentBonus").style.display='none'; 
-        document.getElementByName("highestPercent").style.display='none'; 
+        document.getElementsByName("bonusAmnt").style.display='block'; 
+        document.getElementsByName("percentBonus").style.display='none'; 
+        document.getElementsByName("highestPercent").style.display='none'; 
     }
 
     }
