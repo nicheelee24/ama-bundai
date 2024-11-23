@@ -191,134 +191,6 @@ $cnt = count($agntsArr);
                             <div class="col-sm-6">
 
                                 <div class="form-group">
-                                    <label>Bonus Type</label>
-                                    <select class="custom-select" onchange="changeBonusType(this)" name="bonusType"
-                                        id="bonusType">
-                                        <?php
-                                        if ($agntsArr[0]->bonusType == "newmember") {
-
-                                            ?>
-                                            <option value="newmember" selected>New Member</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="newmember">New Member</option>
-                                        <?php }
-
-                                        ?>
-                                        <?php
-                                        if ($agntsArr[0]->bonusType == "currentMember") {
-
-                                            ?>
-                                            <option value="currentMember" selected>Current Member</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="currentMember">Current Member</option>
-                                        <?php }
-
-                                        ?>
-                                        <?php
-                                        if ($agntsArr[0]->bonusType == "turnover") {
-
-                                            ?>
-                                            <option value="turnover" selected>Turnover</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="turnover">Turnover</option>
-                                        <?php }
-
-                                        ?>
-                                        <!-- <?php
-                                        if ($agntsArr[0]->bonusType == "fullpromotion") {
-
-                                            ?>
-                                                <option value="fullpromotion" selected>Full Promotion</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="fullpromotion">Full Promotion</option>
-                                        <?php }
-
-                                        ?> -->
-                                        <!-- <?php
-                                        if ($agntsArr[0]->bonusType == "refundofloss") {
-
-                                            ?>
-                                                <option value="refundofloss" selected>Refund Of Losses</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="refundofloss">Refund Of Losses</option>
-                                        <?php }
-
-                                        ?> -->
-                                        <!-- <?php
-                                        if ($agntsArr[0]->bonusType == "wheel") {
-
-                                            ?>
-                                                <option value="wheel" selected>Wheel</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="wheel">Wheel</option>
-                                        <?php }
-
-                                        ?> -->
-
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                                <div class="form-group">
-                                    <label>Is Active</label>
-                                    <select class="custom-select" name="status" id="status">
-                                        <?php
-                                        if ($agntsArr[0]->status == "yes") {
-
-                                            ?>
-                                            <option value="yes" selected>Yes</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="yes">Yes</option>
-                                        <?php }
-
-                                        ?>
-                                        <?php
-                                        if ($agntsArr[0]->status == "no") {
-
-                                            ?>
-                                            <option value="no" selected>No</option>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <option value="no">No</option>
-                                        <?php }
-
-                                        ?>
-
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Expiry Date</label>
-                                    <input type="text" name="expdt" class="form-control" required value="<?php if ($uid != "") {
-                                        echo $agntsArr[0]->expDate;
-                                    } ?>" placeholder="Expiry Date">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                                <div class="form-group">
                                     <label>Conditions</label>
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox"
@@ -393,6 +265,50 @@ $cnt = count($agntsArr);
                             </div>
                         </div>
 
+                       
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label>Is Active</label>
+                                    <select class="custom-select" name="status" id="status">
+                                        <?php
+                                        if ($agntsArr[0]->status == "yes") {
+
+                                            ?>
+                                            <option value="yes" selected>Yes</option>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <option value="yes">Yes</option>
+                                        <?php }
+
+                                        ?>
+                                        <?php
+                                        if ($agntsArr[0]->status == "no") {
+
+                                            ?>
+                                            <option value="no" selected>No</option>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <option value="no">No</option>
+                                        <?php }
+
+                                        ?>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" name="expdt" class="form-control" required value="<?php if ($uid != "") {
+                                        echo $agntsArr[0]->expDate;
+                                    } ?>" placeholder="Expiry Date">
+                                </div>
+                            </div>
+                        </div>
+                      
 
 
 
