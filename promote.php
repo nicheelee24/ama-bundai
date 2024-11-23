@@ -125,7 +125,16 @@ include 'layout/header.php';
                                     <?php
                                     foreach($prom->permissions as $p)
                                     {
-                                        echo $p.',<br/>';
+                                        
+                                        if($p=='turnover')
+                                        {
+                                            echo $p.' ('.$prom->turnover.'),<br/>';
+                                        }
+                                        else
+                                        {
+                                          echo  $p.',<br/>';
+                                        }
+                                       
                                     }
                                    
                                     
