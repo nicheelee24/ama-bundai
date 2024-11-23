@@ -89,8 +89,8 @@ $cnt = count($agntsArr);
                                     <textarea name="details" class="form-control" required value="<?php if ($uid != "") {
                                         echo $agntsArr[0]->details;
                                     } ?>"><?php if ($uid != "") {
-                                        echo $agntsArr[0]->details;
-                                    } ?></textarea>
+                                         echo $agntsArr[0]->details;
+                                     } ?></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -226,7 +226,7 @@ $cnt = count($agntsArr);
                                             value="deleteProm">
                                         <label class="form-check-label">Delete promotion status after withdraw</label>
                                     </div>
-                                   
+
 
 
 
@@ -238,7 +238,7 @@ $cnt = count($agntsArr);
                                             name="permissions[]" value="hideProm" <?php if ($uid != "") if (in_array("hideProm", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
                                         <label class="form-check-label">Hide promotion button</label>
                                     </div>
-                                   
+
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)"
                                             name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("turnover", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
@@ -265,8 +265,8 @@ $cnt = count($agntsArr);
                             </div>
                         </div>
 
-                       
-                        
+
+
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -308,7 +308,7 @@ $cnt = count($agntsArr);
                                 </div>
                             </div>
                         </div>
-                      
+
 
 
 
@@ -363,21 +363,21 @@ $cnt = count($agntsArr);
 
     function checkUncheck(ele) {
         // alert(ele.checked);
-       // alert(ele.value);
-       if(ele.value=='turnover')
-       {
-        alert(ele.value);
-        document.getElementById("dvTurnover").style.display = 'block';
-       }
-       else
-       {
-        alert(ele.value);
-        document.getElementById("dvTurnover").style.display = 'none';
-       }
+        // alert(ele.value);
+
         if (ele.checked == false) {
             var elem = document.querySelector('.all');
             // alert(elem.value);
             elem.checked = false;
+
+            if (ele.value == 'turnover') {
+                alert(ele.value);
+                document.getElementById("dvTurnover").style.display = 'block';
+            }
+            else {
+                alert(ele.value);
+                document.getElementById("dvTurnover").style.display = 'none';
+            }
 
         }
 
