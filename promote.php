@@ -139,11 +139,11 @@ include 'layout/header.php';
                                         
                                         if($p=='turnover')
                                         {
-                                            echo '<img src=dist/img/active.png />'. $p.' ('.$prom->turnover.'),<br/>';
+                                            echo '<img src=dist/img/active.png style=padding:5px />'. $p.' ('.$prom->turnover.'),<br/>';
                                         }
                                         else
                                         {
-                                          echo  '<img src=dist/img/active.png />'.$p.',<br/>';
+                                          echo  '<img src=dist/img/active.png style=padding:5px />'.$p.',<br/>';
                                         }
                                        
                                     }
