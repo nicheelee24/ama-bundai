@@ -115,8 +115,19 @@ include 'layout/header.php';
                                 <td>
                                     
 
-                                <?php echo $prom->bonusAmnt; ?>
-                             <?php echo ' '. $prom->bonusCategory; ?>
+                                <?php 
+                                
+                                if($prom->bonusCategory=='percent')
+                                {
+                                     echo $prom->percentBonus.' %';
+                                }
+                                else
+                                {
+                                    echo $prom->bonusAmnt.' THB';
+                                }
+                                ?>
+                                
+                            
                                     
                                 </td>
                                 <td>
