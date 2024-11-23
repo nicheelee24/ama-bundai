@@ -122,7 +122,14 @@ include 'layout/header.php';
                                 <td>
                                     
 
-                                    <?php echo $prom->permissions; ?>
+                                    <?php
+                                    foreach($prom->permissions as $p)
+                                    {
+                                        echo $p;
+                                    }
+                                   
+                                    
+                                    ?>
     
                                         
                                     </td>
