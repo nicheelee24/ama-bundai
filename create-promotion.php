@@ -375,10 +375,11 @@ $cnt = count($agntsArr);
         document.getElementById("dvTurnover").style.display = 'none';
        }
         if (ele.checked == false) {
+            document.getElementById("dvTurnover").style.display = 'none';
             var elem = document.querySelector('.all');
             // alert(elem.value);
             elem.checked = false;
-            alert(elem.value);
+           
 
         }
 
