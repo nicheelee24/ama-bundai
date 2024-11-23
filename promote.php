@@ -125,7 +125,7 @@ include 'layout/header.php';
                                     <?php
                                     foreach($prom->permissions as $p)
                                     {
-                                        echo $p;
+                                        echo $p.',<br/>';
                                     }
                                    
                                     
