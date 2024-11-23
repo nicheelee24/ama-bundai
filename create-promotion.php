@@ -250,7 +250,7 @@ $cnt = count($agntsArr);
                             </div>
 
                         </div>
-                        <div class="row" id="dvTurnover" style="display:block">
+                        <div class="row" id="dvTurnover" style="display:none">
 
                             <div class="col-sm-6">
                                 <div class="form-group">
