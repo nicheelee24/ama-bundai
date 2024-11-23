@@ -377,11 +377,9 @@ $cnt = count($agntsArr);
         if (ele.checked == false) {
             if(ele.value=='turnover')
         {
-            document.getElementById("dvTurnover").style.display = 'none';
-        }
-        else{
             document.getElementById("dvTurnover").style.display = 'block';
         }
+       
             var elem = document.querySelector('.all');
             // alert(elem.value);
             elem.checked = false;
