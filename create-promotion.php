@@ -366,6 +366,7 @@ $cnt = count($agntsArr);
        // alert(ele.value);
        if(ele.value=='turnover')
        {
+        alert(ele.value);
         document.getElementById("dvTurnover").style.display = 'block';
        }
        else
