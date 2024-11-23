@@ -363,6 +363,7 @@ $cnt = count($agntsArr);
 
     function checkUncheck(ele) {
         // alert(ele.checked);
+        alert(ele.value);
         if (ele.checked == false) {
             var elem = document.querySelector('.all');
             // alert(elem.value);
