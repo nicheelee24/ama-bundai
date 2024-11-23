@@ -84,7 +84,7 @@ include 'layout/header.php';
                             <th>Promotion Title</th>
                             <th>Deposit</th>
                             <th>Bonus</th>
-                            <th>Bonus Type</th>
+                            <th>Conditions</th>
                             <th>Expiry</th>
                             <th>Is Active</th>
                             <th>Action</th>
@@ -122,7 +122,7 @@ include 'layout/header.php';
                                 <td>
                                     
 
-                                    <?php echo $prom->bonusType; ?>
+                                    <?php echo $prom->permissions; ?>
     
                                         
                                     </td>
