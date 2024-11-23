@@ -109,7 +109,7 @@ include 'layout/header.php';
 
                                    
 
-                                <?php echo $prom->depositAmnt; ?>
+                                <?php echo $prom->depositAmnt.' THB' ?>
 
                                 </td>
                                 <td>
@@ -119,7 +119,7 @@ include 'layout/header.php';
                                 
                                 if($prom->bonusCategory=='percent')
                                 {
-                                     echo $prom->percentBonus.' %';
+                                     echo $prom->percentBonus.' % (Max. '.$prom->highestPercent.'%)';
                                 }
                                 else
                                 {

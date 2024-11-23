@@ -195,13 +195,13 @@ $cnt = count($agntsArr);
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox"
                                             name="permissions[]" <?php if ($uid != "") if (in_array("newcust", $agntsArr[0]->permissions)) { ?> checked <?php } ?> value="newcust">
-                                        <label class="form-check-label">For New Customers</label>
+                                        <label class="form-check-label">New Customers</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)"
-                                            name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("oldcust", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
-                                            value="oldcust">
-                                        <label class="form-check-label">For Old Customers</label>
+                                            name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("currentCust", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
+                                            value="currentCust">
+                                        <label class="form-check-label">Current Customers</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)"
