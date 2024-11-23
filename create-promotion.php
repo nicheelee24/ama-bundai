@@ -371,6 +371,7 @@ $cnt = count($agntsArr);
        }
        else
        {
+        alert(ele.value);
         document.getElementById("dvTurnover").style.display = 'none';
        }
         if (ele.checked == false) {
