@@ -320,13 +320,6 @@ $cnt = count($agntsArr);
 
                                 <div class="form-group">
                                     <label>Conditions</label>
-                                    <div class="form-check" style="display:none">
-                                        <input class="form-check-input all" onclick="checkAll()" type="checkbox"
-                                            name="permissions[]" <?php if ($uid != "") if (in_array("All", $agntsArr[0]->permissions)) { ?> checked <?php } ?> value="All">
-                                        <label class="form-check-label">All Conditions</label>
-                                    </div>
-
-
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox"
                                             name="permissions[]" <?php if ($uid != "") if (in_array("newcust", $agntsArr[0]->permissions)) { ?> checked <?php } ?> value="newcust">
@@ -361,12 +354,7 @@ $cnt = count($agntsArr);
                                             value="deleteProm">
                                         <label class="form-check-label">Delete promotion status after withdraw</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" onclick="checkUncheck(this)"
-                                            name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("turnover", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
-                                            value="turnover">
-                                        <label class="form-check-label">Turnover</label>
-                                    </div>
+                                   
 
 
 
@@ -378,14 +366,19 @@ $cnt = count($agntsArr);
                                             name="permissions[]" value="hideProm" <?php if ($uid != "") if (in_array("hideProm", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
                                         <label class="form-check-label">Hide promotion button</label>
                                     </div>
-
-
+                                   
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheck(this)"
+                                            name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("turnover", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
+                                            value="turnover">
+                                        <label class="form-check-label">Turnover</label>
+                                    </div>
 
                                 </div>
                             </div>
 
                         </div>
-                        <div class="row" id="dvTurnover" style="display:none">
+                        <div class="row" id="dvTurnover" style="display:block">
 
                             <div class="col-sm-6">
                                 <div class="form-group">
