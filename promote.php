@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 $dotenv = new Symfony\Component\Dotenv\Dotenv();
 $dotenv->load(__DIR__ . '/.env');
 $agentid = '';
-$utype='';
+$utype = '';
 $recsCount = 0;
 
 if (isset($_SESSION['agent'])) {
@@ -14,23 +14,22 @@ if (isset($_SESSION['agent'])) {
 if ($agentid == 'master') {
     $agentid = "";
 }
-if(isset($_SESSION["utype"]))
-{
-    $utype=$_SESSION["utype"];
+if (isset($_SESSION["utype"])) {
+    $utype = $_SESSION["utype"];
 }
 //echo $_SESSION['agent'];
 //die('');
 $db = $_ENV['db'] ?? '';
 
 $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30&appName=Cluster0");
-if ($utype=="EMPLOYEE" || $utype=="SBGT") {
-    $filter = ['agentname'=> $agentid];
+if ($utype == "EMPLOYEE" || $utype == "SBGT") {
+    $filter = ['agentname' => $agentid];
 } else {
     $filter = [];
 }
 $options = ['sort' => ['_id' => -1]];
 $query = new MongoDB\Driver\Query($filter, $options);
-$rows = $mongo->executeQuery($db.'.promotions', $query);
+$rows = $mongo->executeQuery($db . '.promotions', $query);
 $agntArr = $rows->toArray();
 $recsCount = count($agntArr);
 //print_r($agntArr);
@@ -70,9 +69,12 @@ include 'layout/header.php';
             <div class="card-header">
                 <h3 class="card-title">All Promotions</h3>
                 <div class="card-tools">
-                    <a class="btn btn-primary" href="create-promotion.php" <?php if(isset($_SESSION["access"])){ if(!in_array('createEmp',$_SESSION["access"])){ ?> style="display:none" <?php }} ?> role="button">Create New</a>
+                    <a class="btn btn-primary" href="create-promotion.php" <?php if (isset($_SESSION["access"])) {
+                        if (!in_array('createEmp', $_SESSION["access"])) { ?> style="display:none" <?php }
+                    } ?>
+                        role="button">Create New</a>
                 </div>
-               
+
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
@@ -98,67 +100,70 @@ include 'layout/header.php';
                             ?>
                             <tr>
                                 <td><?php echo $cnt; ?></td>
-                                <td><img src="/ama-bundai/uploads/<?php echo $prom->photo; ?>" width="250px" height="150px"/>
+                                <td><img src="/ama-bundai/uploads/<?php echo $prom->photo; ?>" width="250px"
+                                        height="150px" />
 
                                 </td>
-                                <td><?php echo $prom->details; ?></td>
+                                <td><?php
+                                $string_array = explode(",", $prom->details);
+
+
+                                for ($i = 0; $i < sizeof($string_array); $i++) {
+                                    echo $string_array[$i];
+                                } ?></td>
                                 <td><?php echo $prom->title; ?></td>
-                                
 
-                               
+
+
 
                                 <td>
 
-                                   
 
-                                <?php echo $prom->depositAmnt.' THB' ?>
+
+                                    <?php echo $prom->depositAmnt . ' THB' ?>
 
                                 </td>
                                 <td>
-                                    
 
-                                <?php 
-                                
-                                if($prom->bonusCategory=='percent')
-                                {
-                                     echo $prom->percentBonus.' % (Max. '.$prom->highestPercent.'%)';
-                                }
-                                else
-                                {
-                                    echo $prom->bonusAmnt.' THB';
-                                }
-                                ?>
-                                
-                            
-                                    
-                                </td>
-                                <td>
-                                    
 
                                     <?php
-                                    foreach($prom->permissions as $p)
-                                    {
-                                        
-                                        if($p=='turnover')
-                                        {
-                                            echo '<img src=dist/img/active.png style=padding:5px />'. $p.' ('.$prom->turnover.'),<br/>';
-                                        }
-                                        else
-                                        {
-                                          echo  '<img src=dist/img/active.png style=padding:5px />'.$p.',<br/>';
-                                        }
-                                       
+
+                                    if ($prom->bonusCategory == 'percent') {
+                                        echo $prom->percentBonus . ' % (Max. ' . $prom->highestPercent . '%)';
+                                    } else {
+                                        echo $prom->bonusAmnt . ' THB';
                                     }
-                                   
-                                    
                                     ?>
-    
-                                        
-                                    </td>
+
+
+
+                                </td>
+                                <td>
+
+
+                                    <?php
+                                    foreach ($prom->permissions as $p) {
+
+                                        if ($p == 'turnover') {
+                                            echo '<img src=dist/img/active.png style=padding:5px />' . $p . ' (' . $prom->turnover . '),<br/>';
+                                        } else {
+                                            echo '<img src=dist/img/active.png style=padding:5px />' . $p . ',<br/>';
+                                        }
+
+                                    }
+
+
+                                    ?>
+
+
+                                </td>
                                 <td> <?php echo $prom->expDate; ?></td>
                                 <td> <?php echo $prom->status; ?></td>
-                               
-                                <td><a href="create-promotion.php?eid=<?php echo $prom->_id ?>" class="btn btn-info">Edit</a><a href="controllers/api.php?flag=delPromo&pid=<?php echo $prom->_id ?>" class="btn btn-danger">Delete</a></td>
+
+                                <td><a href="create-promotion.php?eid=<?php echo $prom->_id ?>"
+                                        class="btn btn-info">Edit</a><a
+                                        href="controllers/api.php?flag=delPromo&pid=<?php echo $prom->_id ?>"
+                                        class="btn btn-danger">Delete</a></td>
                             </tr>
                             <?php
                             $cnt++;
