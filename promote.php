@@ -81,6 +81,7 @@ include 'layout/header.php';
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Bonus Pic</th>
+                            <th>Description</th>
                             <th>Promotion Title</th>
                             <th>Deposit</th>
                             <th>Bonus</th>
@@ -100,8 +101,9 @@ include 'layout/header.php';
                                 <td><img src="/ama-bundai/uploads/<?php echo $prom->photo; ?>" width="250px" height="150px"/>
 
                                 </td>
-                                <td><?php echo $prom->title; ?></td>
                                 <td><?php echo $prom->details; ?></td>
+                                <td><?php echo $prom->title; ?></td>
+                                
 
                                
 
