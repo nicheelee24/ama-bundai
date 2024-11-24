@@ -313,7 +313,7 @@ $cnt = count($agntsArr);
                             <div class="col-sm-6">
 
                                 <div class="form-group">
-                                    <label>Hide Games</label>
+                                    <label>Show Games</label>
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheckGames(this)" type="checkbox"
                                             name="games[]" <?php if ($uid != "") if (in_array("lobby", $agntsArr[0]->games)) { ?> checked <?php } ?> value="lobby">
