@@ -145,9 +145,9 @@ include 'layout/header.php';
                                     foreach ($prom->permissions as $p) {
 
                                         if ($p == 'turnover') {
-                                            echo '<img src=dist/img/active.png style=padding:5px;height:10px;width:10px />' . $p . ' (' . $prom->turnover . '),<br/>';
+                                            echo '<img src=dist/img/active.png style=height:18px;width:18px />' . $p . ' (' . $prom->turnover . '),<br/>';
                                         } else {
-                                            echo '<img src=dist/img/active.png style=padding:5px;height:10px;width:10px />' . $p . ',<br/>';
+                                            echo '<img src=dist/img/active.png style=height:18px;width:18px />' . $p . ',<br/>';
                                         }
 
                                     }
