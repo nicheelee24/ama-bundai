@@ -309,7 +309,69 @@ $cnt = count($agntsArr);
                             </div>
                         </div>
                       
+                        <div class="row">
+                            <div class="col-sm-6">
 
+                                <div class="form-group">
+                                    <label>Hide Games</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)" type="checkbox"
+                                            name="games[]" <?php if ($uid != "") if (in_array("lobby", $agntsArr[0]->games)) { ?> checked <?php } ?> value="lobby">
+                                        <label class="form-check-label">Lobby</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)"
+                                            name="games[]" type="checkbox" <?php if ($uid != "") if (in_array("slot", $agntsArr[0]->games)) { ?> checked <?php } ?>
+                                            value="slot">
+                                        <label class="form-check-label">Slots</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)"
+                                            name="games[]" type="checkbox" <?php if ($uid != "") if (in_array("live", $agntsArr[0]->games)) { ?> checked <?php } ?>
+                                            value="live">
+                                        <label class="form-check-label">Live Casino</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)" type="checkbox"
+                                            name="games[]" value="table" <?php if ($uid != "") if (in_array("table", $agntsArr[0]->games)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Table Games</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)" type="checkbox"
+                                            name="games[]" value="sports" <?php if ($uid != "") if (in_array("sports", $agntsArr[0]->games)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Sports Games</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)"
+                                            name="games[]" type="checkbox" <?php if ($uid != "") if (in_array("egame", $agntsArr[0]->games)) { ?> checked <?php } ?>
+                                            value="egame">
+                                        <label class="form-check-label">EGame</label>
+                                    </div>
+                                   
+
+
+
+
+
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)" type="checkbox"
+                                            name="games[]" value="fishing" <?php if ($uid != "") if (in_array("fishing", $agntsArr[0]->games)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Fishing Games</label>
+                                    </div>
+                                   
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheckGames(this)"
+                                            name="games[]" type="checkbox" <?php if ($uid != "") if (in_array("thai", $agntsArr[0]->games)) { ?> checked <?php } ?>
+                                            value="thai">
+                                        <label class="form-check-label">Thai Games</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
 
 
 
@@ -360,7 +422,20 @@ $cnt = count($agntsArr);
 
         }
     }
+    function checkUncheckGames(ele) {
+        // alert(ele.checked);
+        alert(ele.value);
+      
+        if (ele.checked == false) {
+         
+            var elem = document.querySelector('.all');
+            // alert(elem.value);
+            elem.checked = false;
+           
 
+        }
+
+    }
     function checkUncheck(ele) {
         // alert(ele.checked);
        // alert(ele.value);
