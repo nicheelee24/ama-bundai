@@ -101,7 +101,7 @@ include 'layout/header.php';
 
                                 </td>
                                 <td><?php echo $prom->title; ?></td>
-
+                                <td><?php echo $prom->details; ?></td>
 
                                
 
