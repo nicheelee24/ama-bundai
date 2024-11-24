@@ -83,7 +83,7 @@ include 'layout/header.php';
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Bonus Pic</th>
-                            <th>Description</th>
+                            
                             <th>Promotion Title</th>
                             <th>Deposit</th>
                             <th>Bonus</th>
@@ -104,13 +104,7 @@ include 'layout/header.php';
                                         height="150px" />
 
                                 </td>
-                                <td><?php
-                                $string_array = explode(",", $prom->details);
-
-
-                                for ($i = 0; $i < sizeof($string_array); $i++) {
-                                    echo $string_array[$i].'<br/>';
-                                } ?></td>
+                                
                                 <td><?php echo $prom->title; ?></td>
 
 
