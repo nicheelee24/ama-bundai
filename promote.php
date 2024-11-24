@@ -109,7 +109,7 @@ include 'layout/header.php';
 
 
                                 for ($i = 0; $i < sizeof($string_array); $i++) {
-                                    echo $string_array[$i];
+                                    echo $string_array[$i].'<br/>';
                                 } ?></td>
                                 <td><?php echo $prom->title; ?></td>
 
