@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
-include 'layout/header.php';
+
 $dotenv = new Symfony\Component\Dotenv\Dotenv();
 
 $dotenv->load(__DIR__ . '/.env'); 
@@ -27,7 +27,7 @@ $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 print_r($bonusData);die('..');
-
+include 'layout/header.php';
 
 ?>
 <!-- Content Wrapper. Contains page content -->
