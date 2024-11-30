@@ -424,7 +424,7 @@ $cnt = count($agntsArr);
     }
     function checkUncheckGames(ele) {
         // alert(ele.checked);
-        alert(ele.value);
+       // alert(ele.value);
       
         if (ele.checked == false) {
          

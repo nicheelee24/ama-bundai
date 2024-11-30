@@ -52,7 +52,7 @@ if ($flag == 'createPromotion')//updPromotion
         "promoCode" => $_POST['promoCode'],
         "status" => $_POST['status'],
         "expDate" => $_POST['expdt'],
-        "bonusType" => $_POST['bonusType'],
+      
         "percentBonus" => $_POST['percentBonus'],
         "depositAmnt" => $_POST['depositAmnt'],
         "bonusAmnt" => $_POST['bonusAmnt'],
@@ -61,6 +61,7 @@ if ($flag == 'createPromotion')//updPromotion
         "permissions" => $_POST['permissions'],
         "agentname" => $agnt,
         "bonusCategory"=>$_POST['bonusCategory'],
+        "games" => $_POST['games']
 
     );
 
@@ -87,8 +88,7 @@ if ($flag == 'updPromotion')//
                     "promoCode" => $_POST['promoCode'],
                     "status" => $_POST['status'],
                     "expDate" => $_POST['expdt'],
-                    "bonusType" => $_POST['bonusType'],
-                    "percentBonus" => $_POST['percentBonus'],
+                     "percentBonus" => $_POST['percentBonus'],
                     "depositAmnt" => $_POST['depositAmnt'],
                     "bonusAmnt" => $_POST['bonusAmnt'],
                     "turnover" => $_POST['turnover'],
@@ -96,6 +96,7 @@ if ($flag == 'updPromotion')//
                     "permissions" => $_POST['permissions'],
                     "agentname" => $agnt,
                     "bonusCategory"=>$_POST['bonusCategory'],
+                    "games" => $_POST['games']
 
                 ]
             ]
