@@ -51,7 +51,7 @@ $filter=[''];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongoo->executeQuery($dbb.'.bonus',$query);
 $bonusData = $rows->toArray();
-echo count($bonusData);
+
 
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 $transactionPipeline = [
@@ -337,7 +337,7 @@ include 'layout/header.php';
         <table class="table">
           <thead>
             <tr>
-              <th style="width: 10px">#</th>
+              <th style="width: 10px"><?php echo count($bonusData); ?></th>
               <th>Username</th>
               <th>Type</th>
               <th>Bonus Type</th>
