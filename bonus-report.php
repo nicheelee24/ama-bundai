@@ -43,13 +43,11 @@ $db = $client->gms2024;
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
 
-$mongourll = $_ENV['mongodburl'] ?? '';
-$dbb = $_ENV['db'] ?? '';
-$mongoo = new MongoDB\Driver\Manager($mongourll);
-$options = [''];
-$filter=[''];
+
+$options = [];
+$filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
-$rows = $mongoo->executeQuery($dbb.'.bonus',$query);
+$rows = $mongoo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
 
