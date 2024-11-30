@@ -208,9 +208,9 @@ include 'layout/header.php';
               <tr>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $usr->username; ?></td>
-                <td><?php echo $usr->promotions->title; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo $usr->quantity; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
