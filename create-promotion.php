@@ -154,7 +154,8 @@ include 'layout/header.php';
 
                                     </select>
                                     <?php
-                                    
+                                     if($uid != "")
+                                     {
                                     if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
                                         ?>
@@ -162,7 +163,7 @@ include 'layout/header.php';
                                             echo $agntsArr[0]->bonusAmnt;
                                         } ?>" placeholder="Enter amount in THB" style="display:block">
 
-                                    <?php } else { ?>
+                                    <?php }} else { ?>
 
 
                                         <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" value=""
