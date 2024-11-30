@@ -2,16 +2,12 @@
 session_start();
 require 'vendor/autoload.php';
 $dotenv = new Symfony\Component\Dotenv\Dotenv();
+include 'layout/header.php';
 $dotenv->load(__DIR__ . '/.env'); 
 $agentid ='';
 $recsCount=0;
 $searchvalue='';
-// if(isset($_POST["search"]))
-// {
-// $searchvalue=$_POST["search"];
-// //echo $searchvalue;
-// //die($searchvalue);
-// }
+
 if(isset($_SESSION['uid']))
 {
   $agentid=$_SESSION['uid'];
@@ -21,27 +17,7 @@ $mongourl = $_ENV['mongodburl'] ?? '';
 $db = $_ENV['db'] ?? '';
 $stDate='';
 $edDate='';
-// if(isset($_POST["reservation"]))
-// {
-// $posteddates=explode("-", $_POST["reservation"]);
-// //print_r($posteddates[0]);
-// //print_r($posteddates[1]);
-// $stDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[0]) * 1000);
-// $edDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[1]) * 1000);
-// //die();
-// }
-// else
-// {
-//   $stDate = new MongoDB\BSON\UTCDateTime(strtotime("-180 days") * 1000);
-// $edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
-// }
-// $client = new MongoDB\Client($mongourl);
 
-// $dbb = $client->gms2024;
-
-
-//$usersCollection = $db->users;
-//$transactionsCollection = $db->transactions;
 
 $mongo=new MongoDB\Driver\Manager($mongourl);
 $options = [];
@@ -50,8 +26,8 @@ $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
-//include 'layout/header.php';
-die('..');
+
+
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" id="dvcontent">
