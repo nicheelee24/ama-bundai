@@ -186,6 +186,7 @@ $bonusData = $rows->toArray();
 //$usersArr = $rows->toArray();
 //$recsCount=count($transactionSumsArray);
 include 'layout/header.php';
+die('..');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" id="dvcontent">
@@ -359,7 +360,7 @@ include 'layout/header.php';
             <?php
             $cnt = 1;
             foreach ($bonusData as $usr) {
-              die('..');
+             
               ?>
 
               <tr>
