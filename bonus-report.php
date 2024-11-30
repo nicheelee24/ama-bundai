@@ -47,7 +47,7 @@ $transactionsCollection = $db->transactions;
 $options = [];
 $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
-$rows = $mongoo->executeQuery($db.'.bonus',$query);
+$rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
 
