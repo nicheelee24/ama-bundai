@@ -211,9 +211,9 @@ include 'layout/header.php';
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo $usr->quantity; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
+                <td><?php echo $usr->topUp; ?></td>
+                <td><?php echo $usr->cashBalanceFirst; ?></td>
+                <td><?php echo $usr->cashBalanceAfter; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
