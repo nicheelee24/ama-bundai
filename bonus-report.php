@@ -27,7 +27,7 @@ $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
-//include 'layout/header.php';
+include 'layout/header.php';
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -207,7 +207,7 @@ $bonusData = $rows->toArray();
 
               <tr>
                 <td><?php echo $cnt; ?></td>
-                <td><?php echo $usr['username']; ?></td>
+                <td><?php echo $usr->username; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
