@@ -46,7 +46,7 @@ $transactionsCollection = $db->transactions;
 $mongourl = $_ENV['mongodburl'] ?? '';
 $dbb = $_ENV['db'] ?? '';
 $mongoo = new MongoDB\Driver\Manager($mongourl);
-$options = ['sort' => ['addTime' => -1]];
+$options = [''];
 $filter=[''];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongoo->executeQuery($dbb.'.bonus',$query);
