@@ -123,25 +123,29 @@ include 'layout/header.php';
                                     <select class="custom-select" onchange="changeCategory(this)" name="bonusCategory"
                                         id="bonusCategory">
                                         <?php
-                                       
-                                        if ($cnt>0 && $agntsArr[0]->bonusCategory == "amntTHB") {
+                                     if($uid != "")
+                                     {
+                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
                                             ?>
                                             <option value="amntTHB" style="font-weight:bold" selected>Amount In THB</option>
                                             <?php
-                                        } else {
+                                        } 
+                                    }else {
                                             ?>
                                             <option value="amntTHB">Amount In THB</option>
                                         <?php }
 
                                         ?>
                                         <?php
-                                        if ($cnt>0 && $agntsArr[0]->bonusCategory == "percent") {
+                                         if($uid != "")
+                                         {
+                                        if ($agntsArr[0]->bonusCategory == "percent") {
 
                                             ?>
                                             <option value="percent" style="font-weight:bold" selected>Percent</option>
                                             <?php
-                                        } else {
+                                        }} else {
                                             ?>
                                             <option style="font-weight:bold" value="percent">Percent</option>
                                         <?php }
@@ -150,7 +154,8 @@ include 'layout/header.php';
 
                                     </select>
                                     <?php
-                                    if ($cnt>0 && $agntsArr[0]->bonusCategory == "amntTHB") {
+                                    
+                                    if ($agntsArr[0]->bonusCategory == "amntTHB") {
 
                                         ?>
                                         <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" value="<?php if ($uid != "") {
@@ -164,7 +169,7 @@ include 'layout/header.php';
                                             placeholder="Enter amount in THB" style="display:none">
                                     <?php }
 
-                                    if ($cnt>0 && $agntsArr[0]->bonusCategory == "percent") { ?>
+                                    if ($uid != "" && $agntsArr[0]->bonusCategory == "percent") { ?>
 
                                         <input type="text" name="percentBonus" id="percentBonus" class="form-control" value="<?php if ($uid != "") {
                                             echo $agntsArr[0]->percentBonus;
