@@ -1,8 +1,9 @@
 <?php
+die("create promo");
 session_start();
 require_once "vendor/autoload.php";
 include 'layout/header.php';
-die("create promo");
+
 $uid = "";
 if (isset($_GET["eid"])) {
     $uid = $_GET["eid"];
