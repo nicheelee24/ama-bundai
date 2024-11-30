@@ -211,19 +211,19 @@ include 'layout/header.php';
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo $usr->quantity; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
+                <td><?php echo ''; ?></td>
                 <td><?php echo "Yes" ?></td>
                 <td><?php echo $usr->addTime; ?></td>
               
