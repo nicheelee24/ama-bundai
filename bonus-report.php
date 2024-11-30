@@ -13,7 +13,7 @@ if(isset($_SESSION['uid']))
 {
   $agentid=$_SESSION['uid'];
 }
-//print_r($agentid);die('..');
+
 $mongourl = $_ENV['mongodburl'] ?? '';
 $db = $_ENV['db'] ?? '';
 $stDate='';
@@ -26,7 +26,7 @@ $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
-print_r($bonusData);die('..');
+
 include 'layout/header.php';
 
 ?>
