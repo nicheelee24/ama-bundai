@@ -224,8 +224,8 @@ include 'layout/header.php';
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
+                <td><?php echo "Yes" ?></td>
+                <td><?php echo $usr->addTime; ?></td>
               
               </tr>
               <?php
