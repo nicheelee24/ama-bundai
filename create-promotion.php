@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-require_once "vendor/autoload.php";
-die("create promo");
+require "vendor/autoload.php";
+//die("create promo");
 include 'layout/header.php';
 
 $uid = "";
