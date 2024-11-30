@@ -16,7 +16,7 @@ if(isset($_SESSION['uid']))
 {
   $agentid=$_SESSION['uid'];
 }
-print_r($agentid);die('..');
+//print_r($agentid);die('..');
 $mongourl = $_ENV['mongodburl'] ?? '';
 $db = $_ENV['db'] ?? '';
 $stDate='';
@@ -50,7 +50,7 @@ $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
-
+die($bonusData);
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 // $transactionPipeline = [
 //     [
