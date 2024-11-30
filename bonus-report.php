@@ -16,7 +16,7 @@ if(isset($_SESSION['uid']))
 {
   $agentid=$_SESSION['uid'];
 }
-//print_r($agentid);die('..');
+print_r($agentid);die('..');
 $mongourl = $_ENV['mongodburl'] ?? '';
 $db = $_ENV['db'] ?? '';
 $stDate='';
