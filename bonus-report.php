@@ -49,8 +49,8 @@ $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
-print_r($bonusData);
-die('..');
+//print_r($bonusData);
+//die('..');
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 // $transactionPipeline = [
 //     [
@@ -211,7 +211,7 @@ include 'layout/header.php';
 
   <div class="col-md-12">
     <div class="card">
-      <form method="post" action="manage-members.php">
+      <form method="post" action="">
       <div style="margin-left:20px" class="row">
      
         <div class="form-group">
@@ -332,7 +332,7 @@ include 'layout/header.php';
         <table class="table">
           <thead>
             <tr>
-              <th style="width: 10px"><?php echo count($bonusData); ?></th>
+              <th style="width: 10px"></th>
               <th>Username</th>
               <th>Type</th>
               <th>Bonus Type</th>
@@ -359,7 +359,9 @@ include 'layout/header.php';
             <?php
             $cnt = 1;
             foreach ($bonusData as $usr) {
+              die('..');
               ?>
+
               <tr>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $usr['username']; ?></td>
