@@ -123,7 +123,8 @@ include 'layout/header.php';
                                     <select class="custom-select" onchange="changeCategory(this)" name="bonusCategory"
                                         id="bonusCategory">
                                         <?php
-                                        if ($agntsArr[0]->bonusCategory == "amntTHB") {
+                                       
+                                        if ($cnt>0 && $agntsArr[0]->bonusCategory == "amntTHB") {
 
                                             ?>
                                             <option value="amntTHB" style="font-weight:bold" selected>Amount In THB</option>
@@ -135,7 +136,7 @@ include 'layout/header.php';
 
                                         ?>
                                         <?php
-                                        if ($agntsArr[0]->bonusCategory == "percent") {
+                                        if ($cnt>0 && $agntsArr[0]->bonusCategory == "percent") {
 
                                             ?>
                                             <option value="percent" style="font-weight:bold" selected>Percent</option>
@@ -149,7 +150,7 @@ include 'layout/header.php';
 
                                     </select>
                                     <?php
-                                    if ($agntsArr[0]->bonusCategory == "amntTHB") {
+                                    if ($cnt>0 && $agntsArr[0]->bonusCategory == "amntTHB") {
 
                                         ?>
                                         <input type="text" name="bonusAmnt" id="bonusAmnt" class="form-control" value="<?php if ($uid != "") {
@@ -163,7 +164,7 @@ include 'layout/header.php';
                                             placeholder="Enter amount in THB" style="display:none">
                                     <?php }
 
-                                    if ($agntsArr[0]->bonusCategory == "percent") { ?>
+                                    if ($cnt>0 && $agntsArr[0]->bonusCategory == "percent") { ?>
 
                                         <input type="text" name="percentBonus" id="percentBonus" class="form-control" value="<?php if ($uid != "") {
                                             echo $agntsArr[0]->percentBonus;
