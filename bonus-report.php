@@ -356,7 +356,7 @@ include 'layout/header.php';
             foreach ($userStats as $usr) {
               ?>
               <tr>
-                <td><?php echo $cnt; ?></td>
+                <td><?php echo $usr->$UserName; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
