@@ -17,12 +17,10 @@ if ($uid != "") {
 $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.promotions', $query);
 $agntsArr = $rows->toArray();
-//print_r($agntsArr);
+print_r($agntsArr);
 $cnt = count($agntsArr);
-//die($cnt);
-//$cnt = count($agntsArr);
-//echo $cnt;
-//echo "hi";
+die($cnt);
+
 // use Google\Authenticator\GoogleAuthenticator;
 // use Google\Authenticator\GoogleQrUrl;
 
@@ -30,11 +28,8 @@ $cnt = count($agntsArr);
 // $secret = $googleAuthenticator->generateSecret();
 // $qrCodeUrl = GoogleQrUrl::generate('employeename', $secret, 'Backoffice');
 ?>
-
-
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+   
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -49,7 +44,7 @@ $cnt = count($agntsArr);
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
 
     <!-- Main content -->
