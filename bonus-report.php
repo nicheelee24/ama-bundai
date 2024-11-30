@@ -42,7 +42,8 @@ $db = $client->gms2024;
 
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
-$query = new MongoDB\Driver\Query();
+$options = ['sort' => ['addTime' => -1]];
+$query = new MongoDB\Driver\Query($options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusArr = $rows->toArray();
 echo count($bonusArr);
