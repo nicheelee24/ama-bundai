@@ -27,7 +27,7 @@ $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
 
-include 'layout/header.php';
+//include 'layout/header.php';
 
 ?>
 <!-- Content Wrapper. Contains page content -->
