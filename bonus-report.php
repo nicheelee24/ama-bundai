@@ -26,7 +26,7 @@ $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
-
+print_r($bonusData);die('..');
 
 
 ?>
