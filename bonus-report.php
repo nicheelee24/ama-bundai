@@ -49,8 +49,8 @@ $mongoo = new MongoDB\Driver\Manager($mongourl);
 $options = ['sort' => ['addTime' => -1]];
 $query = new MongoDB\Driver\Query($options);
 $rows = $mongoo->executeQuery($dbb.'.bonus',$query);
-$bonusArr = $rows->toArray();
-echo count($bonusArr);
+$bonusData = $rows->toArray();
+echo count($bonusData);
 
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 $transactionPipeline = [
