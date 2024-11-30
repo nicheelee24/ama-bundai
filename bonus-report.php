@@ -42,9 +42,10 @@ $db = $client->gms2024;
 
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
-$bonusCollection=$db->bonus;
-$bonusData=$bonusCollection->toArray();
-
+$query = new MongoDB\Driver\Query();
+$rows = $mongo->executeQuery($db.'.bonus',$query);
+$bonusArr = $rows->toArray();
+echo count($bonusArr);
 
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 $transactionPipeline = [
