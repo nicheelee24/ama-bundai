@@ -6,12 +6,12 @@ $dotenv->load(__DIR__ . '/.env');
 $agentid ='';
 $recsCount=0;
 $searchvalue='';
-if(isset($_POST["search"]))
-{
-$searchvalue=$_POST["search"];
-//echo $searchvalue;
-//die($searchvalue);
-}
+// if(isset($_POST["search"]))
+// {
+// $searchvalue=$_POST["search"];
+// //echo $searchvalue;
+// //die($searchvalue);
+// }
 if(isset($_SESSION['uid']))
 {
   $agentid=$_SESSION['uid'];
@@ -21,23 +21,23 @@ $mongourl = $_ENV['mongodburl'] ?? '';
 $db = $_ENV['db'] ?? '';
 $stDate='';
 $edDate='';
-if(isset($_POST["reservation"]))
-{
-$posteddates=explode("-", $_POST["reservation"]);
-//print_r($posteddates[0]);
-//print_r($posteddates[1]);
-$stDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[0]) * 1000);
-$edDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[1]) * 1000);
-//die();
-}
-else
-{
-  $stDate = new MongoDB\BSON\UTCDateTime(strtotime("-180 days") * 1000);
-$edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
-}
-$client = new MongoDB\Client($mongourl);
+// if(isset($_POST["reservation"]))
+// {
+// $posteddates=explode("-", $_POST["reservation"]);
+// //print_r($posteddates[0]);
+// //print_r($posteddates[1]);
+// $stDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[0]) * 1000);
+// $edDate = new MongoDB\BSON\UTCDateTime(strtotime($posteddates[1]) * 1000);
+// //die();
+// }
+// else
+// {
+//   $stDate = new MongoDB\BSON\UTCDateTime(strtotime("-180 days") * 1000);
+// $edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
+// }
+// $client = new MongoDB\Client($mongourl);
 
-$dbb = $client->gms2024;
+// $dbb = $client->gms2024;
 
 
 //$usersCollection = $db->users;
@@ -226,8 +226,7 @@ include 'layout/header.php';
             <input type="text" class="form-control float-right" id="reservation" name="reservation">
           </div>
           <br/>
-          <?php if(isset($_POST['reservation'])){  ?>
-          <span style="font-weight:bold;padding-top:35px">Selected Date Range: </span><?php echo $posteddates[0];?> To <?php echo $posteddates[1] ?> <?php } ?>
+         
           <!-- /.input group -->
         </div>
 
@@ -325,9 +324,7 @@ include 'layout/header.php';
 
         <div class="card-tools">
          
-           <form method="POST" action="manage-members.php">
-           <input type="text" <?php if($searchvalue){?> value="<?php echo $searchvalue?>" <?php }?> name="search"/><button class="btn btn-warning" style="margin:5px" type="submit">Search</button> 
-          </form>
+          
         </div>
       </div>
       <!-- /.card-header -->
@@ -417,51 +414,5 @@ include 'layout/footer.php';
 
 <script>
 
-  function acti_deactiv(un,sts)
-  {
-//alert(un+"-"+sts);
-if(sts=='')
-{
-
-  if(confirm("Are you sure to UNBLOCK this player?"))
-  {
-    
-        $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
-            type: "get",    //request type,
-            data: {uname: un, stats: sts},
-            success:function(){
-              location.reload();
-            }
-        });
-    
-
-  }
-}
-else
-{
-  if(confirm("Are you sure to BLOCK this player?"))
-{
-  $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
-            type: "get",    //request type,
-            data: {uname: un, stats: sts},
-            success:function(){
-              location.reload();
-            }
-        });
-    
-}
-}
-  }
-  //Date range picker
-  $('#reservation').daterangepicker();
-  $(document).ready(function () {
-    //setInterval(function() {
-       // $.get("manage-members.php", function (result) {
-        //  alert(result);
-          //  $('#dvcontent').html(result);
-      //  });
-   // }, 3000);
-});
+  
 </script>
