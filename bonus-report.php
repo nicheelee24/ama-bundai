@@ -49,8 +49,8 @@ $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
 $rows = $mongo->executeQuery($db.'.bonus',$query);
 $bonusData = $rows->toArray();
-
-die($bonusData);
+print_r($bonusData);
+die('..');
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 // $transactionPipeline = [
 //     [
