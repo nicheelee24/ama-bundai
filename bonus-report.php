@@ -37,11 +37,11 @@ $edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
 }
 $client = new MongoDB\Client($mongourl);
 
-$db = $client->gms2024;
+$dbb = $client->gms2024;
 
 
-$usersCollection = $db->users;
-$transactionsCollection = $db->transactions;
+//$usersCollection = $db->users;
+//$transactionsCollection = $db->transactions;
 
 $mongo=new MongoDB\Driver\Manager($mongourl);
 $options = [];
@@ -52,80 +52,80 @@ $bonusData = $rows->toArray();
 
 
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
-$transactionPipeline = [
-    [
-        '$match' => [
-            'type' => ['$in' => ['deposit', 'withdrawal']],
-            'platform' => 'luckyama' // Filter by platform
-        ]
-    ],
-    [
-        '$group' => [
-            '_id' => '$userid',
-            'totalDeposits' => [
-                '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'deposit']], '$payAmount', 0]
-                ]
-            ],
-            'totalWithdrawals' => [
-                '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'withdrawal']], '$payAmount', 0]
-                ]
-            ],
-            'depositCount' => [
-                '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'deposit']], 1, 0]
-                ]
-            ],
-            'withdrawalCount' => [
-                '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'withdrawal']], 1, 0]
-                ]
-            ],
-            'firstDepositDate' => [
-                '$min' => [
-                    '$cond' => [['$eq' => ['$type', 'deposit']], '$date', null]
-                ]
-            ],
+// $transactionPipeline = [
+//     [
+//         '$match' => [
+//             'type' => ['$in' => ['deposit', 'withdrawal']],
+//             'platform' => 'luckyama' // Filter by platform
+//         ]
+//     ],
+//     [
+//         '$group' => [
+//             '_id' => '$userid',
+//             'totalDeposits' => [
+//                 '$sum' => [
+//                     '$cond' => [['$eq' => ['$type', 'deposit']], '$payAmount', 0]
+//                 ]
+//             ],
+//             'totalWithdrawals' => [
+//                 '$sum' => [
+//                     '$cond' => [['$eq' => ['$type', 'withdrawal']], '$payAmount', 0]
+//                 ]
+//             ],
+//             'depositCount' => [
+//                 '$sum' => [
+//                     '$cond' => [['$eq' => ['$type', 'deposit']], 1, 0]
+//                 ]
+//             ],
+//             'withdrawalCount' => [
+//                 '$sum' => [
+//                     '$cond' => [['$eq' => ['$type', 'withdrawal']], 1, 0]
+//                 ]
+//             ],
+//             'firstDepositDate' => [
+//                 '$min' => [
+//                     '$cond' => [['$eq' => ['$type', 'deposit']], '$date', null]
+//                 ]
+//             ],
             
-            'firstDepositAmount' => [
-                '$first' => [
-                    '$cond' => [['$eq' => ['$type', 'deposit']], '$payAmount', null]
-                ]
-            ],
-            'platform' => ['$first' => '$platform'] // Get platform info from transactions
-        ]
-    ],
-    [
-        '$lookup' => [
-            'from' => 'users',
-            'localField' => '_id',
-            'foreignField' => '_id',
-            'as' => 'user'
-        ]
-    ],
-    [
-        '$unwind' => '$user'
-    ],
-    [
-        '$project' => [
-            'UserName' => '$user.name',
-            'Phone' => '$user.phone',
-            'Status'=>'$user.status',
-            'ApplyDate'=>'$user.date',
-            'Platform' => '$platform',
-            'FirstDepositDate' => '$firstDepositDate',
-            'FirstTimeDepositedAmount' => '$firstDepositAmount',
-            'TotalDepositTimes' => '$depositCount',
-            'TotalWithdrawTimes' => '$withdrawalCount',
-            'TotalDepositAmount' => '$totalDeposits',
-            'TotalWithdrawAmount' => '$totalWithdrawals',
-            'Profit' => ['$subtract' => ['$totalDeposits', '$totalWithdrawals']]
-        ]
-    ]
-];
+//             'firstDepositAmount' => [
+//                 '$first' => [
+//                     '$cond' => [['$eq' => ['$type', 'deposit']], '$payAmount', null]
+//                 ]
+//             ],
+//             'platform' => ['$first' => '$platform'] // Get platform info from transactions
+//         ]
+//     ],
+//     [
+//         '$lookup' => [
+//             'from' => 'users',
+//             'localField' => '_id',
+//             'foreignField' => '_id',
+//             'as' => 'user'
+//         ]
+//     ],
+//     [
+//         '$unwind' => '$user'
+//     ],
+//     [
+//         '$project' => [
+//             'UserName' => '$user.name',
+//             'Phone' => '$user.phone',
+//             'Status'=>'$user.status',
+//             'ApplyDate'=>'$user.date',
+//             'Platform' => '$platform',
+//             'FirstDepositDate' => '$firstDepositDate',
+//             'FirstTimeDepositedAmount' => '$firstDepositAmount',
+//             'TotalDepositTimes' => '$depositCount',
+//             'TotalWithdrawTimes' => '$withdrawalCount',
+//             'TotalDepositAmount' => '$totalDeposits',
+//             'TotalWithdrawAmount' => '$totalWithdrawals',
+//             'Profit' => ['$subtract' => ['$totalDeposits', '$totalWithdrawals']]
+//         ]
+//     ]
+// ];
 
-$transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray();
+// $transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray();
 
 // Handle DataTables server-side processing
 // $request = $_GET;
@@ -135,32 +135,32 @@ $transactionsData = $transactionsCollection->aggregate($transactionPipeline)->to
 // $search = $request['search']['value']; // Search value
 
 // Filter data based on search
-$userStats = [];
-foreach ($transactionsData as $transaction) {
-    $userStats[] = [
-      'UserID'=>$transaction->_id,
-        'UserName' => $transaction->UserName ?? 'N/A',
-        'Phone' => $transaction->Phone ?? 'N/A',
-        'Status' => $transaction->Status ?? 'N/A',
-        'ApplyDate' => $transaction->ApplyDate ? $transaction->ApplyDate->toDateTime()->format('Y-m-d H:i:s') : 'N/A',
-        'Platform' => $transaction->Platform ?? 'N/A',
-        'FirstDepositDate' => $transaction->FirstDepositDate ? $transaction->FirstDepositDate->toDateTime()->format('Y-m-d H:i:s') : 'N/A',
-        'FirstTimeDepositedAmount' => $transaction->FirstTimeDepositedAmount ?? 0,
-        'TotalDepositTimes' => $transaction->TotalDepositTimes ?? 0,
-        'TotalWithdrawTimes' => $transaction->TotalWithdrawTimes ?? 0,
-        'TotalDepositAmount' => $transaction->TotalDepositAmount ?? 0,
-        'TotalWithdrawAmount' => $transaction->TotalWithdrawAmount ?? 0,
-        'Profit' => $transaction->Profit ?? 0
+// $userStats = [];
+// foreach ($transactionsData as $transaction) {
+//     $userStats[] = [
+//       'UserID'=>$transaction->_id,
+//         'UserName' => $transaction->UserName ?? 'N/A',
+//         'Phone' => $transaction->Phone ?? 'N/A',
+//         'Status' => $transaction->Status ?? 'N/A',
+//         'ApplyDate' => $transaction->ApplyDate ? $transaction->ApplyDate->toDateTime()->format('Y-m-d H:i:s') : 'N/A',
+//         'Platform' => $transaction->Platform ?? 'N/A',
+//         'FirstDepositDate' => $transaction->FirstDepositDate ? $transaction->FirstDepositDate->toDateTime()->format('Y-m-d H:i:s') : 'N/A',
+//         'FirstTimeDepositedAmount' => $transaction->FirstTimeDepositedAmount ?? 0,
+//         'TotalDepositTimes' => $transaction->TotalDepositTimes ?? 0,
+//         'TotalWithdrawTimes' => $transaction->TotalWithdrawTimes ?? 0,
+//         'TotalDepositAmount' => $transaction->TotalDepositAmount ?? 0,
+//         'TotalWithdrawAmount' => $transaction->TotalWithdrawAmount ?? 0,
+//         'Profit' => $transaction->Profit ?? 0
         
-    ];
-}
+//     ];
+// }
 
 // Apply search filter
-if ($searchvalue) {
-    $userStats = array_filter($userStats, function($row) use ($searchvalue) {
-        return stripos($row['UserName'], $searchvalue) !== false || stripos($row['Phone'], $searchvalue) !== false;
-    });
-}
+// if ($searchvalue) {
+//     $userStats = array_filter($userStats, function($row) use ($searchvalue) {
+//         return stripos($row['UserName'], $searchvalue) !== false || stripos($row['Phone'], $searchvalue) !== false;
+//     });
+// }
 
 // Pagination
 //$totalRecords = count($userStats);
