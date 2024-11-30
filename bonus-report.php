@@ -1,8 +1,9 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
-$dotenv = new Symfony\Component\Dotenv\Dotenv();
 include 'layout/header.php';
+$dotenv = new Symfony\Component\Dotenv\Dotenv();
+
 $dotenv->load(__DIR__ . '/.env'); 
 $agentid ='';
 $recsCount=0;
