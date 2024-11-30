@@ -57,7 +57,7 @@ include 'layout/header.php';
             <div class="col-md-6">
 
 
-                <form method="post" enctype="multipart/form-data" <?php if ($uid == "") { ?>
+                <form method="post" accept-charset="utf-8" enctype="multipart/form-data" <?php if ($uid == "") { ?>
                         action="controllers/api.php?flag=createPromotion" <?php } else { ?>
                         action="controllers/api.php?flag=updPromotion&id=<?php echo $uid; ?>" <?php } ?>>
 
