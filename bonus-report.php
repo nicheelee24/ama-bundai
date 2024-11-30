@@ -43,7 +43,7 @@ $db = $client->gms2024;
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
 
-
+$mongo=new MongoDB\Driver\Manager($mongourl);
 $options = [];
 $filter=[];
 $query = new MongoDB\Driver\Query($filter,$options);
