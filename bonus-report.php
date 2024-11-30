@@ -42,6 +42,9 @@ $db = $client->gms2024;
 
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
+$bonusCollection=$db->bonus;
+$bonusData=$bonusCollection->toArray();
+
 
 // Step 1: Aggregate transaction data for users with transactions on 'luckyama' platform
 $transactionPipeline = [
@@ -353,12 +356,12 @@ include 'layout/header.php';
           <tbody>
             <?php
             $cnt = 1;
-            foreach ($userStats as $usr) {
+            foreach ($bonusData as $usr) {
               ?>
               <tr>
-                <td><?php echo $usr['UserName']; ?></td>
                 <td><?php echo $cnt; ?></td>
-                <td><?php echo $cnt; ?></td>
+                <td><?php echo $usr['username']; ?></td>
+                <td><?php echo ''; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $cnt; ?></td>
