@@ -42,9 +42,13 @@ $db = $client->gms2024;
 
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
+
+$mongourl = $_ENV['mongodburl'] ?? '';
+$dbb = $_ENV['db'] ?? '';
+$mongoo = new MongoDB\Driver\Manager($mongourl);
 $options = ['sort' => ['addTime' => -1]];
 $query = new MongoDB\Driver\Query($options);
-$rows = $mongo->executeQuery($db.'.bonus',$query);
+$rows = $mongoo->executeQuery($dbb.'.bonus',$query);
 $bonusArr = $rows->toArray();
 echo count($bonusArr);
 
