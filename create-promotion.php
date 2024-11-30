@@ -3,7 +3,7 @@
 session_start();
 require "vendor/autoload.php";
 //die("create promo");
-include 'layout/header.php';
+
 
 $uid = "";
 if (isset($_GET["eid"])) {
@@ -19,9 +19,9 @@ if ($uid != "") {
 $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.promotions', $query);
 $agntsArr = $rows->toArray();
-print_r($agntsArr);
+//print_r($agntsArr);
 $cnt = count($agntsArr);
-die($cnt);
+//die($cnt);
 
 // use Google\Authenticator\GoogleAuthenticator;
 // use Google\Authenticator\GoogleQrUrl;
@@ -29,6 +29,7 @@ die($cnt);
 // $googleAuthenticator = new GoogleAuthenticator();
 // $secret = $googleAuthenticator->generateSecret();
 // $qrCodeUrl = GoogleQrUrl::generate('employeename', $secret, 'Backoffice');
+include 'layout/header.php';
 ?>
 <div class="content-wrapper">
    
