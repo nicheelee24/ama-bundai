@@ -43,9 +43,9 @@ $db = $client->gms2024;
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
 
-$mongourl = $_ENV['mongodburl'] ?? '';
+$mongourll = $_ENV['mongodburl'] ?? '';
 $dbb = $_ENV['db'] ?? '';
-$mongoo = new MongoDB\Driver\Manager($mongourl);
+$mongoo = new MongoDB\Driver\Manager($mongourll);
 $options = [''];
 $filter=[''];
 $query = new MongoDB\Driver\Query($filter,$options);
