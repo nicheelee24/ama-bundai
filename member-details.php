@@ -23,7 +23,7 @@ $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.transactions', $query);
 $transDepositArr = $rows->toArray();
 
-$filter = ['userid' => $uid,'type'=>'withdrawal'];
+$filter = ['userPhone' => $uphone,'type'=>'withdrawal'];
 $options = [];
 $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.transactions', $query);
