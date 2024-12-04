@@ -29,8 +29,8 @@ $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.transactions', $query);
 $transWithdrawArr = $rows->toArray();
 
-
-
+echo count($transWithdrawArr);
+die('..');
 
 include 'layout/header.php';
 ?>
