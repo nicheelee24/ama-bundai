@@ -143,7 +143,7 @@ include 'layout/header.php';
                     <td><?php echo $cnt; ?></td>
                     <td><?php echo $deposit->date->toDateTime()->format('Y-m-d H:i:s')?></td>
                     <td><?php echo  $deposit->payAmount?></td>
-                    <td><?php echo   $agntsArr[0]->bbn;?></td>
+                    <td><?php echo    $deposit->status;?></td>
                     <td></td>
                   </tr>
                   <?php $cnt++; }?>
@@ -185,7 +185,7 @@ include 'layout/header.php';
                     <td><?php echo $cnt; ?></td>
                     <td><?php echo $withdraw->date->toDateTime()->format('Y-m-d H:i:s')?></td>
                     <td><?php echo  $withdraw->payAmount?></td>
-                    <td><?php echo   $agntsArr[0]->bbn;?></td>
+                    <td><?php echo   $withdraw->status;?></td>
                     <td></td>
                   </tr>
                   <?php $cnt++; }?>
@@ -196,7 +196,13 @@ include 'layout/header.php';
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;">Enter Amount To Withdraw</label>
             <input type="Text" class="form-control" id="withAmt"/>
+            <label>Upload Bank Slip</label>
+                                    <input type="file" name="file" onchange="preview()">
+                                    <img src="/ama-bundai/uploads/<?php if ($uid != "") {
+                                        echo "";
+                                    } ?>" id="previe" width="150px" height="80px" style="display:block" />
             </div>
+            
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Withdraw" type="button" class="btn btn-info">Withdraw</button>
             </div>
@@ -227,6 +233,10 @@ include 'layout/header.php';
   include 'layout/footer.php';
   ?>
   <script>
+    function preview() {
+        previe.src = URL.createObjectURL(event.target.files[0]);
+        previe.style.display = 'block'
+    }
 
 function changeSts(un,sts)
 {
