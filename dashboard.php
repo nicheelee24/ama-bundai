@@ -97,7 +97,7 @@ include 'layout/header.php';
               [
                 '$and' => [
                   ['$eq' => ['$platform', 'luckyama']],
-                  ['$eq' => ['$type', 'withdraw']]
+                  ['$eq' => ['$type', 'withdrawal']]
                 ]
               ],
               1,
@@ -107,7 +107,7 @@ include 'layout/header.php';
               [
                 '$and' => [
                   ['$eq' => ['$platform', 'luckyama']],
-                  ['$eq' => ['$type', 'withdraw']]
+                  ['$eq' => ['$type', 'withdrawal']]
                 ]
               ],
               '$payAmount',
