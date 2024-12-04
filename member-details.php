@@ -114,7 +114,7 @@ include 'layout/header.php';
             <input type="text" name="bun" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbun; ?>"<?php }?> placeholder="Currency">
           </div>
           <div class="form-group">
-          <button  title="Save details" type="submit" class="btn btn-info">Submit</button>
+          <button  title="Save details" type="submit" class="btn btn-info">Save Member Info</button>
 
           </div>
           </form>
