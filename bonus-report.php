@@ -208,16 +208,16 @@ include 'layout/header.php';
               <tr>
                 <td><?php echo $cnt; ?></td>
                 <td><?php echo $usr->username; ?></td>
-                <td><?php echo ''; ?></td>
+                <td><?php echo 'Bonus'; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo $usr->quantity; ?></td>
                 <td><?php echo $usr->topUp; ?></td>
+                <td><?php echo '-'; ?></td>
+                <td><?php echo '-'; ?></td>
+                <td><?php echo '-'; ?></td>
+                <td><?php echo '-'; ?></td>
                 <td><?php echo $usr->cashBalanceFirst; ?></td>
                 <td><?php echo $usr->cashBalanceAfter; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
                 <td><?php echo ''; ?></td>
