@@ -156,6 +156,13 @@ include 'layout/header.php';
             <input type="Text" class="form-control" id="withDeposit"/>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <label>Upload Bank Slip</label>
+                                    <input type="file" name="file" onchange="preview()">
+                                    <img src="/ama-bundai/uploads/<?php if ($uid != "") {
+                                        echo "";
+                                    } ?>" id="previe" width="150px" height="80px" style="display:block" />
+            </div>
+            <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Deposit" type="button" class="btn btn-info">Deposit</button>
             </div>
 
@@ -196,11 +203,7 @@ include 'layout/header.php';
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;">Enter Amount To Withdraw</label>
             <input type="Text" class="form-control" id="withAmt"/>
-            <label>Upload Bank Slip</label>
-                                    <input type="file" name="file" onchange="preview()">
-                                    <img src="/ama-bundai/uploads/<?php if ($uid != "") {
-                                        echo "";
-                                    } ?>" id="previe" width="150px" height="80px" style="display:block" />
+           
             </div>
             
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
