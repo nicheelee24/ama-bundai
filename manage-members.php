@@ -47,7 +47,7 @@ $transactionsCollection = $db->transactions;
 $transactionPipeline = [
     [
         '$match' => [
-            'type' => ['$in' => ['deposit', 'withdrawal']],
+            'type' => ['$in' => ['deposit', 'withdraw']],
             'platform' => 'luckyama' // Filter by platform
         ]
     ],
