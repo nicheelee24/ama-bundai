@@ -191,9 +191,9 @@ include 'layout/header.php';
                   <tr>
                     <td><?php echo $cnt; ?></td>
                     <td><?php echo $withdraw->date->toDateTime()->format('Y-m-d H:i:s')?></td>
-                    <td><?php echo  $withdraw->payAmount?></td>
-                    <td><?php echo    $agntsArr[0]->bbn;?></td>
-                    <td><?php echo   $withdraw->status;?></td>
+                    <td><?php echo $withdraw->payAmount?></td>
+                    <td><?php echo $agntsArr[0]->bbn;?></td>
+                    <td><?php echo $withdraw->status;?></td>
                   </tr>
                   <?php $cnt++; }?>
                 </tbody>
