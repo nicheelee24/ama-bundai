@@ -201,7 +201,7 @@ include 'layout/header.php';
             </div>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <label style="font-size:18px;">Manual Withdraw Amount</label>
+            <label style="font-size:18px;color:darkorange">Manual Withdraw Amount</label>
             <input type="Text" class="form-control" id="withAmt"/>
            
             </div>
