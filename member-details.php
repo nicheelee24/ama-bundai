@@ -152,7 +152,7 @@ include 'layout/header.php';
             </div>
           </div>
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <label style="font-size:18px;">Enter Amount To Deposit</label>
+            <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
             <input type="Text" class="form-control" id="withDeposit"/>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
@@ -201,7 +201,7 @@ include 'layout/header.php';
             </div>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <label style="font-size:18px;">Enter Amount To Withdraw</label>
+            <label style="font-size:18px;">Manual Withdraw Amount</label>
             <input type="Text" class="form-control" id="withAmt"/>
            
             </div>
