@@ -47,7 +47,7 @@ $transactionsCollection = $db->transactions;
 $transactionPipeline = [
     [
         '$match' => [
-            'type' => ['$in' => ['deposit', 'withdrawl']],
+            'type' => ['$in' => ['deposit', 'withdrawal']],
             'platform' => 'luckyama' // Filter by platform
         ]
     ],
@@ -61,7 +61,7 @@ $transactionPipeline = [
             ],
             'totalWithdrawals' => [
                 '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'withdrawl']], '$payAmount', 0]
+                    '$cond' => [['$eq' => ['$type', 'withdrawal']], '$payAmount', 0]
                 ]
             ],
             'depositCount' => [
@@ -71,7 +71,7 @@ $transactionPipeline = [
             ],
             'withdrawalCount' => [
                 '$sum' => [
-                    '$cond' => [['$eq' => ['$type', 'withdrawl']], 1, 0]
+                    '$cond' => [['$eq' => ['$type', 'withdrawal']], 1, 0]
                 ]
             ],
             'firstDepositDate' => [
