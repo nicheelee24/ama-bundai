@@ -185,10 +185,12 @@ include 'layout/header.php';
               <th>Cash Balance After</th>
               <th>The Board Before</th>
               <th>Backboard</th>
+              <th>Before Credit</th>
+              <th>After Credit</th>
               <th>Credit First</th>
               <th>Credit After</th>
               <th>Number of TF</th>
-              <th>Credit First</th>
+             
               <th>TF First</th>
               <th>TF Back</th>
               <th>Data Entry Staff</th>
@@ -218,13 +220,15 @@ include 'layout/header.php';
                 <td><?php echo '-'; ?></td>
                 <td><?php echo $usr->cashBalanceFirst; ?></td>
                 <td><?php echo $usr->cashBalanceAfter; ?></td>
+                <td><?php echo '-'; ?></td>
+                <td><?php echo '-'; ?></td>
                 <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo ''; ?></td>
-                <td><?php echo "Yes" ?></td>
+                
+                <td><?php echo '0.00'; ?></td>
+                <td><?php echo '0.00'; ?></td>
+                <td><?php echo 'luckyama'; ?></td>
+                <td><?php echo 'luckyama'; ?></td>
+                <td><?php echo "amma777.cloud" ?></td>
                 <td><?php echo $usr->addTime; ?></td>
               
               </tr>
