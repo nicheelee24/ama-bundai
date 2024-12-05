@@ -154,8 +154,9 @@ include 'layout/header.php';
           </div>
           <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDeposit">
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+          <label style="display:none" id="lbluid" value="<?php echo $uid;?>"></label>
             <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
-            <input type="Text" class="form-control" name="withDeposit" id="withDeposit"/>
+            <input type="Text" class="form-control" name="amount" id="amount"/>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label>Upload Bank Slip</label>

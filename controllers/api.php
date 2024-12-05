@@ -32,15 +32,32 @@ if($flag=='manualDeposit')
 {
     $name = $_FILES['file']['name'];
     $temp = $_FILES['file']['tmp_name'];
-print_r($name);
-print_r($temp);
+
 
     if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/slips/" . $name)) {
         echo "Your file was uploaded";
     } else {
         echo "Your file cound't upload";
     }
-    die('...');
+    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+    $db = $con->selectDatabase('gms2024');
+    $tbl = $db->selectCollection('transactions');
+    $document = array(
+        "userid" => $_POST['lbluid'],
+        "platform" => 'luckyama',
+        "userPhone" => '',
+        "orderNo" => '',
+        "responseCode" => '',
+        "provider" => '',
+        "status" => '',
+        "payAmount" => $_POST['amount'],
+        "type" => 'manualDeposit',
+        "date" => '',
+        "__v" => 0,
+    );
+    $tbl->insertOne($document);
+    header('Location: ../manage-members.php', true);
+    exit();
 }
 if ($flag == 'createPromotion')//updPromotion
 {
