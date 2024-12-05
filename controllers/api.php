@@ -28,6 +28,20 @@ if ($flag == 'delPromo') {
         exit();
     }
 }
+if($flag=='manualDeposit')
+{
+    $name = $_FILES['file']['name'];
+    $temp = $_FILES['file']['tmp_name'];
+print_r($name);
+print_r($temp);
+
+    if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/slips/" . $name)) {
+        echo "Your file was uploaded";
+    } else {
+        echo "Your file cound't upload";
+    }
+    die('...');
+}
 if ($flag == 'createPromotion')//updPromotion
 {
     $name = $_FILES['file']['name'];

@@ -118,6 +118,7 @@ include 'layout/header.php';
 
           </div>
           </form>
+          
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;">Deposit History</label>
           </div>
@@ -151,9 +152,10 @@ include 'layout/header.php';
               </table>
             </div>
           </div>
+          <form method="post" action="controllers/api.php?flag=manualDeposit">
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
-            <input type="Text" class="form-control" id="withDeposit"/>
+            <input type="Text" class="form-control" name="withDeposit" id="withDeposit"/>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label>Upload Bank Slip</label>
@@ -163,9 +165,9 @@ include 'layout/header.php';
                                     } ?>" id="previe" width="150px" height="80px" style="display:block" />
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <button  title="Manual Deposit" type="button" class="btn btn-info">Deposit</button>
+            <button  title="Manual Deposit" type="submit" class="btn btn-info">Deposit</button>
             </div>
-
+            </form>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
               <label style="font-size:18px;">Withdraw History</label>
             </div>
