@@ -40,7 +40,7 @@ if($flag=='manualDeposit')
         echo "Your file cound't upload";
     }
 
-    httpPost('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay','123','url');
+    httpPost('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay',['123',''],'url');
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('transactions');
