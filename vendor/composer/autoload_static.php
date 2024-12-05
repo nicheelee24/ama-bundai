@@ -11,11 +11,16 @@ class ComposerStaticInit51db6e32cb8727d36e4b1e4f8d87ca2d
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        '10e8ecb8b5b88a8cdfc6f27dcc992247' => __DIR__ . '/..' . '/axios/tools/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'a' => 
+        array (
+            'axios\\tools\\' => 12,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php81\\' => 23,
@@ -51,6 +56,10 @@ class ComposerStaticInit51db6e32cb8727d36e4b1e4f8d87ca2d
     );
 
     public static $prefixDirsPsr4 = array (
+        'axios\\tools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/axios/tools/src',
+        ),
         'Symfony\\Polyfill\\Php81\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php81',

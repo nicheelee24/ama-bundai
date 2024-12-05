@@ -40,7 +40,22 @@ if($flag=='manualDeposit')
         echo "Your file cound't upload";
     }
 
-    httpPost('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay',['123',''],'url');
+   // httpPost('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay',['123',''],'url');
+    $data = array("name" => "Robot", "msg" => "Hi guys, I'm a PHP bot !");                                                                    
+$data_string = json_encode($data);
+
+$ch = curl_init('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay');                                                                      
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json',                                                                                
+    'Content-Length: ' . strlen($data_string))                                                                       
+);                                                                                                                   
+
+echo curl_exec($ch)."\n";
+curl_close($ch);
+die('');
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('transactions');
