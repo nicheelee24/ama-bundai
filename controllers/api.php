@@ -30,46 +30,57 @@ if ($flag == 'delPromo') {
 }
 if($flag=='manualDeposit')
 {
+    $phn=$_POST['uphone'];
     $name = $_FILES['file']['name'];
     $temp = $_FILES['file']['tmp_name'];
+    $bal=$_POST['balance'] + $_POST['amount'];
+    $dt = new DateTime(date('Y-m-d'), new DateTimeZone('UTC'));
+$ts = $dt->getTimestamp();
+$today = new \MongoDB\BSON\UTCDateTime(time()*1000);
+    
+  // echo $bal;
+  // die('');
 
-
-    if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/slips/" . $name)) {
+   if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/slips/" . $name)) {
         echo "Your file was uploaded";
     } else {
         echo "Your file cound't upload";
     }
 
-   // httpPost('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay',['123',''],'url');
-    $data = array("name" => "Robot", "msg" => "Hi guys, I'm a PHP bot !");                                                                    
-$data_string = json_encode($data);
+  
+   $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+   $db = $con->selectDatabase('gms2024');
+   $tbl = $db->selectCollection('users');
+   $updateResult = $tbl->updateOne(
+    ['_id' => new \MongoDB\BSON\ObjectID($_GET['id'])],
+    [
+        '$set' => [
+            "balance" => $bal
+           
 
-$ch = curl_init('https://games-back.kuab5b.easypanel.host/pay/deposit_bigpay');                                                                      
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-    'Content-Type: application/json',                                                                                
-    'Content-Length: ' . strlen($data_string))                                                                       
-);                                                                                                                   
+        ]
+    ]
+   
+);
+                                                 
 
-echo curl_exec($ch)."\n";
-curl_close($ch);
-die('');
+
+
+
     $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
     $db = $con->selectDatabase('gms2024');
     $tbl = $db->selectCollection('transactions');
     $document = array(
-        "userid" => $_POST['lbluid'],
+        "userid" => new MongoDB\BSON\ObjectId($_GET['id']),
         "platform" => 'luckyama',
-        "userPhone" => '',
-        "orderNo" => '',
-        "responseCode" => '',
-        "provider" => '',
-        "status" => '',
-        "payAmount" => $_POST['amount'],
-        "type" => 'manualDeposit',
-        "date" => '',
+        "userPhone" => $phn,
+        "orderNo" => 'manual',
+        "responseCode" => '0',
+        "provider" => 'bigpayz',
+        "status" => 'Manual Deposit',
+        "payAmount" => (int)$_POST['amount'],
+        "type" => 'deposit',
+        "date" => $today,
         "__v" => 0,
     );
     $tbl->insertOne($document);

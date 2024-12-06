@@ -1,10 +1,12 @@
 <?php
 session_start();
 $uid = "";
+$_id="";
 $uphone="";
 $filter = '';
 if (isset($_GET["uid"])) {
   $uid = $_GET["uid"];
+  $_id = $_GET["_id"];
   $uphone=substr($_GET["uid"],3);
 
 }
@@ -16,6 +18,8 @@ $options = [];
 $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.users', $query);
 $agntsArr = $rows->toArray();
+
+
 
 $filter = ['userPhone' => $uphone,'type'=>'deposit'];
 $options = [];
@@ -152,10 +156,12 @@ include 'layout/header.php';
               </table>
             </div>
           </div>
-          <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDeposit">
+          <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDeposit&id=<?php echo $_id;?>">
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-          <label style="display:none" id="lbluid" name="lbluid" value="<?php echo $uid;?>"></label>
+          
             <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
+            <input type="hidden" class="form-control" name="balance" id="balance" value="<?php echo $agntsArr[0]->balance?>"/>
+            <input type="hidden" class="form-control" name="uphone" id="uphone" value="<?php echo $agntsArr[0]->phone?>"/>
             <input type="Text" class="form-control" name="amount" id="amount"/>
             </div>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
@@ -203,7 +209,7 @@ include 'layout/header.php';
               </table>
             </div>
             </div>
-            <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <!-- <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;color:darkorange">Manual Withdraw Amount</label>
             <input type="Text" class="form-control" id="withAmt"/>
            
@@ -211,7 +217,7 @@ include 'layout/header.php';
             
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Withdraw" type="button" class="btn btn-info">Withdraw</button>
-            </div>
+            </div> -->
 
 
 
