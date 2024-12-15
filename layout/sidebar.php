@@ -16,10 +16,10 @@
         <a href="index.php" class="d-block far fa-user-circle"> Bundai</a>
         
         <span style="font-size:18px;color:white">Welcome, <?php 
-        if(isset($_SESSION["uid"]))
+        if(isset($_SESSION["utype"]))
         {
  
- echo $_SESSION["uid"]; } ?> </span>
+ echo $_SESSION["utype"]; } ?> </span>
 
         </div>
   
