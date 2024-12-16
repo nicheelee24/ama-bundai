@@ -36,6 +36,8 @@ if($flag=='removeAppliedPromo')
     ]
    
 );
+header('Location: ../member-details.php ', true);
+exit();
 }
 if ($flag == 'delPromo') {
     $pid = 0;
