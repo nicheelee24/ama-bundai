@@ -102,7 +102,7 @@ include 'layout/header.php';
             <label style="font-size:18px;">Promotion Applied</label>
           </div>
           <div class="form-group">
-          <label  style="font-size:16px;font-weight:normal;color:red"><?php if($uid!=""){if (in_array('promotionId', $agntsArr[0])){ if($agntsArr[0]->promotionId!='') { echo $agntsArr[0]->promotionId;  ?> <?php }else{echo 'Not Any';}}} ?></label>
+          <label  style="font-size:16px;font-weight:normal;color:red"><?php if($uid!=""){if (isset($agntsArr[0]->promotionId)){  echo $agntsArr[0]->promotionId;  ?> <?php }else{echo 'Not Any';}} ?></label>
           </div>
 
           <div class="form-group">
