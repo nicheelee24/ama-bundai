@@ -16,6 +16,26 @@ $flag = $_GET['flag'];
 //echo $flag;
 //die("..");
 $secret = "";
+
+if($flag=='removeAppliedPromo')
+{
+   
+  
+   $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+   $db = $con->selectDatabase('gms2024');
+   $tbl = $db->selectCollection('users');
+   $updateResult = $tbl->updateOne(
+    ['_id' => new \MongoDB\BSON\ObjectID($_GET['id'])],
+    [
+        '$set' => [
+            "promotionId" => null
+           
+
+        ]
+    ]
+   
+);
+}
 if ($flag == 'delPromo') {
     $pid = 0;
     if (isset($_GET['pid'])) {
