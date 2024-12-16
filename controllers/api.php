@@ -19,8 +19,8 @@ $secret = "";
 
 if($flag=='removeAppliedPromo')
 {
-   echo "removeAppliedPromo";
-   die("..");
+  // echo "removeAppliedPromo";
+  // die("..");
   
    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
    $db = $con->selectDatabase('gms2024');
