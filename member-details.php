@@ -98,8 +98,12 @@ include 'layout/header.php';
             
           </div>
 
-
-
+          <div class="form-group">
+            <label style="font-size:18px;">Promotion Applied</label>
+          </div>
+          <div class="form-group">
+          <label style="font-size:16px;font-weight:normal;color:red">Not Any</label>
+          </div>
 
           <div class="form-group">
             <label style="font-size:18px;">Bank Information</label>
