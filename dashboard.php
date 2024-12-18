@@ -60,7 +60,7 @@ include 'layout/header.php';
               [
                 '$and' => [
                   ['$eq' => ['$platform', 'luckyama']],
-                  ['$ne' => ['$promotionId', null]]
+                  ['$ne' => ['$promotionId', '']]
                 ]
               ],
               1,
@@ -184,6 +184,10 @@ include 'layout/header.php';
         '_id' => ['$nin' => $usersWithDeposits]
       ]);
 
+      $bonusCounts = $usersCollection->countDocuments([
+        'promotionId' => ['$ne' => '']
+      ]);
+
       //echo count($valueSumsArray);
       //die("..");
       //foreach($valueSumsArray as $value)
@@ -236,7 +240,7 @@ include 'layout/header.php';
                   <h3>0</h3>
 
                   <p>Bonus</p>
-                  <p><?php echo $totalBonus ?> Times </p>
+                  <p><?php echo $bonusCounts ?> Times </p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
