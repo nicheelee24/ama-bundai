@@ -56,7 +56,12 @@ include 'layout/header.php';
 
           '$group' => [
             '_id' => NULL,
-            
+
+            'bonusAmount' => ['$sum' => ['$cond' => [
+              ['$eq' => ['$__v', 0]],
+              'turnover',
+              0
+            ]]],
 
             'bonusCount' => ['$sum' => 1
             ],
@@ -156,6 +161,7 @@ include 'layout/header.php';
 
       $totalRegister = $valueSumsArray[0]->registerCount;
       $totalBonus=$totalBonusArray[0]->bonusCount;
+      $totalBonusAmount=$totalBonusArray[0]->bonusAmount;
       $totalDeposit = $transSumsArray[0]->depositCount;
       $totalDepositAmount = $transSumsArray[0]->depositAmount;
 
@@ -178,9 +184,7 @@ include 'layout/header.php';
         '_id' => ['$nin' => $usersWithDeposits]
       ]);
 
-      $bonusCounts = $usersCollection->countDocuments([
-        'promotionId' => ['$ne' => '']
-      ]);
+     
 
       //echo count($valueSumsArray);
       //die("..");
@@ -231,7 +235,7 @@ include 'layout/header.php';
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>0</h3>
+                  <h3><?php echo $totalBonusAmount ?></h3>
 
                   <p>Bonus</p>
                   <p><?php echo $totalBonus ?> Times </p>
