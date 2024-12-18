@@ -38,7 +38,25 @@ $edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
 $client = new MongoDB\Client($mongourl);
 
 $db = $client->gms2024;
+$bonusCollection = $db->bonus;
+$bonusSums = $bonusCollection->aggregate([
 
+  [
+
+    '$group' => [
+      '_id' => NULL,
+
+      'bonusAmount' => ['$sum' => ['$cond' => [
+        ['$eq' => ['$__v', 0]],
+        '$topUp',
+        0
+      ]]],
+
+      'bonusCount' => ['$sum' => 1
+      ],
+    ],
+  ],
+]);
 
 $usersCollection = $db->users;
 $transactionsCollection = $db->transactions;
@@ -177,7 +195,8 @@ $recsCount=count($usersArr);
 //echo 'data.................................................';
 //echo $_SESSION["prefix"];
 
-
+$totalBonus=$totalBonusArray[0]->bonusCount;
+      $totalBonusAmount=$totalBonusArray[0]->bonusAmount;
 
 include 'layout/header.php';
 ?>
@@ -361,10 +380,10 @@ include 'layout/header.php';
                 $cnt++;
                 $totalDepositCount += $usr["TotalDepositTimes"];
                 $totalWithdrawCount += $usr["TotalWithdrawTimes"];
-                $totalBonusCount=0;
+                $totalBonusCount=$totalBonus;
                 $totalDepositAmnt += $usr["TotalDepositAmount"];
                 $totalWithdrawAmnt += $usr["TotalWithdrawAmount"];
-                $totalBonusAmnt=0;
+                $totalBonusAmnt=$totalBonusAmount;
                 $totalProfit += $usr["Profit"];
                 $totalFirstTimeDeposit +=$usr["FirstTimeDepositedAmount"];
                 
