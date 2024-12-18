@@ -194,7 +194,7 @@ $recsCount=count($usersArr);
 //print_r($transactionSumsArray);
 //echo 'data.................................................';
 //echo $_SESSION["prefix"];
-
+$totalBonusArray=iterator_to_array($bonusSums);
 $totalBonus=$totalBonusArray[0]->bonusCount;
       $totalBonusAmount=$totalBonusArray[0]->bonusAmount;
 
