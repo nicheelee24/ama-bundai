@@ -59,7 +59,7 @@ include 'layout/header.php';
 
             'bonusAmount' => ['$sum' => ['$cond' => [
               ['$eq' => ['$__v', 0]],
-              '$turnover',
+              '$topUp',
               0
             ]]],
 
