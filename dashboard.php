@@ -48,6 +48,28 @@ include 'layout/header.php';
       $endOfDayUtc = new MongoDB\BSON\UTCDateTime(strtotime($endOfDay) * 1000);
 
       $usersCollection = $db->users;
+
+      $bonusSums = $usersCollection->aggregate([
+
+        [
+
+          '$group' => [
+            '_id' => NULL,
+           
+            'bonusCount' => ['$sum' => ['$cond' => [
+              [
+                '$and' => [
+                  ['$eq' => ['$platform', 'luckyama']],
+                  ['$ne' => ['$promotionId', null]]
+                ]
+              ],
+              1,
+              0
+            ]]],
+          ],
+        ],
+      ]);
+
       $registerSums = $usersCollection->aggregate([
 
         [
@@ -136,9 +158,10 @@ include 'layout/header.php';
 
       $valueSumsArray = iterator_to_array($registerSums);
       $transSumsArray = iterator_to_array($transSums);
+      $totalBonusArray=iterator_to_array($bonusSums);
 
       $totalRegister = $valueSumsArray[0]->registerCount;
-
+      $totalBonus=$totalBonusArray[0]->bonusCount;
       $totalDeposit = $transSumsArray[0]->depositCount;
       $totalDepositAmount = $transSumsArray[0]->depositAmount;
 
@@ -213,7 +236,7 @@ include 'layout/header.php';
                   <h3>0</h3>
 
                   <p>Bonus</p>
-                  <p>0 Times </p>
+                  <p><?php echo $totalBonus ?> Times </p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
