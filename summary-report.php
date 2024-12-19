@@ -140,6 +140,10 @@ $usersWithDeposits = $transactionsCollection->distinct('userid', ['type' => 'dep
       $usersWithDeposits = array_map(function ($id) {
         return new MongoDB\BSON\ObjectId($id);
       }, $usersWithDeposits);
+      $usersWithWithdraw = $transactionsCollection->distinct('userid', ['type' => 'withdrawal']);
+      $usersWithWithdraw = array_map(function ($id) {
+        return new MongoDB\BSON\ObjectId($id);
+      }, $usersWithWithdraw);
 // Handle DataTables server-side processing
 // $request = $_GET;
 // $draw = intval($request['draw']);
@@ -419,7 +423,7 @@ include 'layout/header.php';
                  <td ><?php echo  $totalBonusAmnt; ?></td>
                  <td><?php echo $totalCustomers; ?></td>
                  <td><?php echo count($usersWithDeposits); ?></td>
-                 <td><?php echo 0; ?></td>
+                 <td><?php echo count($usersWithWithdraw); ?></td>
                  <td><?php echo 0; ?></td>
                  <td><?php echo $totalCustomers; ?></td>
                  <td><?php echo $totalFirstDepositCount; ?></td>
