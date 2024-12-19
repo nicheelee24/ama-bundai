@@ -374,7 +374,7 @@ include 'layout/header.php';
               <th>Withdrawl (Amount)</th>
 
               <th>Profit</th>
-              <th colspan="3" style=" width: 90px;">Action</th>
+              <th colspan="3" style=" width: 90px;">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -420,7 +420,7 @@ include 'layout/header.php';
               $status="";
               $un=$usr['UserName'];
               
-             print_r($usr["Status"]);
+            
               if($usr["Status"]=="Active")
               {
                 $status="Active";
