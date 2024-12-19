@@ -247,7 +247,7 @@ if ($flag == 'acttDeact') {
     );
 
     // $tbl->insertOne($document);
-    // header('Location: ../manage-members.php', true);
+     header('Location: ../mem-history.php', false);
     echo 'success';
     // exit();
 
