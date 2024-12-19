@@ -571,7 +571,7 @@ include 'layout/header.php';
                 <th>Total</th>
                 <th>THB</th>
                 <th style="text-align:right;"><?php echo number_format($overallTotalBetAmount, 2); ?></th>
-                <th style="text-align:right;"><?php echo $overallTotalBetsCount; ?>0.00</th>
+                <th style="text-align:right;"><?php echo $overallTotalBetsCount; ?></th>
 
                 <th style="text-align:right;">0.00</th>
                 <?php
