@@ -86,7 +86,7 @@ include 'layout/header.php';
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Password</label>
-            <input type="password" name="pwd" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->rpwd; ?>" readonly <?php } ?> placeholder="Password">
+            <input type="password" name="pwd" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->rpwd; ?>" title="<?php echo $agntsArr[0]->rpwd; ?>" readonly <?php } ?> placeholder="Password">
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Status</label>
