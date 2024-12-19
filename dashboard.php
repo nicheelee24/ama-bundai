@@ -281,7 +281,7 @@ include 'layout/header.php';
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner" style="background:#e83e8c">
-                  <h3 id="totalDepositedToday"><?php echo $totalDepositedToday ?></h3>
+                  <h3 id="totalDepositedToday"><?php echo count($usersWithDeposits) ?></h3>
 
                   <p>Total Deposit Customers </p>
                   <p></p>
