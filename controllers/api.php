@@ -247,7 +247,7 @@ if ($flag == 'acttDeact') {
     );
 
     // $tbl->insertOne($document);
-     header('Location: ../mem-history.php', false);
+     header('Location: ../mem-history.php?updated', false);
    // echo 'success';
     exit();
 
