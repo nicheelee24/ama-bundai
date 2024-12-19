@@ -474,7 +474,7 @@ include 'layout/footer.php';
 
   function acti_deactiv(un,sts)
   {
-//alert(un+"-"+sts);
+alert(un+"-"+sts);
 if(sts=='')
 {
 
