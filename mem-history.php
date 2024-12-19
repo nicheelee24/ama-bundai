@@ -486,7 +486,7 @@ if(sts=='')
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(){
-              location.reload();
+             // location.reload();
             }
         });
     
@@ -502,7 +502,7 @@ else
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(){
-              location.reload();
+             // location.reload();
             }
         });
     
