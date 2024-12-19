@@ -485,7 +485,8 @@ if(sts=='')
             url:"controllers/api.php?flag=actDeact",    
             type: "get",    //request type,
             data: {uname: un, stats: sts},
-            success:function(){
+            success:function(dt){
+              alert(dt);
               location.reload();
             }
         });
