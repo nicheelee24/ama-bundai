@@ -211,7 +211,7 @@ if ($flag == 'createMem') {
     }
 }
 
-if ($flag == 'acttDeact') {
+if ($flag == 'actDeact') {
    
     // print_r($_GET["uname"]);
     // print_r($_GET["stats"]);
