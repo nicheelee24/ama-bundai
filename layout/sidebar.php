@@ -19,7 +19,13 @@
         if(isset($_SESSION["utype"]))
         {
  
- echo $_SESSION["utype"]; } ?> </span>
+ echo $_SESSION["utype"]; 
+ } 
+ else
+ {
+  header('Location: ../index.php?sts=sessionExpired', false);
+ }
+ ?> </span>
 
         </div>
   
