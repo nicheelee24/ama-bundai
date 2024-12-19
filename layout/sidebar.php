@@ -23,7 +23,7 @@
  } 
  else
  {
-  header('Location: ../index.php?sts=sessionExpired', false);
+  header('Location: index.php?sts=sessionExpired', false);
  }
  ?> </span>
 
