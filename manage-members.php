@@ -484,8 +484,8 @@ include 'layout/footer.php';
 
   function acti_deactiv(un,sts)
   {
-//alert(un+"-"+sts);
-if(sts=='')
+alert(un+"-"+sts);
+if(sts=='Block')
 {
 
   if(confirm("Are you sure to UNBLOCK this player?"))
