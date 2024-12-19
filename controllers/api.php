@@ -212,10 +212,11 @@ if ($flag == 'createMem') {
 }
 
 if ($flag == 'actDeact') {
-    die("..");
-     echo $_GET["uname"];
-    echo $_GET["stats"];
    
+     print_r($_GET["uname"]);
+     print_r($_GET["stats"]);
+   
+     die('..');
     $uname = $_GET["uname"];
     $status = $_GET["stats"];
     $newStatus = $status;
