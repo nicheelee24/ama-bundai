@@ -90,7 +90,7 @@ include 'layout/header.php';
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Status</label>
-            <select id="status" name="status" class="form-control" readonly onchange="changeSts('<?php echo $uid;?>','<?php echo $agntsArr[0]->status;?>')">
+            <select id="status" name="status" class="form-control" disabled onchange="changeSts('<?php echo $uid;?>','<?php echo $agntsArr[0]->status;?>')">
               <option value="Active" <?php if($uid!=""){ if($agntsArr[0]->status=='Active') {?> selected<?php }} ?>>Active</option>
               <option value="Blacklist" <?php if($uid!=""){ if($agntsArr[0]->status=='Blacklist') {?> selected<?php }} ?>>Blacklist</option>
               <option value="Block" <?php if($uid!=""){ if($agntsArr[0]->status=='Block') {?> selected<?php }} ?>>Block</option>
