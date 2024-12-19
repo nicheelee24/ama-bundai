@@ -420,7 +420,7 @@ include 'layout/header.php';
               $status="";
               $un=$usr['UserName'];
               
-              //die('..');
+              die($usr["Status"]);
               if($usr["Status"]=="Active")
               {
                 $status="Active";
