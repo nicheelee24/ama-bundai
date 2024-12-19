@@ -421,7 +421,7 @@ include 'layout/header.php';
               $un=$usr['UserName'];
               
               //die('..');
-              if($usr["Status"]=="active")
+              if($usr["Status"]=="Active")
               {
                 $status="Active";
                 ?>
