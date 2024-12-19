@@ -472,7 +472,7 @@ include 'layout/footer.php';
 
 <script>
 
-  function acti_deactiv(un,sts)
+  function acti_deactive(un,sts)
   {
 alert(un+"-"+sts);
 if(sts=='')
@@ -482,7 +482,7 @@ if(sts=='')
   {
     
         $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
+            url:"controllers/api.php?flag=actDeactt",    
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(dt){
@@ -499,7 +499,7 @@ else
   if(confirm("Are you sure to BLOCK this player?"))
 {
   $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
+            url:"controllers/api.php?flag=actDeactt",    
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(){

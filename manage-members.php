@@ -428,21 +428,21 @@ include 'layout/header.php';
               {
                 $status="Active";
                 ?>
-                <button style="background: url(dist/img/active.png);width:26px;height:26px;border:0px" title="Active" type="button" class="btn btn-info"></button>
+                <button style="background: url(dist/img/active.png);width:26px;height:26px;border:0px" onclick="acti_deactiv('<?php echo $un;?>','<?php echo $usr['Status'];?>')" title="Active" type="button" class="btn btn-info"></button>
                 <?php
               }
               if($usr["Status"]=="Block")
               {
                 $status="Blocked";
                 ?>
-                <button type="button" title="Blocked" class="btn btn-info"  style="background: url(dist/img/inactive.png);width:30px;height:30px;border:0px"></button>
+                <button type="button" title="Blocked" class="btn btn-info" onclick="acti_deactiv('<?php echo $un;?>','<?php echo $usr['Status'];?>')"  style="background: url(dist/img/inactive.png);width:30px;height:30px;border:0px"></button>
                 <?php
               }
               if($usr["Status"]=="Blacklist")
               {
                 $status="Blacklisted";
                 ?>
-                <button style="background: url(dist/img/blacklist.png);width:26px;height:26px;border:0px" title="Blacklisted" type="button" class="btn btn-info"></button>
+                <button style="background: url(dist/img/blacklist.png);width:26px;height:26px;border:0px" onclick="acti_deactiv('<?php echo $un;?>','<?php echo $usr['Status'];?>')" title="Blacklisted" type="button" class="btn btn-info"></button>
                 <?php
               }
               ?>
