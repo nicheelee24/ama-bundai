@@ -136,7 +136,10 @@ $transactionPipeline = [
 ];
 
 $transactionsData = $transactionsCollection->aggregate($transactionPipeline)->toArray();
-
+$usersWithDeposits = $transactionsCollection->distinct('userid', ['type' => 'deposit']);
+      $usersWithDeposits = array_map(function ($id) {
+        return new MongoDB\BSON\ObjectId($id);
+      }, $usersWithDeposits);
 // Handle DataTables server-side processing
 // $request = $_GET;
 // $draw = intval($request['draw']);
@@ -415,7 +418,7 @@ include 'layout/header.php';
                  <td><?php echo $totalProfit; ?></td>
                  <td ><?php echo  $totalBonusAmnt; ?></td>
                  <td><?php echo $totalCustomers; ?></td>
-                 <td><?php echo 0; ?></td>
+                 <td><?php echo count($usersWithDeposits); ?></td>
                  <td><?php echo 0; ?></td>
                  <td><?php echo 0; ?></td>
                  <td><?php echo $totalCustomers; ?></td>
