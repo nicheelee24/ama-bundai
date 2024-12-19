@@ -213,8 +213,8 @@ if ($flag == 'createMem') {
 
 if ($flag == 'acttDeact') {
    
-     print_r($_GET["uname"]);
-     print_r($_GET["stats"]);
+    // print_r($_GET["uname"]);
+    // print_r($_GET["stats"]);
    
     // die('..');
     $uname = $_GET["uname"];
@@ -248,8 +248,8 @@ if ($flag == 'acttDeact') {
 
     // $tbl->insertOne($document);
      header('Location: ../mem-history.php', false);
-    echo 'success';
-    // exit();
+   // echo 'success';
+    exit();
 
 
 }
