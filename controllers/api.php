@@ -221,10 +221,10 @@ if ($flag == 'actDeact') {
     $status = $_GET["stats"];
     $newStatus = $status;
     if ($status == 'Active') {
-        $newStatus = 'Block';
+        $newStatus = 'Active';
     }
     if ($status == 'Block') {
-        $newStatus = 'Active';
+        $newStatus = 'Block';
     }
     if ($status == 'Blacklist') {
         $newStatus = 'Blacklist';
