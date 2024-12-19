@@ -253,6 +253,48 @@ if ($flag == 'actDeact') {
 
 
 }
+if ($flag == 'actDeactMem') {
+   
+    // print_r($_GET["uname"]);
+    // print_r($_GET["stats"]);
+   
+    // die('..');
+    $uname = $_GET["uname"];
+    $status = $_GET["stats"];
+    $newStatus = $status;
+    if ($status == 'Active') {
+        $newStatus = 'Block';
+    }
+    if ($status == 'Block') {
+        $newStatus = 'Active';
+    }
+    if ($status == 'Blacklist') {
+        $newStatus = 'Active';
+    }
+    $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+    $db = $con->selectDatabase('gms2024');
+    $tbl = $db->selectCollection('users');
+
+
+    $updateResult = $tbl->updateOne(
+        ['name' => $uname],
+        [
+            '$set' => [
+
+                "status" => $newStatus,
+
+
+            ]
+        ]
+    );
+
+    // $tbl->insertOne($document);
+     header('Location: ../manage-members.php?updated', true);
+   // echo 'success';
+    exit();
+
+
+}
 if (isset($_SESSION['storedSecrect'])) {
     $secret = 'SSP7Z5YWBWAAWAYF';
     // print_r($secret);

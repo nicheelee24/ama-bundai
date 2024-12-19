@@ -492,7 +492,7 @@ if(sts=='Block')
   {
     
         $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
+            url:"controllers/api.php?flag=actDeactMem",    
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(){
@@ -508,7 +508,7 @@ else
   if(confirm("Are you sure to BLOCK this player?"))
 {
   $.ajax({
-            url:"controllers/api.php?flag=actDeact",    
+            url:"controllers/api.php?flag=actDeactMem",    
             type: "get",    //request type,
             data: {uname: un, stats: sts},
             success:function(){
