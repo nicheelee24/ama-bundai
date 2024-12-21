@@ -247,7 +247,7 @@ include 'layout/header.php';
                                    
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)"
-                                            name="permissions[]" type="checkbox" <?php if ($uid != "") if (in_array("turnover", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
+                                            name="permissions[]" type="checkbox"  <?php if ($uid != "") if (in_array("turnover", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
                                             value="turnover">
                                         <label class="form-check-label">Turnover</label>
                                     </div>
@@ -256,12 +256,12 @@ include 'layout/header.php';
                             </div>
 
                         </div>
-                        <div class="row" id="dvTurnover" style="display:none">
+                        <div class="row" id="dvTurnover" style="display:block">
 
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Turnover</label>
-                                    <input type="text" name="turnover" id="turnover" class="form-control" value="<?php if ($uid != "") {
+                                    <input type="text" name="turnover" maxlength="2" id="turnover" class="form-control" value="<?php if ($uid != "") {
                                         echo $agntsArr[0]->turnover;
                                     } ?>" placeholder="0">
                                 </div>
