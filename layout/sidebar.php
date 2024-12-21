@@ -136,13 +136,13 @@ if(isset($_SESSION["utype"]))
               <p> Win / Loss Report </p>
             </a>
           </li>
-          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('winLossReport',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
+          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('bonusReport',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
             <a href="bonus-report.php" class="nav-link" id="lnkBonusRep">
               <i class="nav-icon fa fa-list-alt"></i>
               <p> Bonus Report </p>
             </a>
           </li>
-          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('winLossReport',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
+          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('summaryReport',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
             <a href="summary-report.php" class="nav-link" id="lnkSummaryRep">
               <i class="nav-icon fa fa-list-alt"></i>
               <p> Summary Report </p>
@@ -159,10 +159,10 @@ if(isset($_SESSION["utype"]))
             </a>
           </li>
 
-          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('winLossReport',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
+          <li class="nav-item" <?php if(isset($_SESSION["access"])) if(!in_array('promoView',$_SESSION["access"])){ ?> style="display:none" <?php } ?>>
             <a href="promote.php" class="nav-link" id="lnkPromote">
               <i class="nav-icon fa fa-line-chart"></i>
-              <p> Promote </p>
+              <p>Manage  Promotion </p>
             </a>
           </li>
          
