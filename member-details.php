@@ -168,14 +168,14 @@ include 'layout/header.php';
             <input type="hidden" class="form-control" name="uphone" id="uphone" value="<?php echo $agntsArr[0]->phone?>"/>
             <input type="Text" class="form-control" name="amount" id="amount"/>
             </div>
-            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('deposit',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label>Upload Bank Slip</label>
                                     <input type="file" name="file" onchange="preview()">
                                     <img src="/ama-bundai/uploads/<?php if ($uid != "") {
                                         echo "";
                                     } ?>" id="previe" width="150px" height="80px" style="display:block" />
             </div>
-            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('deposit',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Deposit" type="submit" class="btn btn-info">Deposit</button>
             </div>
             </form>
