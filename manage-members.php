@@ -355,7 +355,9 @@ include 'layout/header.php';
         <div class="card-tools">
          
            <form method="POST" action="manage-members.php">
-           <input type="text" <?php if($searchvalue){?> value="<?php echo $searchvalue?>" <?php }?> name="search"/><button class="btn btn-warning" style="margin:5px" type="submit">Search</button> <a class="btn btn-primary" href="member-details.php" role="button">Create Member</a>
+           <input type="text" <?php if($searchvalue){?> value="<?php echo $searchvalue?>" <?php }?> name="search"/><button class="btn btn-warning" style="margin:5px" type="submit">Search</button> <a class="btn btn-primary" href="member-details.php" <?php if (isset($_SESSION["access"])) {
+                                    if (!in_array('createMem', $_SESSION["access"])) { ?> style="display:none" <?php }
+                                } ?> role="button">Create Member</a>
           </form>
         </div>
       </div>
