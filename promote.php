@@ -161,9 +161,13 @@ include 'layout/header.php';
                                 <td> <?php echo $prom->status; ?></td>
 
                                 <td><a href="create-promotion.php?eid=<?php echo $prom->_id ?>"
-                                        class="btn btn-info">Edit</a><a
+                                        class="btn btn-info" <?php if (isset($_SESSION["access"])) {
+                                    if (!in_array('promoUpdate', $_SESSION["access"])) { ?> style="display:none" <?php }
+                                } ?> >Edit</a><a
                                         href="controllers/api.php?flag=delPromo&pid=<?php echo $prom->_id ?>"
-                                        class="btn btn-danger">Delete</a></td>
+                                        class="btn btn-danger" <?php if (isset($_SESSION["access"])) {
+                                    if (!in_array('promoUpdate', $_SESSION["access"])) { ?> style="display:none" <?php }
+                                } ?>>Delete</a></td>
                             </tr>
                             <?php
                             $cnt++;
