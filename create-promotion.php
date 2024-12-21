@@ -393,12 +393,14 @@ include 'layout/header.php';
 
                         <div class="card-footer">
                             <?php if ($uid != "") { ?>
-                                <button type="submit" class="btn btn-primary" <?php if (isset($_SESSION["access"])) { ?>
+                                <button type="submit" <?php if (isset($_SESSION["access"])) {
+                                    if (!in_array('promoUpdate', $_SESSION["access"])) { ?> style="display:none" <?php }
+                                } ?> class="btn btn-primary" <?php if (isset($_SESSION["access"])) { ?>
                                         style="display:block" <?php } ?>>Update</button>
                             <?php } else { ?>
 
                                 <button type="submit" <?php if (isset($_SESSION["access"])) {
-                                    if (!in_array('createEmp', $_SESSION["access"])) { ?> style="display:block" <?php }
+                                    if (!in_array('createPromo', $_SESSION["access"])) { ?> style="display:none" <?php }
                                 } ?>
                                     class="btn btn-primary">Submit</button>
                             <?php } ?>

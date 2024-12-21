@@ -70,7 +70,7 @@ include 'layout/header.php';
                 <h3 class="card-title">All Promotions</h3>
                 <div class="card-tools">
                     <a class="btn btn-primary" href="create-promotion.php" <?php if (isset($_SESSION["access"])) {
-                        if (!in_array('createEmp', $_SESSION["access"])) { ?> style="display:none" <?php }
+                        if (!in_array('createPromo', $_SESSION["access"])) { ?> style="display:none" <?php }
                     } ?>
                         role="button">Create New</a>
                 </div>
