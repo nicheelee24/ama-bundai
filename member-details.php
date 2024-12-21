@@ -110,19 +110,19 @@ include 'layout/header.php';
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Bank Name</label>
-            <input type="text"  name="bbn" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbn; ?>"<?php }?> placeholder="Bank Name">
+            <input type="text" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> readonly <?php } ?>  name="bbn" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbn; ?>"<?php }?> placeholder="Bank Name">
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Account Number</label>
-            <input type="text" name="ban" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bban; ?>"<?php }?> placeholder="Currency">
+            <input type="text" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> readonly <?php } ?> name="ban" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bban; ?>"<?php }?> placeholder="Currency">
           </div>
 
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal">Bank User Name</label>
-            <input type="text" name="bun" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbun; ?>"<?php }?> placeholder="Currency">
+            <input type="text" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> readonly <?php } ?> name="bun" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbun; ?>"<?php }?> placeholder="Currency">
           </div>
           <div class="form-group">
-          <button  title="Save details" type="submit" class="btn btn-info">Save Member Info</button>
+          <button  title="Save details" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> style="display:none" <?php } ?> type="submit" class="btn btn-info">Save Member Info</button>
 
           </div>
           </form>
@@ -161,21 +161,21 @@ include 'layout/header.php';
             </div>
           </div>
           <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDeposit&id=<?php echo $_id;?>">
-          <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+          <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('deposit',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
           
             <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
             <input type="hidden" class="form-control" name="balance" id="balance" value="<?php echo $agntsArr[0]->balance?>"/>
             <input type="hidden" class="form-control" name="uphone" id="uphone" value="<?php echo $agntsArr[0]->phone?>"/>
             <input type="Text" class="form-control" name="amount" id="amount"/>
             </div>
-            <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label>Upload Bank Slip</label>
                                     <input type="file" name="file" onchange="preview()">
                                     <img src="/ama-bundai/uploads/<?php if ($uid != "") {
                                         echo "";
                                     } ?>" id="previe" width="150px" height="80px" style="display:block" />
             </div>
-            <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Deposit" type="submit" class="btn btn-info">Deposit</button>
             </div>
             </form>
