@@ -214,12 +214,10 @@ $agntsArr = $rows->toArray();
 
 
                                     </div>
-
                                     <div class="form-check">
-                                        <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="winLossReport" <?php if ($uid != "") if (in_array("winLossReport", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
-                                        <label class="form-check-label">View Win/Loss Report</label>
+                                        <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="bonusReport" <?php if ($uid != "") if (in_array("bonusReport", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Bonus Report</label>
                                     </div>
-
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="history" <?php if ($uid != "") if (in_array("history", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
                                             >
@@ -227,6 +225,16 @@ $agntsArr = $rows->toArray();
 
 
                                     </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="summaryReport" <?php if ($uid != "") if (in_array("summaryReport", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Summary Report</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="winLossReport" <?php if ($uid != "") if (in_array("winLossReport", $agntsArr[0]->permissions)) { ?> checked <?php } ?>>
+                                        <label class="form-check-label">Win/Loss Report</label>
+                                    </div>
+
+                                  
                                     <div class="custom-control custom-checkbox">
 
                                         <label for="payment" class="form-label">Manual Payment</label>
@@ -236,17 +244,17 @@ $agntsArr = $rows->toArray();
                                     <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="deposit" <?php if ($uid != "") if (in_array("deposit", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
                                             >
-                                        <label for="deposit" class="form-check-label">Deposit</label>
+                                        <label for="deposit" class="form-check-label">Deposit/Withdraw</label>
 
 
                                     </div>
-                                    <div class="form-check">
+                                    <!-- <div class="form-check">
                                         <input class="form-check-input" onclick="checkUncheck(this)" type="checkbox" name="permissions[]" value="withdraw" <?php if ($uid != "") if (in_array("withdraw", $agntsArr[0]->permissions)) { ?> checked <?php } ?>
                                             >
                                         <label for="withdraw" class="form-check-label">Withdraw</label>
 
 
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 
