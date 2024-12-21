@@ -17,8 +17,8 @@ if ($agentid == 'master') {
 if (isset($_SESSION["utype"])) {
     $utype = $_SESSION["utype"];
 }
-//echo $_SESSION['agent'];
-//die('');
+echo $_SESSION['agent'];
+die('');
 $db = $_ENV['db'] ?? '';
 
 $mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30&appName=Cluster0");
