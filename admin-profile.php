@@ -62,7 +62,7 @@ $agntsArr = $rows->toArray();
                 <h3 class="card-title">User Profile</h3>
               </div> 
 <?php 
-if($_SESSION["utype"]!="PLAYER"){
+if($_SESSION["utype"]=="PLAYER"){
 ?>
               <form>
 
@@ -110,7 +110,7 @@ if($_SESSION["utype"]!="PLAYER"){
                   </div>
                   <div class="form-group">
                     <label >Password</label>
-                    <input type="password" class="form-control" value="<?php echo $agntsArr[0]->pwd;?>" placeholder="Password">
+                    <input type="password" class="form-control" readonly value="<?php echo $agntsArr[0]->pwd;?>" placeholder="Password">
                   </div>
 
                  
@@ -165,7 +165,7 @@ if($_SESSION["utype"]!="PLAYER"){
   </div>
   <div class="form-group">
     <label >Password</label>
-    <input type="password" class="form-control" value="" placeholder="Password">
+    <input type="password" class="form-control" readonly value="" placeholder="Password">
   </div>
 
  
