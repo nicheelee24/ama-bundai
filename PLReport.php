@@ -603,7 +603,7 @@ include 'layout/header.php';
                     <th class="lightpurpl">0.00</th>
                   <?php } ?>
 
-                  <th <?php if ($overallCompanyWinLoss > 0){ ?> style="font-weight:bold;text-align:right" <?php } ?>></th><?php echo number_format($overallCompanyWinLoss, 2); ?></th>
+                  <th <?php if ($overallCompanyWinLoss > 0){ ?> style="font-weight:bold;text-align:right" <?php } ?>><?php echo number_format($overallCompanyWinLoss, 2); ?></th>
                   <th style="text-align:right;">0.00</th>
 
                 <?php } ?>
