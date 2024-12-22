@@ -355,7 +355,7 @@ include 'layout/header.php';
               // echo $_SESSION['agent'];
               if ($_SESSION['agent'] != 'master' || $_SESSION['agent'] == 'master') {
 
-              ?>
+                ?>
 
                 <th rows="2" class="lightbl">Member W/L</th>
                 <th rows="2" class="lightbl">Member Com.</th>
@@ -366,16 +366,16 @@ include 'layout/header.php';
                 <?php
                 if ($_SESSION['agent'] == 'master' || $_SESSION["prefix"] == 'ADMIN') {
 
-                ?>
+                  ?>
                   <th class="lightorng">Master Agent Win/Loss</th>
                   <th class="lightorng">Master Agent Com.</th>
-                <?php
+                  <?php
                 }
                 ?>
                 <?php
                 if ($_SESSION["prefix"] == 'ADMIN') {
 
-                ?>
+                  ?>
                   <th class="lightpurpl">Master Franchise Win/Loss</th>
                   <th class="lightpurpl">Master Franchise Com.</th>
                 <?php } ?>
@@ -383,7 +383,7 @@ include 'layout/header.php';
                 <th>Company Win/Loss</th>
                 <th>Company Com.</th>
 
-              <?php
+                <?php
 
               }
               ?>
@@ -404,7 +404,7 @@ include 'layout/header.php';
                 $overallTotalBetAmount += $bet->totalBetAmount;
 
 
-            ?>
+                ?>
                 <tr>
                   <td></td>
                   <td><?php echo $bet->userid ?></td>
@@ -416,7 +416,7 @@ include 'layout/header.php';
                   <?php
                   if ($_SESSION['agent'] != 'master' || $_SESSION['agent'] == 'master') {
 
-                  ?>
+                    ?>
                     <td class="lightbl">
 
                       <?php
@@ -435,32 +435,32 @@ include 'layout/header.php';
 
 
                     <td class="lightgrn"><?php
-                                          $AgtWinLoss = $totalWinAmount * .90;
+                    $AgtWinLoss = $totalWinAmount * .90;
 
 
-                                          if ($totalWinAmount > 0) {
+                    if ($totalWinAmount > 0) {
 
 
-                                            $AgtWinLoss = -$AgtWinLoss;
-                                            $overallAgentWinLoss += $AgtWinLoss;
-                                          ?>
+                      $AgtWinLoss = -$AgtWinLoss;
+                      $overallAgentWinLoss += $AgtWinLoss;
+                      ?>
 
                         <span style="color:red;"><?php echo number_format($AgtWinLoss, 2); ?></span>
-                      <?php
-                                          } else {
+                        <?php
+                    } else {
 
-                                            $AgtWinLoss = 0 - $AgtWinLoss;
-                                            $overallAgentWinLoss += $AgtWinLoss;
+                      $AgtWinLoss = 0 - $AgtWinLoss;
+                      $overallAgentWinLoss += $AgtWinLoss;
                       ?>
                         <span style="color:green;"><?php echo number_format($AgtWinLoss, 2); ?></span>
-                      <?php
+                        <?php
 
 
-                                          }
+                    }
 
 
 
-                      ?>
+                    ?>
                     </td>
                     <td class="lightgrn">0.00</td>
 
@@ -468,7 +468,7 @@ include 'layout/header.php';
                     <?php
                     if ($_SESSION['agent'] == 'master' || $_SESSION["prefix"] == 'ADMIN') {
 
-                    ?>
+                      ?>
                       <td class="lightorng">
                         <?php
                         $masAgWinLoss = $totalWinAmount * .90;
@@ -479,17 +479,17 @@ include 'layout/header.php';
 
                           $masAgWinLoss = -$masAgWinLoss;
                           $overallMasterAgentWinLoss += $masAgWinLoss;
-                        ?>
+                          ?>
 
                           <span style="color:red;"><?php echo number_format($masAgWinLoss, 2); ?></span>
-                        <?php
+                          <?php
                         } else {
 
                           $masAgWinLoss = 0 - $masAgWinLoss;
                           $overallMasterAgentWinLoss += $masAgWinLoss;
-                        ?>
+                          ?>
                           <span style="color:green;"><?php echo number_format($masAgWinLoss, 2); ?></span>
-                        <?php
+                          <?php
 
 
                         }
@@ -505,65 +505,65 @@ include 'layout/header.php';
 
                     <?php
                     if ($_SESSION["prefix"] == 'ADMIN') {
-                    ?>
+                      ?>
                       <td class="lightpurpl"><?php
-                                              $franchiseWinLoss = $totalWinAmount * .08;
-                                              $overallFranchiseWinLoss += $franchiseWinLoss;
-                                              if ($totalWinAmount > 0) {
+                      $franchiseWinLoss = $totalWinAmount * .08;
+                      $overallFranchiseWinLoss += $franchiseWinLoss;
+                      if ($totalWinAmount > 0) {
 
-                                                $franchiseWinLoss = -$franchiseWinLoss;
-                                                $overallFranchiseWinLoss = -$overallFranchiseWinLoss;
+                        $franchiseWinLoss = -$franchiseWinLoss;
+                        $overallFranchiseWinLoss = -$overallFranchiseWinLoss;
 
-                                                echo '<span style=color:red;>' . number_format($franchiseWinLoss, 2) . '</span>';
-                                              } else {
+                        echo '<span style=color:red;>' . number_format($franchiseWinLoss, 2) . '</span>';
+                      } else {
 
-                                                $franchiseWinLoss = 0 - $franchiseWinLoss;
-                                                $overallFranchiseWinLoss = 0 - $overallFranchiseWinLoss;
+                        $franchiseWinLoss = 0 - $franchiseWinLoss;
+                        $overallFranchiseWinLoss = 0 - $overallFranchiseWinLoss;
 
-                                                echo '<span style=color:green;>' . number_format($franchiseWinLoss, 2) . '</span>';
-                                              }
-                                              ?>
+                        echo '<span style=color:green;>' . number_format($franchiseWinLoss, 2) . '</span>';
+                      }
+                      ?>
                       </td>
                       <td class="lightpurpl">0.00</td>
                     <?php } ?>
 
 
                     <td style="text-align:right;"> <?php
-                                                    $compWinLoss = $totalWinAmount * .10;
+                    $compWinLoss = $totalWinAmount * .10;
 
-                                                    if ($totalWinAmount > 0) {
+                    if ($totalWinAmount > 0) {
 
-                                                      $compWinLoss = -$compWinLoss;
-                                                      $overallCompanyWinLoss += $compWinLoss;
+                      $compWinLoss = -$compWinLoss;
+                      $overallCompanyWinLoss += $compWinLoss;
 
-                                                    ?>
+                      ?>
 
                         <span style="color:red;"><?php echo number_format($compWinLoss, 2); ?></span>
-                      <?php
-                                                    } else {
+                        <?php
+                    } else {
 
 
-                                                      $compWinLoss = 0 - $compWinLoss;
-                                                      $overallCompanyWinLoss += $compWinLoss;
+                      $compWinLoss = 0 - $compWinLoss;
+                      $overallCompanyWinLoss += $compWinLoss;
 
                       ?>
                         <span style="color:green;"><?php echo number_format($compWinLoss, 2); ?></span>
-                      <?php
+                        <?php
 
 
-                                                    }
+                    }
 
 
 
-                      ?>
+                    ?>
                     </td>
                     <td style="text-align:right;">0.00</td>
-                  <?php
+                    <?php
                   }
                   ?>
 
                 </tr>
-            <?php  }
+              <?php }
             } ?>
             <thead>
               <tr>
@@ -577,37 +577,40 @@ include 'layout/header.php';
                 <?php
                 if ($_SESSION['agent'] != 'master' || $_SESSION['agent'] == 'master') {
 
-                ?>
-                  <th class="lightbl" <?php if ($overallTotalWinAmnt < 0) ?> style="color:red"><?php echo number_format($overallTotalWinAmnt, 2); ?> </th>
+                  ?>
+                  <th class="lightbl" <?php if ($overallTotalWinAmnt < 0) ?> style="color:red">
+                    <?php echo number_format($overallTotalWinAmnt, 2); ?> </th>
 
 
                   <th class="lightbl">0.00</th>
 
 
-                  <th class="lightgrn" <?php if ($overallAgentWinLoss < 0){ ?> style="color:red" <?php }?>><?php echo number_format($overallAgentWinLoss, 2) ?></th>
+                  <th class="lightgrn" <?php if ($overallAgentWinLoss < 0) { ?> style="color:red" <?php } ?>>
+                    <?php echo number_format($overallAgentWinLoss, 2) ?></th>
 
                   <th class="lightgrn">0.00</th>
 
                   <?php
                   if ($_SESSION['agent'] == 'master' || $_SESSION["prefix"] == 'ADMIN') {
 
-                  ?>
-                    <th class="lightorng" <?php if ($overallMasterAgentWinLoss < 0) ?> style="color:red"><?php echo number_format($overallMasterAgentWinLoss, 2) ?></th>
+                    ?>
+                    <th class="lightorng" <?php if ($overallMasterAgentWinLoss < 0) ?> style="color:red">
+                      <?php echo number_format($overallMasterAgentWinLoss, 2) ?></th>
 
                     <th class="lightorng">0.00</th>
                   <?php } ?>
                   <?php
                   if ($_SESSION['agent'] != 'master' && $_SESSION["prefix"] != 'SGBT' && $_SESSION["prefix"] == 'ADMIN') {
-                  ?>
-                    <th class="lightpurpl" <?php if ($overallFranchiseWinLoss < 0) ?> style="color:red;"><?php echo number_format($overallFranchiseWinLoss, 2) ?></th>
+                    ?>
+                    <th class="lightpurpl" <?php if ($overallFranchiseWinLoss < 0) ?> style="color:red;">
+                      <?php echo number_format($overallFranchiseWinLoss, 2) ?></th>
                     <th class="lightpurpl">0.00</th>
                   <?php } ?>
 
-                 
-<th>00</th>
-<th>000</th>
-<th <?php if ($overallCompanyWinLoss < 0){ ?> style="font-weight:bold;text-align:right;color:red" <?php } ?>><?php echo number_format($overallCompanyWinLoss, 2); ?></th>
-<th style="text-align:right;">0.00</th>
+
+
+                  <th <?php if ($overallCompanyWinLoss < 0) { ?> style="font-weight:bold;text-align:right;color:red" <?php } ?>><?php echo number_format($overallCompanyWinLoss, 2); ?></th>
+                  <th style="text-align:right;">0.00</th>
                 <?php } ?>
 
               </tr>
