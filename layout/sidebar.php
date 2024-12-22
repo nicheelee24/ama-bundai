@@ -63,7 +63,7 @@
           </li>
          <?php } 
 
-if($_SESSION["prefix"]!="ADMIN" && $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
+if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
 { ?>
 
 
@@ -78,7 +78,7 @@ if($_SESSION["prefix"]!="ADMIN" && $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["
 
 }
          
-         if($_SESSION["prefix"]!="ADMIN" && $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
+         if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
           { ?>
          
         
