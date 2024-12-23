@@ -223,7 +223,7 @@ include 'layout/header.php';
             </div>
             
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <button  title="Manual Withdraw" type="button" class="btn btn-info">Reduce Amount</button>
+            <button  title="Manual Withdraw" type="submit" class="btn btn-info">Reduce Amount</button>
             </div> 
             </form>
 
