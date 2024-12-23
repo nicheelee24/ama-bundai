@@ -213,7 +213,7 @@ include 'layout/header.php';
               </table>
             </div>
             </div>
-            <!-- <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;color:darkorange">Manual Withdraw Amount</label>
             <input type="Text" class="form-control" id="withAmt"/>
            
@@ -221,18 +221,17 @@ include 'layout/header.php';
             
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <button  title="Manual Withdraw" type="button" class="btn btn-info">Withdraw</button>
-            </div> -->
+            </div> 
 
 
 
 
-            <!-- /.card-body -->
+           
 
 
 
 
-          </div>
-        </div>
+        
         <!-- /.col -->
 
         <!-- /.col -->

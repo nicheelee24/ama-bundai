@@ -261,7 +261,7 @@ include 'layout/header.php';
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Turnover</label>
-                                    <input type="text" name="turnover" maxlength="2" id="turnover" class="form-control" value="<?php if ($uid != "") {
+                                    <input type="text" name="turnover" maxlength="1" id="turnover" class="form-control" value="<?php if ($uid != "") {
                                         echo $agntsArr[0]->turnover;
                                     } ?>" placeholder="0">
                                 </div>
