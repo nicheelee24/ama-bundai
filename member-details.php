@@ -98,7 +98,7 @@ include 'layout/header.php';
             
           </div>
           <div class="form-group">
-            <label style="font-size:18px;">Turover</label>
+            <label style="font-size:18px;">Turnover</label>
           </div>
           <div class="form-group">
           <label style="font-size:16px;font-weight:normal">Turnover Times</label>
