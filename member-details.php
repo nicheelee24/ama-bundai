@@ -97,6 +97,17 @@ include 'layout/header.php';
             </select>
             
           </div>
+          <div class="form-group">
+            <label style="font-size:18px;">Turover</label>
+          </div>
+          <div class="form-group">
+          <label style="font-size:16px;font-weight:normal">Turnover Times</label>
+          <input type="text" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> readonly <?php } ?>  name="turnoverTimes" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbn; ?>"<?php }?> placeholder="Turnover Times">
+          </div>
+          <div class="form-group">
+          <label style="font-size:16px;font-weight:normal">Turnover Amount</label>
+          <input type="text" <?php if(isset($_SESSION["access"])) if(!in_array('memUpdate',$_SESSION["access"])){ ?> readonly <?php } ?>  name="turnoverAmnt" class="form-control" <?php if($uid!=""){ ?> value="<?php echo $agntsArr[0]->bbn; ?>"<?php }?> placeholder="Turnover Times">
+          </div>
 
           <div class="form-group">
             <label style="font-size:18px;">Promotion Applied</label>
