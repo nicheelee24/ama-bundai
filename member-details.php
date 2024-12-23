@@ -163,7 +163,7 @@ include 'layout/header.php';
           <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDeposit&id=<?php echo $_id;?>">
           <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('deposit',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
           
-            <label style="font-size:18px;color:darkorange">Manual Deposit Amount</label>
+            <label style="font-size:18px;color:darkorange">Manual Credit Amount</label>
             <input type="hidden" class="form-control" name="balance" id="balance" value="<?php echo $agntsArr[0]->balance?>"/>
             <input type="hidden" class="form-control" name="uphone" id="uphone" value="<?php echo $agntsArr[0]->phone?>"/>
             <input type="Text" class="form-control" name="amount" id="amount"/>
@@ -176,7 +176,7 @@ include 'layout/header.php';
                                     } ?>" id="previe" width="150px" height="80px" style="display:block" />
             </div>
             <div class="form-group" <?php if(isset($_SESSION["access"])) if(!in_array('deposit',$_SESSION["access"])){ ?> style="display:none" <?php } ?> <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <button  title="Manual Deposit" type="submit" class="btn btn-info">Deposit</button>
+            <button  title="Manual Deposit" type="submit" class="btn btn-info">Add Amount</button>
             </div>
             </form>
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
@@ -213,15 +213,20 @@ include 'layout/header.php';
               </table>
             </div>
             </div>
+            <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDebit&id=<?php echo $_id;?>">
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <label style="font-size:18px;color:darkorange">Manual Withdraw Amount</label>
-            <input type="Text" class="form-control" id="withAmt"/>
+            <label style="font-size:18px;color:darkorange">Manual Debit Amount</label>
+            <input type="hidden" class="form-control" name="balancee" id="balancee" value="<?php echo $agntsArr[0]->balance?>"/>
+            <input type="hidden" class="form-control" name="uphonee" id="uphonee" value="<?php echo $agntsArr[0]->phone?>"/>
+            <input type="Text" class="form-control" name="withAmt" id="withAmt"/>
            
             </div>
             
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
-            <button  title="Manual Withdraw" type="button" class="btn btn-info">Withdraw</button>
+            <button  title="Manual Withdraw" type="button" class="btn btn-info">Reduce Amount</button>
             </div> 
+            </form>
+
 
 
 

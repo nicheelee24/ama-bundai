@@ -51,6 +51,60 @@ if ($flag == 'delPromo') {
         exit();
     }
 }
+if($flag=='manualDebit')
+{
+    $phn=$_POST['uphonee'];
+   // $name = $_FILES['file']['name'];
+   // $temp = $_FILES['file']['tmp_name'];
+    $bal=$_POST['balancee'] + $_POST['withAmt'];
+    $dt = new DateTime(date('Y-m-d'), new DateTimeZone('UTC'));
+$ts = $dt->getTimestamp();
+$today = new \MongoDB\BSON\UTCDateTime(time()*1000);
+    
+  // echo $bal;
+  // die('');
+
+//    if (move_uploaded_file($temp, "/var/www/html/ama-bundai/uploads/slips/" . $name)) {
+//         echo "Your file was uploaded";
+//     } else {
+//         echo "Your file cound't upload";
+//     }
+
+  
+   $con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+   $db = $con->selectDatabase('gms2024');
+   $tbl = $db->selectCollection('users');
+   $updateResult = $tbl->updateOne(
+    ['_id' => new \MongoDB\BSON\ObjectID($_GET['id'])],
+    [
+        '$set' => [
+            "balance" => $bal
+           
+
+        ]
+    ]
+   
+);
+$con = new MongoDB\Client("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+$db = $con->selectDatabase('gms2024');
+$tbl = $db->selectCollection('transactions');
+$document = array(
+    "userid" => new MongoDB\BSON\ObjectId($_GET['id']),
+    "platform" => 'luckyama',
+    "userPhone" => $phn,
+    "orderNo" => 'manual',
+    "responseCode" => '0',
+    "provider" => 'bigpayz',
+    "status" => 'Manual Debit',
+    "payAmount" => (int)$_POST['withAmt'],
+    "type" => 'withdrawal',
+    "date" => $today,
+    "__v" => 0,
+);
+$tbl->insertOne($document);
+header('Location: ../manage-members.php', true);
+exit();
+}
 if($flag=='manualDeposit')
 {
     $phn=$_POST['uphone'];
@@ -100,7 +154,7 @@ $today = new \MongoDB\BSON\UTCDateTime(time()*1000);
         "orderNo" => 'manual',
         "responseCode" => '0',
         "provider" => 'bigpayz',
-        "status" => 'Manual Deposit',
+        "status" => 'Manual Credit',
         "payAmount" => (int)$_POST['amount'],
         "type" => 'deposit',
         "date" => $today,
