@@ -54,7 +54,7 @@ if ($flag == 'delPromo') {
 if($flag=='manualDebit')
 {
     $phn=$_POST['uphonee'];
-    die($phn);
+   // die($phn);
    // $name = $_FILES['file']['name'];
    // $temp = $_FILES['file']['tmp_name'];
     $bal=$_POST['balancee'] + $_POST['withAmt'];
