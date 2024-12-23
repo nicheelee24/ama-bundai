@@ -57,7 +57,7 @@ if($flag=='manualDebit')
    // die($phn);
    // $name = $_FILES['file']['name'];
    // $temp = $_FILES['file']['tmp_name'];
-    $bal=$_POST['balancee'] + $_POST['withAmt'];
+    $bal=$_POST['balancee'] - $_POST['withAmt'];
     $dt = new DateTime(date('Y-m-d'), new DateTimeZone('UTC'));
 $ts = $dt->getTimestamp();
 $today = new \MongoDB\BSON\UTCDateTime(time()*1000);
