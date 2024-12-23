@@ -213,7 +213,7 @@ include 'layout/header.php';
               </table>
             </div>
             </div>
-            <form method="post" enctype="multipart/form-data" action="controllers/api.php?flag=manualDebit&id=<?php echo $_id;?>">
+            <form method="post" action="controllers/api.php?flag=manualDebit&id=<?php echo $_id;?>">
             <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;color:darkorange">Manual Debit Amount</label>
             <input type="hidden" class="form-control" name="balancee" id="balancee" value="<?php echo $agntsArr[0]->balance?>"/>
