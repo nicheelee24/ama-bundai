@@ -126,7 +126,9 @@ include 'layout/header.php';
 
           </div>
           </form>
-          
+          <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
+            <label style="font-size:18px;">Balance: <?php echo $agntsArr[0]->balance; ?></label>
+          </div>
           <div class="form-group" <?php if($uid==""){ ?>style="display:none" <?php } ?>>
             <label style="font-size:18px;">Deposit History</label>
           </div>
