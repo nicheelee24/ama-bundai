@@ -104,7 +104,7 @@ include 'layout/header.php';
           </div>
           <div class="form-group">
             <label style="font-size:16px;font-weight:normal;">Current Promotion</label><br/>
-          <label  style="font-size:16px;font-weight:normal;"><?php if($uid!="" && isset($agntsArr[0]->promotionId) && $agntsArr[0]->promotionId!=null) {  echo '<a href=create-promotion.php?eid='.$agntsArr[0]->promotionId.'>'.$agntsArr[0]->promotionId.'</a>'  ?><a href="controllers/api.php?flag=removeAppliedPromo&id=<?php echo $agntsArr[0]->_id ?>" style="color:red;font-weight:bold;margin-left:30px">Disable</a> <?php } else { echo 'No Promotion Applied'; } ?></label>
+          <label  style="font-size:16px;font-weight:normal;"><?php if($uid!="" && isset($agntsArr[0]->promotionId) && $agntsArr[0]->promotionId!=null) {  echo '<a href=create-promotion.php?eid='.$agntsArr[0]->promotionId.'>'.$agntsArr[0]->promotionId.'</a>'  ?><a href="controllers/api.php?flag=removeAppliedPromo&id=<?php echo $agntsArr[0]->_id ?>" style="color:red;font-weight:bold;margin-left:30px">Remove</a> <?php } else { echo 'No Promotion Applied'; } ?></label>
           </div>
            <div class="form-group">
             <label style="font-size:16px;font-weight:normal;">Promotion History</label>
