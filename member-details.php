@@ -111,7 +111,33 @@ include 'layout/header.php';
          
           </div>
            <div class="form-group">
-           
+            <div class="card-body p-0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Date</th>
+                    <th>Promotion Id</th>
+                   
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <?php $cnt=1;
+                  foreach($transDepositArr as $deposit){
+                  ?>
+                  <tr>
+                    <td><?php echo $cnt; ?></td>
+                    <td><?php echo $deposit->date->toDateTime()->format('Y-m-d H:i:s')?></td>
+                    <td><?php echo  $deposit->payAmount?></td>
+                    <td><?php echo    $agntsArr[0]->bbn;?></td>
+                    <td><?php echo    $deposit->status;?></td>
+                  </tr>
+                  <?php $cnt++; }?> -->
+                </tbody>
+              </table>
+            </div>
          
           </div>
 
