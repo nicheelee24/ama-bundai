@@ -114,7 +114,7 @@ include 'layout/header.php';
             <div class="card-body p-0">
               <table class="table">
                 <thead>
-                  <tr>
+                  <tr style="font-size:16px;font-weight:normal;">
                     <th style="width: 10px">#</th>
                     <th>Date</th>
                     <th>Promotion Id</th>
