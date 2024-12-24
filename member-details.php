@@ -298,13 +298,13 @@ include 'layout/header.php';
 
     function confirmRem()
     {
-      if(confirm("Are you sure to BLOCK this player?"))
+      if(confirm("Are you sure to remove current promotion?"))
      {
-
+return;
      }
      else
      {
-      return;
+      exit();
      }
     }
 function changeSts(un,sts)
