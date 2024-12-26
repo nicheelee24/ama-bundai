@@ -220,7 +220,7 @@ include 'layout/header.php';
           </div>
           <br/>
           <?php if(isset($_POST['reservation'])){  ?>
-          <span style="font-weight:bold;padding-top:35px">Selected Date Range: </span><?php echo $posteddates[0];?> To <?php echo $posteddates[1] ?> <?php } ?><a style="margin-left:20px" href="manage-members.php?clearFilter">Clear Filter</a>
+          <span style="font-weight:bold;padding-top:35px">Selected Date Range: </span><?php echo $posteddates[0];?> To <?php echo $posteddates[1] ?><a style="margin-left:30px" href="manage-members.php?clearFilter">Clear Filter</a> <?php } ?>
           <!-- /.input group -->
         </div>
 
