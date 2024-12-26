@@ -201,7 +201,7 @@ include 'layout/header.php';
 
   <div class="col-md-12">
     <div class="card">
-      <form method="post" action="manage-members.php">
+      <form method="post" action="mem-history.php">
       <div style="margin-left:20px" class="row">
      
         <div class="form-group">
