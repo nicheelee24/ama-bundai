@@ -256,7 +256,7 @@ include 'layout/header.php';
         <div class="form-group" placeholder="Select">
           <label>Origin</label>
           <select class="custom-select">
-            <option value="-1">Select</option>
+            
             <option value="app">APP</option>
            
 
