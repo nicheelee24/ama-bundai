@@ -48,7 +48,8 @@ $transactionPipeline = [
     [
         '$match' => [
             'type' => ['$in' => ['deposit', 'withdrawal']],
-            'platform' => 'luckyama' // Filter by platform
+            'platform' => 'luckyama', // Filter by platform
+            'date'=>$stDate
         ]
     ],
     [
