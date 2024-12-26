@@ -48,7 +48,8 @@ $transactionPipeline = [
     [
         '$match' => [
             'type' => ['$in' => ['deposit', 'withdrawal']],
-            'platform' => 'luckyama' // Filter by platform
+            'platform' => 'luckyama', // Filter by platform
+            'date' => ['$gte' => $stDate, '$lte' => $edDate]
         ]
     ],
     [
@@ -216,7 +217,7 @@ include 'layout/header.php';
           </div>
           <br/>
           <?php if(isset($_POST['reservation'])){  ?>
-          <span style="font-weight:bold;padding-top:35px">Selected Date Range: </span><?php echo $posteddates[0];?> To <?php echo $posteddates[1] ?> <?php } ?>
+          <span style="font-weight:bold;padding-top:35px">Selected Date Range: </span><?php echo $posteddates[0];?> To <?php echo $posteddates[1] ?><a style="margin-left:30px" href="mem-history.php?clearFilter">Clear Filter</a> <?php } ?>
           <!-- /.input group -->
         </div>
 
@@ -351,7 +352,7 @@ include 'layout/header.php';
 
         <div class="card-tools">
           <!-- <a class="btn btn-primary" href="add-member.php" role="button">Add Member</a> -->
-           <form method="POST" action="manage-members.php">
+           <form method="POST" action="mem-history.php">
            <input type="text" <?php if($searchvalue){?> value="<?php echo $searchvalue?>" <?php }?> name="search"/><button class="btn btn-primary" type="submit">Search</button>
           </form>
         </div>

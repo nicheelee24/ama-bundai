@@ -35,6 +35,8 @@ else
   $stDate = new MongoDB\BSON\UTCDateTime(strtotime("-180 days") * 1000);
 $edDate = new MongoDB\BSON\UTCDateTime(strtotime("-0 days") * 1000);
 }
+
+
 $client = new MongoDB\Client($mongourl);
 
 $db = $client->gms2024;
