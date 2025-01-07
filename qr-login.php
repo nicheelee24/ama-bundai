@@ -48,7 +48,7 @@
   $qrCodeUrl = GoogleQrUrl::generate('Backend', $secret, 'bundaii.com/ama-bundai/index.php');
 
  
- print_r($qrCodeUrl);
+ //print_r($qrCodeUrl);
  //die("..");
  ?>
   
