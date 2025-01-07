@@ -30,14 +30,14 @@
   
 
   if (!isset($_SESSION['storedSecrect'])) {
-   // print_r("code is blank..".$secret);
+   print_r("code is blank..".$secret);
     $secret = $googleAuthenticator->generateSecret();
   $_SESSION["storedSecrect"]=$secret;
   }
   else
   {
     $secret =$_SESSION['storedSecrect'];
-   // print_r("code exists...".$secret);
+    print_r("code exists...".$secret);
     
   }
 
