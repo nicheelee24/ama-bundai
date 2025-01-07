@@ -359,6 +359,7 @@ if ($flag == 'qrscan') {
     $_SESSION["qrscanned"] = "true";
     $code=$_POST["2fa"];
     $secret = $_SESSION['storedSecrect'];
+    print_r($code);
     $googleAuthenticator = new GoogleAuthenticator();
     if ($googleAuthenticator->checkCode($secret, $code)) {
     header('Location: ../dashboard.php ', true);
