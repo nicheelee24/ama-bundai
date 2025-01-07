@@ -70,18 +70,7 @@
             </div>
           </div>
         </div>
-        <?php
-        if(isset($_SESSION['qrscanned']))
-        { ?>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="2fa" id="2fa"  placeholder="Enter 2FA Code">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-     <?php } ?>
+      
           <!-- /.col -->
           <div class="col-4 ">
         <button type="submit" class="btn btn-primary">Sign In</button>

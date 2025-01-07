@@ -368,10 +368,7 @@ if ($flag == 'login') {
     // die($uname);
 
     $password = $_POST['pass'];
-    $code = $_POST['2fa'];
-    die('..');
-    $g = new GoogleAuthenticator();
-    print_r($g->checkCode($secret, $code));
+    
     
     //  if ($g->checkCode($secret, $code)) {
     $_SESSION["auth"] = $secret;
@@ -401,6 +398,7 @@ if ($flag == 'login') {
             $_SESSION['agent'] = $uname;//agent and other users
         }
         if (!isset($_SESSION["qrscanned"])) {
+            
             header('Location: ../qr-login.php ', true);
             exit();
         } else {
