@@ -368,10 +368,10 @@ if ($flag == 'login') {
     // die($uname);
 
     $password = $_POST['pass'];
-    // $code = $_POST['2fa'];
-    // $g = new GoogleAuthenticator();
-    //  print_r($g->checkCode($secret, $code));
-    //die('..');
+    $code = $_POST['2fa'];
+    $g = new GoogleAuthenticator();
+    print_r($g->checkCode($secret, $code));
+    die('..');
     //  if ($g->checkCode($secret, $code)) {
     $_SESSION["auth"] = $secret;
 
