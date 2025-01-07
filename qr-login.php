@@ -28,17 +28,11 @@
   $googleAuthenticator = new GoogleAuthenticator();
   $secret = $googleAuthenticator->generateSecret();
 
-  if(!isset($_SESSION['storedSecrect']))
-  {
+ 
   $_SESSION["storedSecrect"]=$secret;
   print_r("".$secret);
   
-  }
-  else
-  {
-    die('not empty');
-  }
-  print_r("---".$_SESSION['storedSecrect']);
+ 
   
   
   $qrCodeUrl = GoogleQrUrl::generate('Backend', $secret, 'bundaii.com/ama-bundai/index.php');
