@@ -364,6 +364,11 @@ if ($flag == 'qrscan') {
     if ($googleAuthenticator->checkCode($secret, $code)) {
     header('Location: ../dashboard.php ', true);
     }
+    else
+    {
+        header('Location: ../qr-login.php?status=invalid2fa ', true);
+       
+    }
     exit();
 }
 
