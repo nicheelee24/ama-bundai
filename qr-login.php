@@ -21,7 +21,7 @@
   </div>
   <!-- /.login-logo -->
   <?php
-  //session_start();
+  session_start();
   use Google\Authenticator\GoogleAuthenticator;
   use Google\Authenticator\GoogleQrUrl;
   require_once "vendor/autoload.php";
