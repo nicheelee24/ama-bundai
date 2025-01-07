@@ -408,14 +408,14 @@ if ($flag == 'login') {
         } else {
             $_SESSION['agent'] = $uname;//agent and other users
         }
-        if (!isset($_SESSION["qrscanned"])) {
+       // if (!isset($_SESSION["qrscanned"])) {
             
             header('Location: ../qr-login.php ', true);
             exit();
-        } else {
-            header('Location: ../dashboard.php ', true);
-            exit();
-        }
+      //  } else {
+          //  header('Location: ../dashboard.php ', true);
+          //  exit();
+     //   }
     } else {
         $filter = ['phone' => $uname, 'rpwd' => $password];
         $options = [];
@@ -435,13 +435,13 @@ if ($flag == 'login') {
         } else {
             $_SESSION['agent'] = $uname;//agent and other users
         }
-        if (!isset($_SESSION["qrscanned"])) {
+      //  if (!isset($_SESSION["qrscanned"])) {
             header('Location: ../qr-login.php ', true);
             exit();
-        } else {
-            header('Location: ../dashboard.php ', true);
-            exit();
-        }
+      //  } else {
+           // header('Location: ../dashboard.php ', true);
+          //  exit();
+      //  }
 
 
 
