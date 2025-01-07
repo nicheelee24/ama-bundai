@@ -60,9 +60,7 @@
        
        
         <div class="input-group mb-3" style="text-align:center">
-          <?php 
-if(!isset($_SESSION['storedSecrect'])){
-?>
+         
    <scan style="margin-bottom:10px"> Scan QR code using Google authenticator</scan> 
          
           
@@ -75,7 +73,7 @@ if(!isset($_SESSION['storedSecrect'])){
            
          
 
-        <?php } ?>
+       
         </div>
       
           
