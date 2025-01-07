@@ -25,12 +25,21 @@
   use Google\Authenticator\GoogleAuthenticator;
   use Google\Authenticator\GoogleQrUrl;
   require_once "vendor/autoload.php";
+  $secret ="";
   $googleAuthenticator = new GoogleAuthenticator();
-  $secret = $googleAuthenticator->generateSecret();
+  
 
- 
+  if (!isset($_SESSION['storedSecrect'])) {
+    print_r("code is blank..".$secret);
+    $secret = $googleAuthenticator->generateSecret();
   $_SESSION["storedSecrect"]=$secret;
-  print_r("".$secret);
+  }
+  else
+  {
+    print_r("code exists...".$secret);
+    $secret =$_SESSION['storedSecrect'];
+  }
+
   
  
   
