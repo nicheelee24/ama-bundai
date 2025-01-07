@@ -30,14 +30,14 @@
   if(!isset($_SESSION['storedSecrect']))
   {
   $_SESSION["storedSecrect"]='SSP7Z5YWBWAAWAYF';
-  //print_r("".$secret);
+  print_r("".$secret);
   
   }
   else
   {
-  //  die('not empty');
+    die('not empty');
   }
-  //print_r("---".$_SESSION['storedSecrect']);
+  print_r("---".$_SESSION['storedSecrect']);
   
   
   $qrCodeUrl = GoogleQrUrl::generate('Agent', 'SSP7Z5YWBWAAWAYF', 'Backoffice Login');
