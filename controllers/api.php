@@ -351,13 +351,17 @@ if ($flag == 'actDeactMem') {
 
 }
 if (isset($_SESSION['storedSecrect'])) {
-    $secret = 'SSP7Z5YWBWAAWAYF';
+    $secret = $_SESSION['storedSecrect'];
     // print_r($secret);
     //die('..');
 }
 if ($flag == 'qrscan') {
     $_SESSION["qrscanned"] = "true";
+    $code=$_POST["2fa"];
+    $secret = $_SESSION['storedSecrect'];
+    if ($g->checkCode($secret, $code)) {
     header('Location: ../dashboard.php ', true);
+    }
     exit();
 }
 

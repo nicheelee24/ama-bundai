@@ -57,23 +57,23 @@
        
         <div class="input-group mb-3" style="text-align:center">
    <scan style="margin-bottom:10px"> Scan QR code using Google authenticator</scan> 
-          <?php 
+         
           
           
-          if (!isset($_SESSION["qrscanned"])){ ?>
+         
 
             <img src="<?php echo $qrCodeUrl; ?>" alt="Scan this QR code with your Google Authenticator app"
               style="width: 200px; height=200px;margin-left:20%">
 
            
-          <?php }?>
+         
 
         
         </div>
-        <?php 
+      
           
           
-          if (!isset($_SESSION["qrscanned"])){ ?>
+         
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="2fa" id="2fa" required placeholder="Enter 2FA Code">
           <div class="input-group-append">
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <?php }?>
+      
           <!-- /.col -->
           <div class="col-4 ">
         <button type="submit" class="btn btn-primary">Sign In</button>
