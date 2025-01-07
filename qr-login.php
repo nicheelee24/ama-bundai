@@ -26,10 +26,11 @@
   use Google\Authenticator\GoogleQrUrl;
   require_once "vendor/autoload.php";
   $googleAuthenticator = new GoogleAuthenticator();
-  $secret = 'SSP7Z5YWBWAAWAYF';
+  $secret = $googleAuthenticator->generateSecret();
+
   if(!isset($_SESSION['storedSecrect']))
   {
-  $_SESSION["storedSecrect"]='SSP7Z5YWBWAAWAYF';
+  $_SESSION["storedSecrect"]=$secret;
   print_r("".$secret);
   
   }
@@ -40,10 +41,10 @@
   print_r("---".$_SESSION['storedSecrect']);
   
   
-  $qrCodeUrl = GoogleQrUrl::generate('Agent', 'SSP7Z5YWBWAAWAYF', 'Backoffice Login');
+  $qrCodeUrl = GoogleQrUrl::generate('Backend', $secret, 'https://bundaii.com/ama-bundai/index.php');
 
  
- //print_r($qrCodeUrl);
+ print_r($qrCodeUrl);
  //die("..");
  ?>
   
