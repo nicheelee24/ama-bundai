@@ -41,7 +41,7 @@
   print_r("---".$_SESSION['storedSecrect']);
   
   
-  $qrCodeUrl = GoogleQrUrl::generate('Backend', $secret, 'https://bundaii.com/ama-bundai/index.php');
+  $qrCodeUrl = GoogleQrUrl::generate('Backend', $secret, 'bundaii.com/ama-bundai/index.php');
 
  
  print_r($qrCodeUrl);
