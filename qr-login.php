@@ -36,8 +36,9 @@
   }
   else
   {
-    print_r("code exists...".$secret);
     $secret =$_SESSION['storedSecrect'];
+    print_r("code exists...".$secret);
+    
   }
 
   
