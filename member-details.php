@@ -22,7 +22,7 @@ $agntsArr = $rows->toArray();
 
 
 $filter = ['userPhone' => $uphone,'type'=>'deposit'];
-$options = [];
+$options = ['sort' => ['date' => -1]];
 $query = new MongoDB\Driver\Query($filter, $options);
 $rows = $mongo->executeQuery('gms2024.transactions', $query);
 $transDepositArr = $rows->toArray();
@@ -189,7 +189,7 @@ include 'layout/header.php';
                   <tr>
                     <td><?php echo $cnt; ?></td>
                     <td><?php echo $deposit->date->toDateTime()->format('Y-m-d H:i:s')?></td>
-                    <td><?php echo  $deposit->payAmount?></td>
+                    <td><?php echo  $deposit->payAmount?> THB</td>
                     <td><?php echo    $agntsArr[0]->bbn;?></td>
                     <td><?php echo    $deposit->status;?></td>
                   </tr>
