@@ -11,7 +11,7 @@ if (isset($_GET["uid"])) {
 
 }
 
-$mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
+$mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:3PeXZKHyKQQhaClJ@cluster0.8yb8idj.mongodb.net/gms2024?retryWrites=true&w=majority&appName=Cluster0&serverSelectionTryOnce=false&serverSelectionTimeoutMS=30");
 
 $filter = ['name' => $uid];
 $options = [];

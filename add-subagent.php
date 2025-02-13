@@ -8,7 +8,7 @@ $uid = "";
 if (isset($_GET["agtid"])) {
     $uid = $_GET["agtid"];
 }
-$mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:B0wrmtGcgtXKoXWN@cluster0.8yb8idj.mongodb.net/games2024?retryWrites=true&w=majority&appName=Cluster0");
+$mongo = new MongoDB\Driver\Manager("mongodb+srv://nicheelee24:3PeXZKHyKQQhaClJ@cluster0.8yb8idj.mongodb.net/games2024?retryWrites=true&w=majority&appName=Cluster0");
 $filter = ['agentid' => $uid];
 $options = [];
 $query = new MongoDB\Driver\Query($filter, $options);
