@@ -1,4 +1,4 @@
- <?php 
+<?php 
  //session_start();
   ?>
  
@@ -50,7 +50,7 @@
 
          <?php 
          
-          if($_SESSION["prefix"]=="ADMIN"  || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT")
+          if($_SESSION["prefix"]=="ADMIN"  || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" || $_SESSION["utype"]=="MAGT")
           { 
            
             ?>
@@ -63,7 +63,7 @@
           </li>
          <?php } 
 
-if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
+if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" || $_SESSION["utype"]=="MAGT" )
 { ?>
 
 
@@ -78,7 +78,7 @@ if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["
 
 }
          
-         if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" )
+         if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["utype"]=="SBGT" || $_SESSION["utype"]=="MAGT")
           { ?>
          
         
@@ -107,7 +107,7 @@ if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["
           <?php }
          if(isset($_SESSION["utype"]))
          {
-          if($_SESSION["utype"]!="SBGT" && $_SESSION["utype"]!="EMPLOYEE" && $_SESSION["utype"]!="PLAYER" && $_SESSION["prefix"]!="ADMIN")
+          if($_SESSION["utype"]!="SBGT" && $_SESSION["utype"]!="EMPLOYEE" && $_SESSION["utype"]!="PLAYER" && $_SESSION["prefix"]!="ADMIN" && $_SESSION["utype"]=="MAGT")
           { ?>
           <li class="nav-item">
             <a href="#" id="lnkSubAgents" class="nav-link">
@@ -126,7 +126,7 @@ if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["
 
 if(isset($_SESSION["utype"]))
          {
-          if($_SESSION["utype"]=="SBGT" || $_SESSION['agent']=="master" || $_SESSION["prefix"]=="ADMIN" || $_SESSION["prefix"]=="EMPLOYEE" )
+          if($_SESSION["utype"]=="SBGT" || $_SESSION['agent']=="master" || $_SESSION["prefix"]=="ADMIN" || $_SESSION["prefix"]=="EMPLOYEE" || $_SESSION["utype"]=="MAGT")
           {
 
 ?>
