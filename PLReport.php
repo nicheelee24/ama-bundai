@@ -25,7 +25,7 @@ if (isset($_SESSION['prefix'])) {
 echo 'agentid='.$agentid;
 echo ".uid=." . $uid;
 echo ".prefix=." . $prefix;
-die("");
+//die("");
 $options = ['sort' => ['betTime' => -1]];
 //$query = new MongoDB\Driver\Query($filter,$options);
 //$rows = $mongo->executeQuery($db.'.bets',$query);
