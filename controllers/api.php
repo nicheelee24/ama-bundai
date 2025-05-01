@@ -393,7 +393,7 @@ if ($flag == 'login') {
     //echo count($agentArr);
     //die('');
     if (count($agentArr) > 0) {
-        $_SESSION["uid"] = $uname;
+        $_SESSION["uid"] = $agentArr[0]->platform;//earlier used userid value
         $_SESSION["prefix"] = $agentArr[0]->prefix;
 
         if (property_exists($agentArr[0], 'type')) {
