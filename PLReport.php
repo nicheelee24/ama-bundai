@@ -529,7 +529,18 @@ include 'layout/header.php';
 
 
                     <td style="text-align:right;"> <?php
-                    $compWinLoss = $totalWinAmount * .30;// 10% default value for ama777
+                    $compWinLoss = $totalWinAmount * .30;// 10% default value for ama777// agent case
+
+if($_SESSION["prefix"] == 'MAGT')
+{
+  $compWinLoss = $totalWinAmount * .09; // Master agent case
+}
+
+
+
+
+
+
 
                     if ($totalWinAmount > 0) {
 
