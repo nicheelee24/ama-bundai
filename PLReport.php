@@ -471,7 +471,7 @@ include 'layout/header.php';
                       ?>
                       <td class="lightorng">
                         <?php
-                        $masAgWinLoss = $totalWinAmount * .91;//90% default value for ama777
+                        $masAgWinLoss = $totalWinAmount * .21;//90% default value for ama777
 
 
                         if ($totalWinAmount > 0) {
