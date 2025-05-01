@@ -107,7 +107,7 @@ if($_SESSION["prefix"]=="ADMIN" || $_SESSION["utype"]=="EMPLOYEE" || $_SESSION["
           <?php }
          if(isset($_SESSION["utype"]))
          {
-          if($_SESSION["utype"]!="SBGT" && $_SESSION["utype"]!="EMPLOYEE" && $_SESSION["utype"]!="PLAYER" && $_SESSION["prefix"]!="ADMIN" && $_SESSION["utype"]=="MAGT")
+          if($_SESSION["utype"]!="SBGT" && $_SESSION["utype"]!="EMPLOYEE" && $_SESSION["utype"]!="PLAYER" && $_SESSION["prefix"]!="ADMIN" )
           { ?>
           <li class="nav-item">
             <a href="#" id="lnkSubAgents" class="nav-link">
